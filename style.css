@@ -5,3 +5,357 @@ padding:0;
 box-sizing:border-box;
 
 }
+
+/*MOBILE*/
+
+@media (max-width:767.98px){
+
+    .header-mobile{
+        display:flex;
+    }
+
+    .header-desktop{
+        display:none;
+    }
+
+    header{
+
+        width:100%;
+        height:76px;
+        background:#ffffff;
+        display:flex;
+        align-items:center;
+        padding-block: 24px 28px;
+        padding-inline: 24px;
+    }
+
+    .navbar{
+
+        width:100%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+
+    }
+
+    .logo{ 
+
+        display:flex; 
+        align-items:center; 
+        gap: 3px; 
+
+    }
+
+    .logo img:first-child{
+
+        width: 57px;
+        height: 42px;
+
+    }
+
+    .logo-text{
+
+        display:flex;
+        align-items:center;
+        padding-top: 7px;
+        font-family: 'Nunito', sans-serif;
+
+    }
+
+    .logo-text p{
+
+        font-size:20px;
+        font-weight:700;
+        color:#0A51D6;
+
+        letter-spacing:-1px;
+
+    }
+
+    .logo-text strong{
+
+        color:#DA481F;
+        font-weight:700;
+
+    }
+
+    .menu-btn{
+
+        width:34px;
+        height:32px;
+        border: none;
+        border-radius: 12px;
+        background: #2463EB;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        margin-top: 4px;
+
+    }
+
+    .menu-btn span{
+
+        width:16px;
+        height:2px;
+        background:#ffffff;
+        border-radius:5px;
+
+    }
+
+    .hero{
+
+        width:100%;
+         background:linear-gradient(
+        180deg,
+        #2463EB33 0%,
+        #E8F0FF 20%,
+        #FFFFFF 100%
+    );
+        padding-block: 20px;
+        padding-inline: 39px 26px;
+        font-family: 'Poppins', sans-serif;
+        
+    }
+
+    .hero h1{
+        font-size: 25px;
+        color: #0F1729;
+    }
+    
+    .hero span{
+
+        color:#2463EB;
+
+    }
+
+    .hero-top{
+
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        margin-bottom:15px;
+    }
+
+    .tag{
+        margin-top: 30px;
+        padding:5px 12px;
+        background-color: rgba(36, 99, 235, 0.2);
+        font-family: 'Montserrat', sans-serif;
+        color: #2463EB;
+        font-size: 8px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        border-radius:30px;
+
+    }
+
+    .switch{
+
+        margin-top: -30px;
+        width:34px;
+        height:18px;
+        background:#3F4757;
+        border-radius:30px;
+        position:relative;
+
+    }
+
+    .switch::before{
+
+        content:"";
+        width:14px;
+        height:14px;
+        background:#FFFFFF;
+        border-radius:50%;
+        position:absolute;
+        top:2px;
+        left:2px;
+
+    }   
+
+    .hero-text {
+        padding-block: 8px 18px ;
+        width: 253px;
+        color: #65758B;
+        font-family: 'Poppins', sans-serif;
+        font-size: 9px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    .hero-buttons{
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+        margin-bottom:40px;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .btn-primary{
+        width: 100%;
+        height: 40px;
+        background:#2463EB;
+        color:#F5F5F5;
+        border-radius:30px;
+        text-decoration:none;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:10px;
+        font-weight:600;
+        font-size: 13px;
+    }
+
+    .btn-primary img{
+        width:16px;
+    }
+
+    .btn-secondary{ 
+        width:100%;
+        height:40px;
+        border:2px solid #0A51D6;
+        border-radius:30px;
+        color:#0A51D6;
+        text-decoration:none;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:10px;
+        font-weight:600;
+        font-size: 13px;
+    }
+
+     .btn-secondary img{
+        width:16px;
+    }
+
+    .hero-numbers{
+
+        display:flex;
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    .number-item h2{
+
+        font-size:18px;
+        font-weight:600;
+        color:#0F1729;
+
+    }
+
+    .number-item p{
+
+        font-size:11px;
+        font-weight: 600;
+        color:#65758B;
+        font-family: 'Inter', sans-serif;
+        margin-bottom: 23px;
+    }   
+
+    .hero-image{
+        display:flex;
+        justify-content:flex-end;
+        position:relative;
+    }
+
+    .hero-image img{
+        width:240px;
+        display:block;
+        
+        transform:translateX(25px); 
+    }
+
+    .floating-card{ 
+
+        position:absolute;
+        left: 1px;
+        bottom: 35px;
+        width:160px;
+        height: 55px;
+        padding:10px;
+        background:#FDFDFF;
+        border-radius:15px;
+        display:flex;
+        align-items:center;
+        gap:5px;
+        border: solid 2px #65758B;
+
+    }
+
+    .icon{
+        width:35px;
+        height:35px;
+        background:#2463EB;
+        border-radius:12px;
+        display:flex;
+        justify-content:center;
+        align-items:center; 
+    }
+
+    .icon img{
+        width:20px;
+        transform:translateX(-.1px); 
+    }
+
+    .card-text h3{
+        font-size:8px;
+        color:#0F1729;
+        margin-bottom:1.5px;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .card-text p{
+        font-size:7px;
+        color:#65758B;
+        font-family: 'Poppins', sans-serif;
+    }
+}
+
+/*TABLET*/
+
+@media (min-width: 768px)  and (max-width:991.98px){
+
+    .header-mobile{
+        display:none;
+    }
+
+    .header-desktop{
+        display:flex;
+    }
+
+}
+
+/*DESKTOP*/
+
+@media (min-width: 992px) and (max-width:1199.98px){
+
+    .header-mobile{
+        display:none;
+    }
+
+    .header-desktop{
+        display:flex;
+    }
+
+}
+
+/*LARGE SCREEN*/
+
+@media (min-width:1200px){
+
+    .header-mobile{
+        display:none;
+    }
+
+    .header-desktop{
+        display:flex;
+    }
+
+}
