@@ -984,15 +984,18 @@ box-sizing:border-box;
         width:100%;
         height:calc(100vh - 76px);
         background:rgba(101, 117, 139, 0.50);
-        display:none;
+        display:flex;
         justify-content:flex-end;
+        opacity:0;
+        visibility:hidden;
+        transition:opacity .3s ease;
         z-index:999;
-
     }
 
     .menu-overlay.active{
 
-        display:flex;
+        opacity:1;
+        visibility:visible;
 
     }
 
@@ -1005,8 +1008,10 @@ box-sizing:border-box;
         display:flex;
         flex-direction:column;
         overflow:hidden;
+        transform:translateX(100%);
+        transition:transform .45s cubic-bezier(0.22, 1, 0.36, 1);
 
-    }
+    }   
 
     .mobile-menu a{
 
@@ -1045,7 +1050,13 @@ box-sizing:border-box;
 
     .menu-overlay.active{
 
-        display:flex;
+       
+
+    }
+
+    .menu-overlay.active .mobile-menu{
+
+        transform:translateX(0);
 
     }
 
