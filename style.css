@@ -26,7 +26,7 @@ box-sizing:border-box;
         display:flex;
         align-items:center;
         padding-block: 24px 28px;
-        padding-inline: 24px;
+        padding-inline: 28px;
     }
 
     .navbar{
@@ -141,6 +141,7 @@ box-sizing:border-box;
 
     .tag{
         margin-top: 30px;
+        margin-left: -11px;
         padding:5px 12px;
         background-color: rgba(36, 99, 235, 0.2);
         font-family: 'Montserrat', sans-serif;
@@ -198,7 +199,7 @@ box-sizing:border-box;
 
     .btn-primary{
         width: 100%;
-        height: 40px;
+        height: 35px;
         background:#2463EB;
         color:#F5F5F5;
         border-radius:30px;
@@ -206,18 +207,18 @@ box-sizing:border-box;
         display:flex;
         justify-content:center;
         align-items:center;
-        gap:10px;
+        gap:8px;
         font-weight:600;
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .btn-primary img{
-        width:16px;
+        width:14px;
     }
 
     .btn-secondary{ 
         width:100%;
-        height:40px;
+        height:35px;
         border:2px solid #0A51D6;
         border-radius:30px;
         color:#0A51D6;
@@ -225,13 +226,13 @@ box-sizing:border-box;
         display:flex;
         justify-content:center;
         align-items:center;
-        gap:10px;
+        gap:6px;
         font-weight:600;
-        font-size: 13px;
+        font-size: 12px;
     }
 
      .btn-secondary img{
-        width:16px;
+        width:14px;
     }
 
     .hero-numbers{
@@ -920,15 +921,22 @@ box-sizing:border-box;
 
     }
 
-    .footer{
+    .mobile-footer{
 
         width:100%;
         padding:25px 22px;
         background:#1E212B;
         display:flex;
+        justify-content:center;
+        align-items:center;
+
+    }
+
+    .footer-container{
+
+        display:flex;
         flex-direction:column;
         align-items:center;
-        justify-content:center;
 
     }
 
@@ -936,6 +944,7 @@ box-sizing:border-box;
 
         display:flex;
         align-items:center;
+        justify-content:center;
         gap:6px;
         margin-bottom:11px;
 
@@ -949,21 +958,103 @@ box-sizing:border-box;
 
     .footer-logo h2{
 
-        margin-top: 7px;
+        margin-top:7px;
         font-family:'Nunito', sans-serif;
         font-size:13px;
         font-weight:700;
-        color:#FDFDFF;
+        color:#FDFDFD;
 
     }
 
-    .footer p{
+    .mobile-footer p{
 
         font-family:'Montserrat', sans-serif;
         font-size:8px;
         font-weight:600;
         color:#88909C;
+        text-align:center;
 
+    }
+
+    .menu-overlay{
+
+        position:fixed;
+        top:76px;
+        left:0;
+        width:100%;
+        height:calc(100vh - 76px);
+        background:rgba(101, 117, 139, 0.50);
+        display:none;
+        justify-content:flex-end;
+        z-index:999;
+
+    }
+
+    .menu-overlay.active{
+
+        display:flex;
+
+    }
+
+    .mobile-menu{
+
+        width:220px;
+        height:409px;
+        background:#FFFFFF;
+        border-radius:30px 0 0 30px;
+        display:flex;
+        flex-direction:column;
+        overflow:hidden;
+
+    }
+
+    .mobile-menu a{
+
+        height:60px;
+        display:flex;
+        justify-content:flex-end;
+        padding-right: 30px;
+        align-items:center;
+        text-decoration:none;
+        color:#65758B;
+        font-family:'Poppins', sans-serif;
+        font-size:15px;
+        font-weight:600;
+        border-bottom:.5px solid #88909c81;
+        transition:0.3s;
+
+    }
+
+    .mobile-menu a:hover{
+
+        color:#2463EB;
+
+    }
+
+    .mobile-menu .active{
+
+        color:#2463EB;
+
+    }
+
+    .mobile-menu a:last-child{
+
+        border-bottom:none;
+
+    }
+
+    .menu-overlay.active{
+
+        display:flex;
+
+    }
+
+    .mobile-footer{
+        display:block;
+    }
+
+    .desktop-footer{
+        display:none;
     }
 }
 /*TABLET*/
@@ -976,6 +1067,14 @@ box-sizing:border-box;
 
     .header-desktop{
         display:flex;
+    }
+
+     .mobile-footer{
+        display:none;
+    }
+
+    .desktop-footer{
+        display:block;
     }
 
 }
@@ -992,6 +1091,14 @@ box-sizing:border-box;
         display:flex;
     }
 
+     .mobile-footer{
+        display:none;
+    }
+
+    .desktop-footer{
+        display:block;
+    }
+
 }
 
 /*LARGE SCREEN*/
@@ -1004,6 +1111,14 @@ box-sizing:border-box;
 
     .header-desktop{
         display:flex;
+    }
+
+     .mobile-footer{
+        display:none;
+    }
+
+    .desktop-footer{
+        display:block;
     }
 
 }
