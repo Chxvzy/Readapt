@@ -3,4 +3,7 @@ const overlay = document.querySelector('.menu-overlay');
 
 menuBtn.addEventListener('click', () => {
     overlay.classList.toggle('active');
+
+    document.body.classList.toggle('menu-open');
+    
 });
