@@ -191,13 +191,13 @@ box-sizing:border-box;
 
     .switch{
 
-        margin-top: -10px;
-        right: 5px;
+        margin-top: -5px;
+        right: 28px;
         width:34px;
         height:18px;
         background:#3F4757;
         border-radius:30px;
-        position:relative;
+        position:absolute;
 
     }
 
@@ -234,7 +234,7 @@ box-sizing:border-box;
     .instructions-tag{
 
         margin-top:15px;
-        margin-left: 118px;
+        margin-inline: auto;
         padding:5px 8px;
         background:rgba(36, 99, 235, 0.2);
         border-radius:20px;
@@ -270,14 +270,14 @@ box-sizing:border-box;
 
     .manual-section{
 
-        padding:55px 0 70px;
+        padding:70px 0 60px;
 
     }
 
     .manual-step{
 
         position:relative;
-        width:255px;
+        width:260px;
         margin:0 auto 35px;
 
     }
@@ -285,7 +285,7 @@ box-sizing:border-box;
     .manual-number{
 
         position:absolute;
-        left:-20px;
+        left:-15px;
         width:50px;
         height:50px;
         background:#2463EB;
@@ -309,7 +309,7 @@ box-sizing:border-box;
         left:50%;
         transform:translateX(-50%);
         width:2px;
-        height:260px;
+        height:190px;
         background:#2463EB;
 
     }
@@ -323,11 +323,12 @@ box-sizing:border-box;
     .manual-card{
 
         margin-left:45px;
-        padding:26px 22px;
+        padding:21px 21px;
         background:#FDFDFD;
-        border:1px solid #2463EB1A;
-        border-radius:28px;
+        border: 1px solid #65758B;
+        border-radius:20px;
         box-shadow:0 5px 0 #2463EB80;
+        width: 225px;
 
     }
 
@@ -336,13 +337,13 @@ box-sizing:border-box;
         display:flex;
         justify-content:center;
         align-items:center;
-        gap:8px;
+        gap:5px;
 
     }
 
     .manual-header img{
 
-        width: 20px;
+        width: 17px;
 
     }
 
@@ -357,7 +358,7 @@ box-sizing:border-box;
 
     .manual-card p{
 
-        margin:22px auto;
+        margin:16px auto 13px;
         max-width:185px;
         text-align:center;
         font-family:'Poppins', sans-serif;
@@ -372,10 +373,11 @@ box-sizing:border-box;
         display:flex;
         justify-content:center;
         align-items:center;
-        gap:8px;
-        padding:10px 14px;
+        gap:4px;
+        padding:10px 7px 10px 13px;
         background:rgba(36, 99, 235, 0.10);
-        border-radius:12px;
+        border-radius:10px;
+        width: 181px;
 
     }
 
@@ -386,7 +388,7 @@ box-sizing:border-box;
     }
 
     .manual-tip span{
-
+        
         font-family:'Inter', sans-serif;
         font-size:7px;
         font-weight:600;
@@ -394,6 +396,42 @@ box-sizing:border-box;
 
     }
 
+   .manual-step:nth-child(2) .manual-tip {
+    padding:  9px 1px 9px 18px;
+}
+
+.manual-step:nth-child(3) .manual-tip {
+    padding:  9px 8px 9px 11px;
+}
+
+.manual-step:nth-child(4) .manual-tip {
+    padding:  8px 15px 7px 25px;
+}
+
+.manual-step:nth-child(5) .manual-tip {
+    padding:  8px 11px 7px 15px;
+    gap: 10px;
+}
+
+.manual-step:nth-child(6) .manual-tip {
+    padding:  8px 21px 7px 21px;
+    gap: 12px;
+}
+
+.manual-step:nth-child(7) .manual-tip {
+    padding:  8px 17px 7px 25px;
+    gap: 14px;
+}
+
+.manual-step:nth-child(8) .manual-tip {
+    padding:  8px 17px 7px 29px;
+    gap: 9px;
+}
+
+.manual-step:nth-child(9) .manual-tip {
+    padding:  8px 19px 7px 25px;
+    gap: 11px;
+}
     /*FOOTER*/
 
     .mobile-footer{
