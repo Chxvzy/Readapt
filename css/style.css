@@ -266,10 +266,9 @@ box-sizing:border-box;
     }
 
     .hero-image img{
-        width:240px;
+        width:220px;
         display:block;
-        
-        transform:translateX(25px); 
+         
     }
 
     .floating-card{ 
