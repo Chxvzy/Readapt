@@ -1048,12 +1048,6 @@ box-sizing:border-box;
 
     }
 
-    .menu-overlay.active{
-
-       
-
-    }
-
     .menu-overlay.active .mobile-menu{
 
         transform:translateX(0);

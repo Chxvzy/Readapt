@@ -1,0 +1,291 @@
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+/*MOBILE*/
+
+@media (max-width:767.98px){    
+
+    .header-mobile{
+        display:flex;
+    }
+
+    .header-desktop{
+        display:none;
+    }
+
+    header{
+
+        width:100%;
+        height:76px;
+        background:#ffffff;
+        display:flex;
+        align-items:center;
+        padding-block: 24px 28px;
+        padding-inline: 28px;
+    }
+
+    .navbar{
+
+        width:100%;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+
+    }
+
+    .logo{ 
+
+        display:flex; 
+        align-items:center; 
+        gap: 3px; 
+
+    }
+
+    .logo img:first-child{
+
+        width: 57px;
+        height: 42px;
+
+    }
+
+    .logo-text{
+
+        display:flex;
+        align-items:center;
+        padding-top: 7px;
+        font-family: 'Nunito', sans-serif;
+
+    }
+
+    .logo-text p{
+
+        font-size:20px;
+        font-weight:700;
+        color:#0A51D6;
+
+        letter-spacing:-1px;
+
+    }
+
+    .logo-text strong{
+
+        color:#DA481F;
+        font-weight:700;
+
+    }
+
+    .menu-btn{
+
+        width:34px;
+        height:32px;
+        border: none;
+        border-radius: 12px;
+        background: #2463EB;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+        margin-top: 4px;
+
+    }
+
+    .menu-btn span{
+
+        width:16px;
+        height:2px;
+        background:#ffffff;
+        border-radius:5px;
+
+    }
+    
+    .menu-overlay{
+
+        position:fixed;
+        top:76px;
+        left:0;
+        width:100%;
+        height:calc(100vh - 76px);
+        background:rgba(101, 117, 139, 0.50);
+        display:flex;
+        justify-content:flex-end;
+        opacity:0;
+        visibility:hidden;
+        transition:opacity .3s ease;
+        z-index:999;
+    }
+
+    .menu-overlay.active{
+
+        opacity:1;
+        visibility:visible;
+
+    }
+
+    .mobile-menu{
+
+        width:220px;
+        height:409px;
+        background:#FFFFFF;
+        border-radius:30px 0 0 30px;
+        display:flex;
+        flex-direction:column;
+        overflow:hidden;
+        transform:translateX(100%);
+        transition:transform .45s cubic-bezier(0.22, 1, 0.36, 1);
+
+    }
+
+    .mobile-menu a{
+
+        height:60px;
+        display:flex;
+        justify-content:flex-end;
+        padding-right: 30px;
+        align-items:center;
+        text-decoration:none;
+        color:#65758B;
+        font-family:'Poppins', sans-serif;
+        font-size:15px;
+        font-weight:600;
+        border-bottom:.5px solid #88909c81;
+        transition:0.3s;
+
+    }
+
+    .mobile-menu a:hover{
+
+        color:#2463EB;
+
+    }
+
+    .mobile-menu .active{
+
+        color:#2463EB;
+
+    }
+
+    .mobile-menu a:last-child{
+
+        border-bottom:none;
+
+    }
+
+    .menu-overlay.active .mobile-menu{
+
+        transform:translateX(0);
+
+    }
+
+    body.menu-open{
+
+        overflow:hidden;
+
+    }
+
+    /*FOOTER*/
+
+    .mobile-footer{
+
+        width:100%;
+        padding:25px 22px;
+        background:#1E212B;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+    }
+
+    .footer-container{
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+    }
+
+    .footer-logo{
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:6px;
+        margin-bottom:11px;
+
+    }
+
+    .footer-logo img{
+
+        width:31px;
+
+    }
+
+    .footer-logo h2{
+
+        margin-top:7px;
+        font-family:'Nunito', sans-serif;
+        font-size:13px;
+        font-weight:700;
+        color:#FDFDFD;
+
+    }
+
+    .mobile-footer p{
+
+        font-family:'Montserrat', sans-serif;
+        font-size:8px;
+        font-weight:600;
+        color:#88909C;
+        text-align:center;
+
+    }
+
+}
+
+/*TABLET*/
+
+@media (min-width: 768px)  and (max-width:991.98px){
+
+    .header-mobile{
+        display:none;
+    }
+
+    .header-desktop{
+        display:flex;
+    }
+
+}
+
+/*DESKTOP*/
+
+@media (min-width: 992px) and (max-width:1199.98px){
+
+    .header-mobile{
+        display:none;
+    }
+
+    .header-desktop{
+        display:flex;
+    }
+
+}
+
+/*LARGE SCREEN*/
+
+@media (min-width:1200px){
+
+    .header-mobile{
+        display:none;
+    }
+
+    .header-desktop{
+        display:flex;
+    }
+
+}
