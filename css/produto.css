@@ -318,6 +318,7 @@ box-sizing:border-box;
         display:flex;
         justify-content:center;
         margin-top: 9px;
+        margin-bottom: 36px;
     }
 
     .robo img{
@@ -330,7 +331,7 @@ box-sizing:border-box;
         display: flex;
         flex-direction: column;
         margin: 0px auto;
-        gap: 10px;
+        gap: 12px;
         max-width: 250px; 
         font-family: 'Poppins', sans-serif;
     }
@@ -338,9 +339,9 @@ box-sizing:border-box;
     .feature-card {
         display: flex;
         align-items: center;
-        background-color: #ffffff;
-        border: 1px solid #94A3B8; 
-        border-radius: 16px;
+        background-color: #FDFDFD;
+        border: 1px solid #65758B; 
+        border-radius: 20px;
         padding: 26px 20px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02); 
     }
@@ -384,6 +385,66 @@ box-sizing:border-box;
         width: 151px;
         font-size: 9px;
         color: #64748B; 
+    }
+
+    .new-tag-2{
+
+        display:inline-flex;
+        justify-content:center;
+        align-items:center;
+        padding:5px 8px;
+        background:rgba(36, 99, 235, 0.2);
+        border-radius:30px;
+        color:#2463EB;
+        font-family:'Montserrat', sans-serif;
+        font-size:8px;
+        font-weight: 600;
+
+    }
+
+    .robo-2{
+        display:flex;
+        justify-content:center;
+        margin-top: 9px;
+        margin-block: 30px;
+    }
+
+    .robo-2 img{
+        width:188px;
+        display:block;
+        border-radius: 43px;
+    }
+    
+
+    .about-2{
+
+        width:100%;
+        padding: 35px 20px;
+        background:#2463EB33;
+        text-align:center;
+
+    }
+
+    .about-2 h2{
+
+        margin:10px 0 10px;
+        text-align: center;
+        font-weight: 700;
+        color: #0F1729;
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+
+    }
+
+    .about-2 p{
+
+        max-width:210px;
+        margin:0 auto;
+        color: #65758B;
+        font-family: 'Inter', sans-serif;
+        font-size: 9px;
+        font-weight: 600;
+
     }
 
 
