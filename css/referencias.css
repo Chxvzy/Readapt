@@ -6,6 +6,12 @@ box-sizing:border-box;
 
 }
 
+html{
+
+        scroll-behavior:smooth !important;
+
+    }
+
 /*MOBILE*/
 
 @media (max-width:767.98px){    
@@ -186,6 +192,297 @@ box-sizing:border-box;
     body.menu-open{
 
         overflow:hidden;
+
+    }
+
+    .switch{
+
+        margin-top: -5px;
+        right: 28px;
+        width:34px;
+        height:18px;
+        background:#3F4757;
+        border-radius:30px;
+        position:absolute;
+
+    }
+
+    .switch::before{
+
+        content:"";
+        width:14px;
+        height:14px;
+        background:#FFFFFF;
+        border-radius:50%;
+        position:absolute;
+        top:2px;
+        left:2px;
+
+    }   
+
+    .references-hero{
+
+        width:100%;
+        padding:25px 22px 35px;
+        background:#2463EB33;
+
+    }
+
+    .references-top{
+
+        display:flex;
+        justify-content:center;
+
+    }
+
+    .references-tag{
+
+        margin-top:15px;
+        padding:5px 12px;
+        background:rgba(36, 99, 235, 0.20);
+        border-radius:20px;
+        font-family:'Montserrat', sans-serif;
+        font-size:7px;
+        font-weight:600;
+        color:#2463EB;
+
+    }
+
+    .references-hero h1{
+
+        margin-top:10px;
+        text-align:center;
+        font-family:'Poppins', sans-serif;
+        font-size:20px;
+        font-weight:700;
+        color:#0F1729;
+
+    }
+
+    .references-hero p{
+
+        margin:10px auto 0;
+        max-width:197px;
+        text-align:center;
+        font-family:'Inter', sans-serif;
+        font-size:9px;
+        font-weight:600;
+        color:#65758B;
+
+    }
+
+    .section-divider{
+
+        border:0;
+        border-top:1px solid #65758B80;
+        margin:0px 0 38px;
+
+    }
+
+    html{
+
+        scroll-behavior:smooth ;
+
+    }
+
+    #dislexia,
+#ocr,
+#gamificacao,
+#educacao,
+#tecnologia{
+
+        scroll-margin-top:20px;
+
+}
+
+    .references-stats{
+
+        margin-top:10px;
+        display:flex;
+        justify-content:center;
+        gap:34px;
+
+    }
+
+    .references-stat{
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+    }
+
+    .references-stat h2{
+
+        font-family:'Poppins', sans-serif;
+        font-size:15px;
+        font-weight:600;
+        color:#0F1729;
+
+    }
+
+    .references-stat span{
+
+        margin-top:2px;
+        font-family:'Inter', sans-serif;
+        font-size:7px;
+        font-weight:600;
+        color:#65758B;
+
+    }
+
+    .references-filter{
+
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+        padding:24px;
+
+    }
+
+    .references-filter a{
+
+        padding:4px 5px;
+        background:rgba(36, 99, 235, 0.20);
+        border-radius:5px;
+        text-decoration:none;
+        font-family:'Montserrat', sans-serif;
+        font-size:7px;
+        font-weight:600;
+        color:#2463EB;
+
+    }
+
+    .references-filter a:hover{
+
+        background:#2463EB;
+        color:#FFFFFF;
+
+    }
+
+    .reference-section{
+
+        padding:30px 0 70px;
+
+    }
+
+    .reference-card{
+
+        width:300px;
+        margin:0 auto 25px;
+        padding:20px 27px;
+
+        background:#FDFDFD;
+        border:1px solid #88909C;
+        border-radius:30px;
+
+    }
+
+    .reference-top{
+
+        display:flex;
+        align-items:center;
+        gap:15px;
+
+    }
+
+    .reference-category{
+
+        padding:4px 5px;
+
+        background:rgba(36, 99, 235, 0.20);
+        border-radius:5px;
+
+        font-family:'Montserrat', sans-serif;
+        font-size:7px;
+        font-weight:600;
+        color:#2463EB;
+
+    }
+
+    .reference-year{
+
+        font-family:'Inter', sans-serif;
+        font-size:7px;
+        font-weight:600;
+        color:#65758B;
+
+    }
+
+    .reference-card h3{
+
+        margin-top:16px;
+
+        font-family:'Poppins', sans-serif;
+        font-size:9px;
+        font-weight:600;
+        color:#0F1729;
+
+    }
+
+    .reference-card p{
+
+        margin-top:6px;
+
+        font-family:'Poppins', sans-serif;
+        font-size:7px;
+        font-weight:600;
+        color:#65758B;
+
+    }
+
+    .reference-button{
+
+        width:55px;
+        height:17px;
+        margin-top:13px;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:4px;
+
+        border:1px solid #65758B;
+        border-radius:15px;
+
+        text-decoration:none;
+
+        transition:.25s;
+
+    }
+
+    .reference-button img{
+
+        width:9px;
+
+    }
+
+    .reference-button span{
+
+        font-family:'Poppins', sans-serif;
+        font-size:6px;
+        font-weight:600;
+        color:#0F1729;
+
+    }
+
+    .reference-button:hover{
+
+        background:#2463EB;
+        border-color:#2463EB;
+
+    }
+
+    .reference-button:hover span{
+
+        color:#FFFFFF;
+
+    }
+
+    .reference-button:hover img{
+
+        filter:brightness(0) invert(1);
 
     }
 
