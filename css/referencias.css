@@ -486,6 +486,62 @@ html{
 
     }
 
+    .references-notice{
+
+        margin-top: 50px;
+        padding:50px 0 60px;
+        background: linear-gradient(180deg, rgba(36, 99, 235, 0.20) -3.29%, rgba(253, 253, 255, 0.20) 102.37%);
+
+    }
+
+    .notice-card{
+
+        width:300px;
+        margin:0 auto;
+
+        padding:32px 42px;
+
+        background:#FDFDFD;
+
+        border:1px solid #65758B    ;
+        border-radius:30px;
+
+    }
+
+    .notice-header{
+
+        display:flex;
+        align-items:center;
+        gap:7px;
+
+    }
+
+    .notice-header img{
+
+        width:20px;
+
+    }
+
+    .notice-header h2{
+
+        font-family:'Poppins', sans-serif;
+        font-size:12px;
+        font-weight:600;
+        color:#0F1729;
+
+    }
+
+    .notice-card p{
+
+        margin-top:16px;
+
+        font-family:'Poppins', sans-serif;
+        font-size:8px;
+        font-weight:600;
+        color:#65758B;
+
+    }
+
     /*FOOTER*/
 
     .mobile-footer{
