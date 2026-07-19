@@ -492,7 +492,7 @@ box-sizing:border-box;
     .about-4{
 
         width:100%;
-        padding: 35px 20px;
+        padding: 35px 20px 25px;
         background: linear-gradient(180deg, rgba(47, 107, 236, 0.20) 84.06%, rgba(253, 253, 253, 0.20) 98.95%);
         text-align:center;
 
@@ -665,7 +665,7 @@ box-sizing:border-box;
     }
     .roadmap-section{
 
-        padding:30px 0 60px;
+        padding:0px 0 60px;
 
     }
 
