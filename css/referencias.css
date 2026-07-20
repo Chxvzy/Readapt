@@ -44,6 +44,13 @@ html{
 
     }
 
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+    }
+
     .logo{ 
 
         display:flex; 

@@ -29,6 +29,13 @@ box-sizing:border-box;
         padding-inline: 28px;
     }
 
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+    }
+
     .navbar{
 
         width:100%;
