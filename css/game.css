@@ -1009,6 +1009,13 @@ box-sizing:border-box;
 
     }
 
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+    }
+
 }
 
 /*TABLET*/
@@ -1022,6 +1029,8 @@ box-sizing:border-box;
     .header-desktop{
         display:flex;
     }
+
+    
 
 }
 

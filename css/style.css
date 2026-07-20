@@ -1074,6 +1074,13 @@ box-sizing:border-box;
     .desktop-footer{
         display:none;
     }
+
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+    }
 }
 /*TABLET*/
 
