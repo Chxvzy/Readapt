@@ -691,13 +691,12 @@ box-sizing:border-box;
     .benefits{
 
         width:100%;
-        padding:20px 20px;
+        padding:20px 20px 35px ;
         background:var(--background);
         display:flex;
         flex-direction:column;
         align-items:center;
         text-align:center;
-        margin-bottom: 35px;
 
     }
 
@@ -1252,6 +1251,7 @@ box-sizing:border-box;
 
     body.dark .about-card {
         background-color: var(--switch-knob-dark);
+        border: solid 1px var(--hero-p);
     }
 
     body.dark .about-card h3{
@@ -1262,6 +1262,108 @@ box-sizing:border-box;
         color: var(--hero-p);
     }
 
+    body.dark .solution {
+        background: var(--menu-active);
+    }
+
+    body.dark .solution h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .solution p {
+        color: var(--hero-p);
+    }
+
+    body.dark .solution-card {
+        background-color: var(--switch-knob-dark);
+        border: solid 1px var(--hero-p);
+    }
+
+    body.dark .solution-card h3 {
+        color: var(--menu-text);
+    }
+
+    body.dark .solution-card p {
+        color: var(--hero-p);
+    }
+
+    body.dark .team-btn {
+        background: var(--menu-active);
+    }
+
+    body.dark .team{
+        padding:10px 0 35px;
+        background:linear-gradient(to bottom,var(--menu-active) 0%, var(--menu-active) 18%,transparent 18%,transparent 100%),
+        var(--team-section-bg);
+    }
+
+    body.dark .team-image {
+        margin-top: 80px;
+    }
+
+    body.dark .team-btn {
+        background-color: var(--primary);
+    }
+
+    body.dark .benefits {
+        background: var(--team-bt-bg);
+    }
+
+    body.dark .benefits h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .benefits-list p {
+        color: var(--menu-text);
+    }
+
+    body.dark .steps {
+        background-color: var(--menu-active);
+    }
+
+    body.dark .steps h2{
+        color: var(--menu-text);
+    }
+
+    body.dark .steps p{
+        color: var(--hero-p);
+    }
+
+    body.dark .step-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .steps-cards span {
+        color: var(--menu-text);
+    }
+
+    body.dark .steps-cards h3 {
+        color: var(--menu-text);
+    }
+
+    body.dark .steps-cards p{
+        color: var(--hero-p);
+    }
+
+    body.dark .explore {
+       background: var(--explore-bg);
+    }
+
+    body.dark .explore h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .explore p {
+        color: var(--hero-p);
+    }
+
+    body.dark .explore-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .explore-cards h3 {
+        color: var(--menu-text);
+    }
 }
 
 /* ROOT DO DARK MODE */
@@ -1285,6 +1387,11 @@ body.dark {
 
     --about-bg: linear-gradient(0deg, #0F1729 30%, #2463EB 271.53%);
     --new-tag: #2463EB33;
+
+    --team-section-bg: linear-gradient(0deg, #0F1729 14.35%, rgba(36, 99, 235, 1.0) 232.14%);
+    --team-bt-bg: #0F1729;
+
+    --explore-bg: linear-gradient(180deg,#0F1729 52%,#2463EB 220%);
 }
 
 /*TABLET*/
