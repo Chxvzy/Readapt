@@ -1176,6 +1176,52 @@ box-sizing:border-box;
 
     }
 
+    body.dark .mobile-menu{
+
+        background:var(--menu-background);
+
+    }
+
+    body.dark .mobile-menu a{
+
+        color:var(--menu-text);
+
+    }
+
+    body.dark .mobile-menu .active{
+
+        color:var(--menu-active);
+
+    }
+
+    body.dark .hero {
+        background: var(--hero-background);
+    }
+
+    body.dark .hero h1 {
+        color: var(--hero-title);
+    }
+
+    body.dark .hero-text p {
+        color: var(--hero-p);
+    }
+
+    body.dark .number-item h2{
+        color: var(--menu-text);
+    }
+
+    body.dark .floating-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .card-text h3{
+        color: var(--menu-text);
+    }
+
+    body.dark .card-text p{
+        color: var(--hero-p);
+    }
+
 }
 
 /* ROOT DO DARK MODE */
@@ -1184,6 +1230,16 @@ body.dark {
     --switch-knob-dark: #262C3B;
 
     --header: #1B1E28; 
+
+    --menu-background:#65758B;
+    --menu-text:#FDFDFD;
+    --menu-active:#1B1F25;
+
+    --hero-background:linear-gradient(0deg, #0F1729 78%, #2463EB 131.53%);
+
+    --hero-title: #FDFDFF;
+
+    --hero-p: #88909C;
 }
 
 /*TABLET*/
