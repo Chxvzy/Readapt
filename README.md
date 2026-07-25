@@ -92,6 +92,7 @@ Readapt/
 │   └── game.css
 │
 ├── js/
+│   ├── referencias.js
 │   └── script.js
 │
 ├── index.html
@@ -132,10 +133,10 @@ O objetivo do Readapt é utilizar tecnologia para reduzir as dificuldades enfren
 
 ## 👨‍💻 Equipe
 
-Desenvolvido por:
+WebSite desenvolvido por:
 
 - Felipe Lorenzo
-- Guilherme *(adicione o sobrenome se desejar)*
+- Pedro Henrique
 
 ---
 
