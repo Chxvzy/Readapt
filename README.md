@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/readapt-logo.png" alt="Readapt Logo" width="120"/>
+<img src="assets/logo-readapt-white.png" alt="Readapt Logo" width="120"/>
 
 # Readapt
 
