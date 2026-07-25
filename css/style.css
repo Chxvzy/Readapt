@@ -1222,6 +1222,18 @@ box-sizing:border-box;
         color: var(--hero-p);
     }
 
+    body.dark .technologies {
+        background-color: var(--menu-active);
+    }
+
+    body.dark .tech-card {
+        background-color: var(--techcard-bg);
+    }
+
+    body.dark .tech-card span {
+        color: var(--menu-text);
+    }
+
 }
 
 /* ROOT DO DARK MODE */
@@ -1240,6 +1252,8 @@ body.dark {
     --hero-title: #FDFDFF;
 
     --hero-p: #88909C;
+
+    --techcard-bg: #262C3B;
 }
 
 /*TABLET*/
