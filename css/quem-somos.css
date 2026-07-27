@@ -384,7 +384,7 @@ box-sizing:border-box;
     .team-card{
 
         width:245px;
-        padding:15px 17px 17px;
+        padding:15px 15px 17px;
         background:var(--background);
         border:1px solid var(--border);
         border-radius:40px;
@@ -430,7 +430,7 @@ box-sizing:border-box;
 
         display:block;
         margin:8px auto 0px;
-        max-width:188px;
+        max-width:192px;
         font-family:'Poppins', sans-serif;
         font-size:7px;
         font-weight:600;
