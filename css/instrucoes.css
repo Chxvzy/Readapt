@@ -823,6 +823,24 @@ box-sizing:border-box;
 
     }
 
+    body.dark .mobile-menu{
+
+        background:var(--menu-background);
+
+    }
+
+    body.dark .mobile-menu a{
+
+        color:var(--menu-text);
+
+    }
+
+    body.dark .mobile-menu .active{
+
+        color:var(--menu-active);
+
+    }
+
 }
 
 /* ROOT DO DARK MODE */
@@ -831,6 +849,10 @@ body.dark {
     --switch-knob-dark: #262C3B;
 
     --header: #1B1E28; 
+
+    --menu-background:#65758B;
+    --menu-text:#FDFDFD;
+    --menu-active:#1B1F25;
 }
 
 /*TABLET*/
