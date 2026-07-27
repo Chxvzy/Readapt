@@ -384,7 +384,7 @@ box-sizing:border-box;
     .team-card{
 
         width:245px;
-        padding:15px 10px 17px;
+        padding:15px 8px 17px;
         background:var(--background);
         border:1px solid var(--border);
         border-radius:40px;
