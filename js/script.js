@@ -23,4 +23,12 @@ themeSwitch.addEventListener('click', () => {
         localStorage.setItem('theme', 'light');
         logo.src = 'assets/readapt-logo.png'; 
     }
+
+    if(typeof updateInstructionIcons === "function"){
+
+        updateInstructionIcons();
+
+    }
+    
 });
+

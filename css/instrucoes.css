@@ -841,6 +841,55 @@ box-sizing:border-box;
 
     }
 
+    body.dark .instructions-hero {
+        background: var(--hero-bg);
+    }
+
+    body.dark .instructions-hero h1 {
+        color: var(--hero-title);
+    }
+
+    body.dark .instructions-hero p {
+        color: var(--hero-p);
+    }
+
+    body.dark .manual-section {
+        background-color: #0F1729;
+    }
+
+    body.dark .manual-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .manual-card h3 {
+        color: var(--hero-title);
+    }
+    
+    body.dark .manual-card p {
+        color: var(--hero-p);
+    }
+
+    body.dark .manual-card span {
+        color: var(--hero-title);
+    }
+
+    body.dark .demonstration {
+        background-color: var(--menu-active);
+    }
+
+    body.dark .demonstration h2{
+        color: var(--hero-title);
+    }
+
+    body.dark .demonstration p{
+        color: var(--hero-p);
+    }
+
+    body.dark .solution-card {
+        background: var(--switch-knob-dark);
+    }
+
+
 }
 
 /* ROOT DO DARK MODE */
@@ -853,6 +902,10 @@ body.dark {
     --menu-background:#65758B;
     --menu-text:#FDFDFD;
     --menu-active:#1B1F25;
+
+    --hero-bg:linear-gradient(180deg,#13327b 0%,#10327b 45%,#13254e 100%);
+    --hero-title: #FDFDFD;
+    --hero-p: #88909C;
 }
 
 /*TABLET*/
