@@ -848,6 +848,14 @@ box-sizing:border-box;
     body.dark textarea::placeholder {
         color: var(--placeholder-dark);
     }
+
+    body.dark .contact-form input{
+        color: var(--hero-p);
+    }
+
+    body.dark .contact-form textarea{
+        color: var(--hero-p);
+    }
 }
 
 /* ROOT DO DARK MODE */
