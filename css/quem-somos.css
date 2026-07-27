@@ -516,6 +516,16 @@ box-sizing:border-box;
 
     }
 
+    .contact-top > p {
+        margin:9px auto 0;
+        max-width:209px;
+        text-align:center;
+        font-family:'Inter', sans-serif;
+        font-size:9px;
+        font-weight:600;
+        color:var(--text-muted);
+    }
+
     .contact-form{
 
         width:280px;
@@ -756,6 +766,88 @@ box-sizing:border-box;
 
     }
 
+    body.dark .instructions-hero {
+        background: var(--hero-bg);
+    }
+
+    body.dark .instructions-hero h1 {
+        color: var(--menu-text);
+    }
+
+    body.dark .instructions-hero p {
+        color: var(--hero-p);
+    }
+
+    body.dark .team-section {
+        background-color: var(--menu-active);
+    }
+
+    body.dark .team-tag {
+        background-color: var(--team-tag-bg);
+    }
+
+    body.dark .team-section h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .team-section p {
+        color: var(--hero-p);
+    }
+
+    body.dark .team-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .team-role {
+        color: var(--switch-knob-dark);
+    }
+
+    body.dark .team-card h3 {
+        color: var(--menu-text);
+    }
+
+    body.dark .team-card p {
+        color: var(--hero-p);
+    }
+
+    body.dark .contact-section {
+        background: var(--contact-bg);
+        background-blend-mode: screen;
+    }
+
+    body.dark .contact-section h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .contact-section p {
+        color: var(--hero-p);
+    }
+
+    body.dark form {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .contact-section span {
+        color: var(--menu-text);
+    }
+
+    body.dark textarea {
+        background-color: var(--switch-knob-dark);
+        border: solid 1px var(--border-dark);
+    }
+
+    body.dark input {
+        background-color: var(--switch-knob-dark);
+        border: solid 1px var(--border-dark);
+    }
+
+    body.dark input::placeholder {
+        color: var(--placeholder-dark);
+    }
+
+    body.dark textarea::placeholder {
+        color: var(--placeholder-dark);
+    }
 }
 
 /* ROOT DO DARK MODE */
@@ -768,6 +860,19 @@ body.dark {
     --menu-background:#65758B;
     --menu-text:#FDFDFD;
     --menu-active:#1B1F25;
+
+    --hero-bg:linear-gradient(180deg,#12317afa 0%,#0d2e76 45%,#112045 100%);
+    --hero-p: #88909C;
+
+    --team-tag-bg:#2463eb33;
+
+    --contact-bg:  
+        linear-gradient(0deg, #090e19 62%, #17429d 152%),
+        linear-gradient(180deg, #090e19 70%, #17429d 160%);
+
+
+    --border-dark: #2463EB;
+    --placeholder-dark: #88909C80;
 }
 /*TABLET*/
 

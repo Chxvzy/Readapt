@@ -912,6 +912,8 @@ box-sizing:border-box;
         color: var(--menu-active);
     }
 
+    
+
 }
 
 /* ROOT DO DARK MODE */
@@ -925,7 +927,7 @@ body.dark {
     --menu-text:#FDFDFD;
     --menu-active:#1B1F25;
 
-    --hero-bg:linear-gradient(180deg,#13327b 0%,#0d2e76 45%,#112045 100%);
+    --hero-bg:linear-gradient(180deg,#12317afa 0%,#0d2e76 45%,#112045 100%);
     --hero-title: #FDFDFD;
     --hero-p: #88909C;
 }
