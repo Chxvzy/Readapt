@@ -11,11 +11,15 @@ function updateThemeIcons() {
 
         if (dark) {
 
-            icon.src = icon.src.replace('-black.svg', '-white.svg');
+            icon.src = icon.src
+                .replace('-black.svg', '-white.svg')
+                .replace('-black.png', '-white.png');
 
         } else {
 
-            icon.src = icon.src.replace('-white.svg', '-black.svg');
+            icon.src = icon.src
+                .replace('-white.svg', '-black.svg')
+                .replace('-white.png', '-black.png');
 
         }
 
