@@ -174,15 +174,22 @@ box-sizing:border-box;
         display:flex;
         justify-content:flex-end;
         opacity:0;
-        visibility:hidden;
-        transition:opacity .3s ease;
+    visibility:hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility 0s linear .45s;
         z-index:999;
     }
 
     .menu-overlay.active{
 
-        opacity:1;
-        visibility:visible;
+         opacity:1;
+    visibility:visible;
+
+    transition:
+        opacity .3s ease,
+        visibility 0s;
 
     }
 
@@ -965,7 +972,7 @@ box-sizing:border-box;
 
     body.dark .mobile-menu{
 
-        background:var(--menu-background);
+        background:var(--header);
 
     }
 
@@ -977,7 +984,7 @@ box-sizing:border-box;
 
     body.dark .mobile-menu .active{
 
-        color:var(--menu-active);
+        color: var(--new-menu-active);
 
     }
 
@@ -993,6 +1000,7 @@ body.dark {
     --menu-background:#65758B;
     --menu-text:#FDFDFD;
     --menu-active:#1B1F25;
+    --new-menu-active: #2463EB;
 }
 
 /*TABLET*/
