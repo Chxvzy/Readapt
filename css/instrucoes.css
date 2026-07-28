@@ -861,7 +861,7 @@ box-sizing:border-box;
     }
 
     body.dark .manual-section {
-        background-color: #0F1729;
+        background-color: var(--manual-bg);
     }
 
     body.dark .manual-card {
@@ -938,6 +938,8 @@ body.dark {
     --hero-bg:linear-gradient(180deg,#12317afa 0%,#0d2e76 45%,#112045 100%);
     --hero-title: #FDFDFD;
     --hero-p: #88909C;
+
+    --manual-bg:#0F1729;
 }
 
 /*TABLET*/
