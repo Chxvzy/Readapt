@@ -988,6 +988,18 @@ box-sizing:border-box;
 
     }
 
+    body.dark .instructions-hero {
+        background: var(--hero-bg);
+    }
+
+    body.dark .instructions-hero h1 {
+        color: var(--hero-title);
+    }
+
+    body.dark .instructions-hero p {
+        color: var(--hero-p);
+    }
+
 }
 
 /* ROOT DO DARK MODE */
@@ -1001,6 +1013,10 @@ body.dark {
     --menu-text:#FDFDFD;
     --menu-active:#1B1F25;
     --new-menu-active: #2463EB;
+
+    --hero-bg:linear-gradient(180deg,#12317afa 0%,#0d2e76 45%,#112045 100%);
+    --hero-title: #FDFDFD;
+    --hero-p: #88909C;
 }
 
 /*TABLET*/
