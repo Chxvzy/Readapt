@@ -482,6 +482,13 @@ box-sizing:border-box;
     gap: 10px;
 }
 
+.manual-step:nth-of-type(6) .manual-header img{
+
+    width:22px;
+    margin-right: -3px;
+
+}
+
 .manual-step:nth-child(6) .manual-tip {
     padding:  8px 21px 7px 21px;
     gap: 12px;
@@ -917,6 +924,13 @@ box-sizing:border-box;
 
     body.dark .tips-number {
         color: var(--menu-active);
+    }
+
+    body.dark .manual-step:nth-of-type(6) .manual-header img{
+
+        width:19px;
+        margin-top: -1px;
+
     }
 
     
