@@ -439,7 +439,7 @@ box-sizing:border-box;
 
     }
 
-    .infinity-icon{
+    .theme-icon{
         margin-top: 9px;
         width:16px;
         display:block;
@@ -1130,6 +1130,146 @@ box-sizing:border-box;
 
     }
 
+    body.dark .game-hero {
+        background: var(--hero-background);
+    }
+
+    body.dark .game-hero h1 {
+        color: var(--menu-text);
+    }
+
+    body.dark .game-hero p {
+        color: var(--hero-p);
+    }
+
+    body.dark .game-stats h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .game-stats span {
+        color: var(--hero-p);
+    }
+
+    body.dark .play-section {
+        background: var(--play-background);
+    }
+
+    body.dark .play-card {
+        background-color: var(--play-card-bg);
+    }
+
+    body.dark .play-tag {
+        background-color: var(--play-tag-bg);
+        color: var(--menu-text);
+    }
+
+    body.dark .play-card h2{
+        color: var(--menu-text);
+    }
+
+    body.dark .play-card p {
+        color: var(--hero-p);
+    }
+
+    body.dark .play-section span {
+        color: var(--hero-p);
+    }
+
+    body.dark .story-section {
+        background-color: var(--menu-active);
+    }
+
+    body.dark .story-section h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .story-section strong {
+        color: var(--new-menu-active);
+    }
+
+    body.dark .story-section p {
+        color: var(--hero-p);
+    }
+
+    body.dark .levels-section {
+        background: var(--levels-background);
+    }
+
+    body.dark .levels-section h2{
+        color: var(--menu-text);
+    }
+
+    body.dark .levels-section p{
+        color: var(--hero-p);
+    }
+
+    body.dark .level-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .level-card h3 {
+        color: var(--menu-text);
+    }
+
+    body.dark .level-card div {
+        color: var(--menu-text);
+        background-color: var(--new-menu-active);
+    }
+
+    body.dark .level-card p {
+        color: var(--hero-p);
+    }
+
+    body.dark .gameplay-section {
+        background-color: var(--menu-active);
+    }
+
+    body.dark .gameplay-section h2{
+        color: var(--menu-text);
+    }
+
+    body.dark .gameplay-section p{
+        color: var(--hero-p);
+    }
+
+    
+    body.dark .gameplay-card  {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .gameplay-card h3 {
+        color: var(--menu-text);
+    }
+
+    body.dark .gameplay-card p {
+        color: var(--hero-p);
+    }
+
+    body.dark .demonstration {
+        background: var(--demo-bg);
+        background-blend-mode: screen;
+    }
+
+    body.dark .demonstration h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .demonstration p{
+        color: var(--hero-p);
+    }
+
+    body.dark .solution-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .solution-card h3{
+        color: var(--menu-text);
+    }
+
+    body.dark .solution-card p{
+        color: var(--hero-p);
+    }
+
 }
 
 
@@ -1144,6 +1284,20 @@ body.dark {
     --menu-text:#FDFDFD;
     --menu-active:#1B1F25;
     --new-menu-active: #2463EB;
+
+    --hero-background:linear-gradient(0deg, #0F1729 58%, #2463EB 151.53%);
+    --hero-p: #88909C;
+
+    --play-background:linear-gradient(0deg, #0F1729 18%, #2463EB 251.53%);
+    --play-card-bg: #254387;
+
+    --play-tag-bg:#fdfdfd34;
+
+    --levels-background:linear-gradient(0deg, #0F1729 20%, #2463EB 251.53%);
+
+    --demo-bg:  
+        linear-gradient(0deg, #090e19 65%, #17429d 140%),
+        linear-gradient(180deg, #090e19 75%, #17429d 160%);
 }
 
 /*TABLET*/
