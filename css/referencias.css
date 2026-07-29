@@ -338,13 +338,7 @@ html{
 
     }
 
-    .section-divider{
-
-        border:0;
-        border-top:1px solid var(--text-muted)80;
-        margin:0px 0 38px;
-
-    }
+    
 
     html{
 
@@ -572,6 +566,7 @@ html{
 
         border:1px solid var(--text-muted)    ;
         border-radius:30px;
+        box-shadow: 0 5px 0 var(--primary-shadow);
 
     }
 
@@ -672,6 +667,21 @@ html{
         text-decoration: none;
         color: inherit;
     }
+    
+    .references {
+        background-color: var(--switch-knob-dark);
+        margin-block: -38px;
+        margin-bottom: -50px;
+        padding-block: 40px;
+    }
+
+    .section-divider{
+
+        border:0;
+        border-top:1px solid var(--text-muted);
+        margin:0px 0 38px;
+
+    }
 
 /* AQUI COMEÇA O DARK MODE */
 
@@ -729,6 +739,79 @@ html{
 
     }
 
+    body.dark .references-hero {
+        background: var(--hero-bg);
+    }
+
+    body.dark .references-hero h1{
+        color: var(--menu-text);
+    }
+
+    body.dark .references-hero p {
+        color: var(--hero-p);
+    }
+
+    body.dark .references-hero span {
+        color: var(--hero-p);
+    }
+
+    body.dark .references-hero h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .references-filter {
+        background-color: var(--manual-bg);
+    }
+
+    body.dark .references {
+        background-color: var(--menu-active);
+    }
+
+    body.dark .section-divider {
+        border: 1px solid  var(--hero-p);
+    }
+
+    body.dark .reference-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .reference-year {
+        color: var(--hero-p);
+    } 
+
+    body.dark .reference-card h3{
+        color: var(--menu-text);
+    } 
+
+    body.dark .reference-card p{
+        color: var(--hero-p);
+    } 
+
+    body.dark .reference-button span {
+        color: var(--new-menu-active);
+    } 
+
+    body.dark .reference-button {
+        border-color: var(--new-menu-active);
+    } 
+
+    body.dark .references-notice {
+        background: var(--roadmap-bg);
+    }
+
+    body.dark .notice-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .notice-card h2{
+        color: var(--menu-text);
+    }
+
+    body.dark .notice-card p{
+        color: var(--hero-p);
+    }
+
+
 }
 
 /* ROOT DO DARK MODE */
@@ -742,6 +825,14 @@ body.dark {
     --menu-text:#FDFDFD;
     --menu-active:#1B1F25;
     --new-menu-active: #2463EB;
+
+    --hero-bg:linear-gradient(180deg,#12317afa 0%,#0d2e76 45%,#112045 100%);
+    --hero-title: #FDFDFD;
+    --hero-p: #88909C;
+
+    --manual-bg:#0F1729;
+
+    --roadmap-bg: linear-gradient(180deg, #0F1729 35%, #2463EB 351.53%);
 }
 
 /*TABLET*/
