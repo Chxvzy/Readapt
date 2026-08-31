@@ -796,6 +796,9 @@
             text-decoration: none;
             color: inherit;
         }
+         .footer-desktop{
+            display: none;
+         }
     
         #demonstration {
             scroll-margin-top: 50px;
@@ -1517,8 +1520,10 @@
         }
     
     
-          .footer-desktop {
-            margin-top: 134px;
+          /*RODAPÉ DESKTOP*/  
+    
+        .footer-desktop {
+            margin-top: 334px;
            background-color: #191c26;
            color: #8e95a5;
             padding: 60px 7% 45px;
@@ -1572,6 +1577,7 @@
         text-decoration: none;
         font-size: 13px;
         font-weight: bold;
+         font-family:'Poppins', sans-serif;
     }
     
     .footer-coluna a:hover {
@@ -1584,29 +1590,25 @@
     }
     
     .footer-icones a {
-        width: 60px;
-        height: 60px;
-    
+        width: 35px;
+        height: 35px;
         display: flex;
         align-items: center;
         justify-content: center;
-    
         background-color: #2864e6;
         color: white;
         border-radius: 8px;
     }
     
     .footer-icones img{
-        width: 50px;
+        width: 23px;
     }
     
     .footer-baixo {
-        max-width: 1400px;
+        max-width: 1900px;
         margin: 50px auto 0;
         padding-top: 25px;
-    
         border-top: 1px solid #596171;
-    
         display: flex;
         justify-content: space-between;
     }
@@ -1621,6 +1623,8 @@
       .mobile-footer{
         display: none;
       }
-     
+
+
+
     
     }
