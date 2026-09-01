@@ -1769,7 +1769,7 @@
             var(--primary-lighter) 20%,
             var(--white) 100%
         );
-            padding-block: 20px;
+            padding-block: 20px 230px;
             padding-inline: 101px 295px;
             font-family: 'Poppins', sans-serif;
         }
@@ -1979,7 +1979,7 @@
     
     
         .technologies{
-            margin-top: 200px;
+            margin-top: 0px;
             width:100%;
             padding:20px 27px 27px;
             background: var(--primary-20);
@@ -1996,7 +1996,7 @@
         .technologies h2{
     
             text-align:center;
-            font-size:32px;
+            font-size:30px;
             font-weight:600;
             color:var(--text-muted);
             margin-block:90px 142px;
@@ -2664,7 +2664,265 @@
       .mobile-footer{
         display: none;
       }
+
+
+
      
+       body.dark header{
+            background:var(--header);
+        }
+    
+        body.dark #logo-img {
+            max-width: 45px; 
+            height: auto;
+            object-fit: contain;
+            margin-left: 5px;
+        }
+    
+        body.dark .logo-text {
+            margin-left: 5px;
+        }
+    
+        body.dark .logo-text p,
+        body.dark .logo-text strong {
+            color: #FDFDFD; 
+            font-weight: 700;
+            font-size: 20px;
+        }
+    
+        body.dark .switch{
+    
+            background:var(--switch-dark-bg);
+    
+        }
+        
+        body.dark .switch::before{
+    
+            background:var(--switch-knob-dark);
+    
+            transform:translateX(36px);
+    
+        }
+    
+        body.dark .mobile-menu{
+    
+            background:var(--header);
+    
+        }
+    
+        body.dark .mobile-menu a{
+    
+            color:var(--menu-text);
+    
+        }
+    
+        body.dark .mobile-menu .active{
+    
+            color: var(--new-menu-active);
+    
+        }
+    
+        body.dark .hero {
+            background: var(--hero-background);
+        }
+    
+        body.dark .hero h1 {
+            color: var(--hero-title);
+        }
+    
+        body.dark .hero-text p {
+            color: var(--hero-p);
+        }
+    
+        body.dark .number-item h2{
+            color: var(--menu-text);
+        }
+    
+        body.dark .floating-card {
+            background-color: var(--switch-knob-dark);
+        }
+    
+        body.dark .card-text h3{
+            color: var(--menu-text);
+        }
+    
+        body.dark .card-text p{
+            color: var(--hero-p);
+        }
+    
+        body.dark .technologies {
+            background-color: var(--menu-active);
+        }
+    
+        body.dark .tech-card {
+            background-color: var(--techcard-bg);
+        }
+    
+        body.dark .tech-card span {
+            color: var(--menu-text);
+        }
+    
+        body.dark .about {
+            background: var(--about-bg);
+        }
+    
+        body.dark .new-tag {
+            background-color: var(--new-tag);
+        }
+    
+        body.dark .about h2 {
+            color: var(--menu-text);
+        }
+    
+        body.dark .about p {
+            color: var(--hero-p);
+        }
+    
+        body.dark .about-card {
+            background-color: var(--switch-knob-dark);
+            border: solid 1px var(--hero-p);
+        }
+    
+        body.dark .about-card h3{
+            color: var(--menu-text);
+        }
+    
+        body.dark .about-card p {
+            color: var(--hero-p);
+        }
+    
+        body.dark .solution {
+            background: var(--menu-active);
+        }
+    
+        body.dark .solution h2 {
+            color: var(--menu-text);
+        }
+    
+        body.dark .solution p {
+            color: var(--hero-p);
+        }
+    
+        body.dark .solution-card {
+            background-color: var(--switch-knob-dark);
+            border: solid 1px var(--hero-p);
+        }
+    
+        body.dark .solution-card h3 {
+            color: var(--menu-text);
+        }
+    
+        body.dark .solution-card p {
+            color: var(--hero-p);
+        }
+    
+        body.dark .team-btn {
+            background: var(--menu-active);
+        }
+    
+        body.dark .team{
+            padding:10px 0 35px;
+            background:linear-gradient(to bottom,var(--menu-active) 0%, var(--menu-active) 18%,transparent 18%,transparent 100%),
+            var(--team-section-bg);
+        }
+    
+        body.dark .team-image {
+            margin-top: 800px;
+        }
+    
+        body.dark .team-btn {
+            background-color: var(--primary);
+        }
+    
+        body.dark .benefits {
+            background: var(--team-bt-bg);
+        }
+    
+        body.dark .benefits h2 {
+            color: var(--menu-text);
+        }
+    
+        body.dark .benefits-list p {
+            color: var(--menu-text);
+        }
+    
+        body.dark .steps {
+            background-color: var(--menu-active);
+        }
+    
+        body.dark .steps h2{
+            color: var(--menu-text);
+        }
+    
+        body.dark .steps p{
+            color: var(--hero-p);
+        }
+    
+        body.dark .step-card {
+            background-color: var(--switch-knob-dark);
+        }
+    
+        body.dark .steps-cards span {
+            color: var(--menu-text);
+        }
+    
+        body.dark .steps-cards h3 {
+            color: var(--menu-text);
+        }
+    
+        body.dark .steps-cards p{
+            color: var(--hero-p);
+        }
+    
+        body.dark .explore {
+           background: var(--explore-bg);
+        }
+    
+        body.dark .explore h2 {
+            color: var(--menu-text);
+        }
+    
+        body.dark .explore p {
+            color: var(--hero-p);
+        }
+    
+        body.dark .explore-card {
+            background-color: var(--switch-knob-dark);
+        }
+    
+        body.dark .explore-cards h3 {
+            color: var(--menu-text);
+        }
+    }
+    
+    /* ROOT DO DARK MODE */
+    body.dark {
+        --switch-dark-bg: #FDFDFDCC;
+        --switch-knob-dark: #262C3B;
+    
+        --header: #1B1E28; 
+    
+        --menu-background:#65758B;
+        --menu-text:#FDFDFD;
+        --menu-active:#1B1F25;
+        --new-menu-active: #2463EB;
+    
+        --hero-background:linear-gradient(0deg, #0F1729 78%, #2463EB 131.53%);
+    
+        --hero-title: #FDFDFF;
+    
+        --hero-p: #88909C;
+    
+        --techcard-bg: #262C3B;
+    
+        --about-bg: linear-gradient(0deg, #0F1729 30%, #2463EB 271.53%);
+        --new-tag: #2463EB33;
+    
+        --team-section-bg: linear-gradient(0deg, #0F1729 14.35%, rgba(36, 99, 235, 1.0) 232.14%);
+        --team-bt-bg: #0F1729;
+    
+        --explore-bg: linear-gradient(180deg,#0F1729 52%,#2463EB 220%);
+    
       
     }
     
