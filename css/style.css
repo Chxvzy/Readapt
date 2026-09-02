@@ -2041,7 +2041,7 @@
         .about{
             margin-top: 100px;
             width:100%;
-            padding: 35px 20px;
+            padding: 200px 70px;
             background:var(--white);
             text-align:center;
         }
@@ -2143,7 +2143,7 @@
     
         .solution{
             width:100%;
-            padding:30px 20px;
+            padding:200px 20px;
             background: linear-gradient(180deg, var(--primary-20) -3.29%, var(--surface-overlay) 102.37%);
             text-align:center;
     
