@@ -1290,47 +1290,80 @@ body.dark {
     }
 
    
-    .header-desktop {
-    width: 100%;
-    height: 100px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 8%;
-    box-sizing: border-box;
-
-    background-color: var(--white);
-}
-
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo img {
-    width: 95px;
-    height: auto;
-}
-
-.logo span {
-     font-family: 'Poppins', sans-serif;
-    color: #1769e8;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.logo strong{
-     font-family: 'Poppins', sans-serif;
-    color: red;
-     font-size: 20px;
-    font-weight: bold;
-}
-
-
+  
+     .header-desktop {
+        width: 100%;
+        height: 100px;
+    
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    
+        padding: 0 8%;
+        box-sizing: border-box;
+    
+        background-color: var(--white);
+    }
+    
+    
+        .navbar{
+    
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+    
+        }
+    
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+    
+    
+        .logo{ 
+    
+            display:flex; 
+            align-items:center; 
+            gap: 3px; 
+    
+        }
+    
+        .logo img:first-child{
+    
+            width: 72px;
+            height: 54px;
+    
+        }
+    
+        .logo-text{
+    
+            display:flex;
+            align-items:center;
+            padding-top: 7px;
+            font-family: 'Nunito', sans-serif;
+    
+        }
+    
+        .logo-text p{
+    
+            font-size:20px;
+            font-weight:700;
+            color:var(--primary-hover);
+            letter-spacing:-1px;
+    
+        }
+    
+        .logo-text strong{
+    
+            color:var(--accent);
+            font-weight:700;
+    
+        }
+    
+    
 .navegacao {
     display: flex;
     align-items: center;
@@ -1403,15 +1436,17 @@ body.dark {
 
     .instructions-tag{
 
-        margin-top:15px;
-        margin-inline: auto;
-        padding:5px 8px;
-        background:var(--primary-20);
-        border-radius:20px;
+        display:inline-flex;
+        justify-content:center;
+        align-items:center;
+        margin: auto;
+        padding: 11px 19px; 
+        background:  #2864e635;
+        border-radius:30px;
         color:var(--primary);
         font-family:'Montserrat', sans-serif;
         font-size:15px;
-        font-weight:600;
+        font-weight: 600;
 
     }
 
@@ -2505,14 +2540,13 @@ body.dark {
       /*RODAPÉ DESKTOP*/  
     
         .footer-desktop {
-            margin-top: 334px;
            background-color: #191c26;
            color: #8e95a5;
             padding: 60px 7% 45px;
     }
     .footer-marca img{
         display: flex;
-        width: 50px;
+        width: 60px;
         height: auto;
     }
     
@@ -2529,15 +2563,16 @@ body.dark {
     
     .footer-marca h2 {
         color: white;
-        font-size: 25px;
-      font-family:'Poppins', sans-serif;
+        font-size: 20px;
+      font-family:'Nunito', sans-serif;
     }
     
     .footer-marca p {
-        font-family:'Poppins', sans-serif;
-        font-size: 13px;
+        font-family:'Montserrat', sans-serif;
+        font-size: 14px;
         font-weight: bold;
         line-height: 1.2;
+        width: 305px;
     }
     
     .footer-coluna {
@@ -2547,19 +2582,19 @@ body.dark {
     }
     
     .footer-coluna h3 {
-          font-family:'Poppins', sans-serif;
+          font-family:'Montserrat', sans-serif;
           margin-top: 12px;
         color: var(--white);
-        font-size: 15px;
+        font-size: 14px;
         margin: 0 0 5px;
     }
     
     .footer-coluna a {
         color: #8e95a5;
         text-decoration: none;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: bold;
-         font-family:'Poppins', sans-serif;
+         font-family:'Inter', sans-serif;
     }
     
     .footer-coluna a:hover {
@@ -2596,9 +2631,9 @@ body.dark {
     }
     
     .footer-baixo p {
-         font-family:'Poppins', sans-serif;
+         font-family:'Montserrat', sans-serif;
         margin: 0;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: bold;
     }
     

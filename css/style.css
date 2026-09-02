@@ -3901,9 +3901,6 @@ text-align:center;
             var(--team-section-bg);
         }
     
-        body.dark .team-image {
-        }
-    
         body.dark .team-btn {
             background-color: var(--primary);
         }
