@@ -1376,6 +1376,7 @@
             padding-block: 80px 60px;
             background: var(--primary-50);
             text-align:center;
+
     
         }
     
@@ -1447,8 +1448,8 @@
         }
     
        .tips-section {
-        margin-top: 130px;
-        padding: 0 0 70px;
+        margin-top: 30px;
+        padding: 0px 0px;
         display: flex;
         justify-content: center;
         gap: 30px;
@@ -1458,7 +1459,7 @@
         
         width: 475px;
         height: 416px;
-        margin: 77px 0;
+        margin: 230px 0;
         padding: 25px 23px;
         background: var(--background);
         border: 1px solid var(--text-muted);
@@ -1494,8 +1495,6 @@
         }
     
         .tips-number{
-    
-            
             flex-shrink:0;
             width:28px;
             height:28px;
@@ -1657,7 +1656,161 @@
       .mobile-footer{
         display: none;
       }
+     
 
-
+         body.dark header{
+            background:var(--header);
+        }
+    
+        body.dark #logo-mobile{
+            max-width: 45px; 
+            height: auto;
+            object-fit: contain;
+            margin-left: 5px;
+        }
+    
+        body.dark .logo-text {
+            margin-left: 5px;
+        }
+    
+        body.dark .logo-text p,
+        body.dark .logo-text strong {
+            color: #FDFDFD; 
+            font-weight: 700;
+            font-size: 20px;
+        }
+    
+        body.dark .switch{
+    
+            background:var(--switch-dark-bg);
+    
+        }
+        
+        body.dark .switch::before{
+    
+            background:var(--switch-knob-dark);
+    
+            transform:translateX(36px);
+    
+        }
+    
+        body.dark .mobile-menu{
+    
+            background:var(--header);
+    
+        }
+    
+        body.dark .mobile-menu a{
+    
+            color:var(--menu-text);
+    
+        }
+    
+        body.dark .mobile-menu .active{
+    
+            color: var(--new-menu-active);
+    
+        }
+    
+        body.dark .instructions-hero {
+            background: var(--hero-bg);
+        }
+    
+        body.dark .instructions-hero h1 {
+            color: var(--hero-title);
+        }
+    
+        body.dark .instructions-hero p {
+            color: var(--hero-p);
+        }
+    
+        body.dark .manual-section {
+            background-color: var(--manual-bg);
+        }
+    
+        body.dark .manual-card {
+            background-color: var(--switch-knob-dark);
+        }
+    
+        body.dark .manual-card h3 {
+            color: var(--hero-title);
+        }
+        
+        body.dark .manual-card p {
+            color: var(--hero-p);
+        }
+    
+        body.dark .manual-card span {
+            color: var(--hero-title);
+        }
+    
+        body.dark .demonstration {
+            background-color: var(--menu-active);
+            margin-bottom: -50px;
+            padding-bottom: 110px;
+        }
+    
+        body.dark .demonstration h2{
+            color: var(--hero-title);
+        }
+    
+        body.dark .demonstration p{
+            color: var(--hero-p);
+        }
+    
+        body.dark .solution-card {
+            background: var(--switch-knob-dark);
+        }
+    
+        body.dark .tips-section {
+            padding-top: 1px;
+            background: linear-gradient(180deg,#0F1729 42%,#2463EB 240%);
+        }
+    
+        body.dark .tips-card {
+            background-color: var(--menu-active);
+        }
+    
+        body.dark .tips-card h2 {
+            color: var(--hero-title);
+        }
+    
+        body.dark .tips-card p {
+            color: var(--hero-p);
+        }
+    
+        body.dark .tips-number {
+            color: var(--menu-active);
+        }
+    
+        body.dark .manual-step:nth-of-type(6) .manual-header img{
+    
+            width:19px;
+            margin-top: -1px;
+    
+        }
+    
+        
     
     }
+    
+    /* ROOT DO DARK MODE */
+    body.dark {
+        --switch-dark-bg: #FDFDFDCC;
+        --switch-knob-dark: #262C3B;
+    
+        --header: #1B1E28; 
+    
+        --menu-background:#65758B;
+        --menu-text:#FDFDFD;
+        --menu-active:#1B1F25;
+        --new-menu-active: #2463EB;
+    
+        --hero-bg:linear-gradient(180deg,#12317afa 0%,#0d2e76 45%,#112045 100%);
+        --hero-title: #FDFDFD;
+        --hero-p: #88909C;
+    
+        --manual-bg:#0F1729;
+    }
+    
+    

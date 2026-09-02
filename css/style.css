@@ -1927,15 +1927,13 @@
         
     
         .solution{
+
             width:100%;
-<<<<<<< HEAD
             padding:200px 20px;
-=======
             padding:40px 20px;
->>>>>>> 9d106e4323d5e16be032b51a22a5b983fb0adab6
-            background: linear-gradient(180deg, var(--primary-20) -3.29%, var(--surface-overlay) 102.37%);
+            background:linear-gradient(180deg, var(--primary-20) -3.29%, var(--surface-overlay) 102.37%);
             text-align:center;
-    
+
         }
     
         .solution h2{  
