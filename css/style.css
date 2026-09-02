@@ -1769,7 +1769,7 @@
             var(--primary-lighter) 20%,
             var(--white) 100%
         );
-            padding-block: 20px 230px;
+            padding-block: 20px 220px;
             padding-inline: 101px 295px;
             font-family: 'Poppins', sans-serif;
         }
@@ -2143,7 +2143,7 @@
     
         .solution{
             width:100%;
-            padding:30px 20px;
+            padding:40px 20px;
             background: linear-gradient(180deg, var(--primary-20) -3.29%, var(--surface-overlay) 102.37%);
             text-align:center;
     
@@ -2231,7 +2231,7 @@
     
         .team{
             width:100%;
-            padding:5px 20px 20px;
+            padding:11px 19px;
             background:var(--background);
             display:flex;
             flex-direction:column;
@@ -2251,7 +2251,7 @@
             text-decoration:none;
             color:var(--white);
             font-family:'Inter', sans-serif;
-            font-size:11px;
+            font-size:15px;
             font-weight:600;
     
         }
@@ -2275,6 +2275,7 @@
         }
     
       .benefits{
+       
             padding: 200px 200px 200px ;
             background:var(--background);
             display:flex;
