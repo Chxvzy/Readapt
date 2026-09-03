@@ -1548,7 +1548,7 @@
     .navegacao .ativo:hover {
         color: var(--text);
     }
-    
+
         .hero{
     
             width:100%;
@@ -1607,12 +1607,12 @@
         .switch::before{
     
             content:"";
-            width:24px;
-            height:24px;
+            width:23.5px;
+            height:23.5px;
             background:var(--white);
             border-radius:50%;
             position:absolute;
-            top:2.5px;
+            top:3px;
             left:4.5px;
             transition:.3s ease;
     
@@ -2869,12 +2869,12 @@
         .switch::before{
     
             content:"";
-            width:24px;
-            height:24px;
+            width:23.5px;
+            height:23.5px;
             background:var(--white);
             border-radius:50%;
             position:absolute;
-            top:2.5px;
+            top:3px;
             left:4.5px;
             transition:.3s ease;
     
