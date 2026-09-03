@@ -2,8 +2,13 @@ const menuBtn = document.querySelector('.menu-btn');
 const overlay = document.querySelector('.menu-overlay');
 const themeSwitch = document.querySelector('#theme-switch');
 
-const logoMobile = document.querySelector('#logo-mobile');
-const logoDesktop = document.querySelector('#logo-desktop');
+const logos = document.querySelectorAll('#logo-mobile, #logo-img, #logo-desktop');
+
+function updateLogos(src) {
+    logos.forEach(logo => {
+        logo.src = src;
+    });
+}
 
 function updateThemeIcons() {
     const dark = document.body.classList.contains('dark');
@@ -32,13 +37,11 @@ if (localStorage.getItem('theme') === 'dark') {
 
     document.body.classList.add('dark');
 
-    logoMobile.src = 'assets/logo-readapt-white.png';
-    logoDesktop.src = 'assets/logo-readapt-white.png';
+    updateLogos('assets/logo-readapt-white.png');
 
 } else {
 
-    logoMobile.src = 'assets/readapt-logo.png';
-    logoDesktop.src = 'assets/readapt-logo.png';
+    updateLogos('assets/readapt-logo.png');
 }
 
 updateThemeIcons();
@@ -52,15 +55,13 @@ themeSwitch.addEventListener('click', () => {
 
         localStorage.setItem('theme', 'dark');
 
-        logoMobile.src = 'assets/logo-readapt-white.png';
-        logoDesktop.src = 'assets/logo-readapt-white.png';
+        updateLogos('assets/logo-readapt-white.png');
 
     } else {
 
         localStorage.setItem('theme', 'light');
 
-        logoMobile.src = 'assets/readapt-logo.png';
-        logoDesktop.src = 'assets/readapt-logo.png';
+        updateLogos('assets/readapt-logo.png');
     }
 
     updateThemeIcons();
