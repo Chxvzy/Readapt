@@ -1604,12 +1604,12 @@
     
             content:"";
             width:24px;
-            height:25px;
+            height:24px;
             background:var(--white);
             border-radius:50%;
             position:absolute;
-            top:2px;
-            left:2px;
+            top:2.5px;
+            left:4.5px;
             transition:.3s ease;
     
         }  
@@ -2870,8 +2870,8 @@
             background:var(--white);
             border-radius:50%;
             position:absolute;
-            top:3px;
-            left:4px;
+            top:2.5px;
+            left:4.5px;
             transition:.3s ease;
     
         }  
