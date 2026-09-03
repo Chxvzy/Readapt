@@ -2045,10 +2045,7 @@ body.dark {
     }
 
 
-    /* =====================================================
-       TAG
-       ===================================================== */
-
+   
     .about-4 .new-tag-4 {
         display: inline-flex;
         align-items: center;
@@ -2065,10 +2062,7 @@ body.dark {
     }
 
 
-    /* =====================================================
-       TÍTULO
-       ===================================================== */
-
+  
     .about-4 h2 {
         margin: 0 18px 18px;
         color: var(--text);
@@ -2080,10 +2074,7 @@ body.dark {
     }
 
 
-    /* =====================================================
-       DESCRIÇÃO
-       ===================================================== */
-
+    
     .about-4 > p {
         width: 100%;
         max-width: 808px;
@@ -2098,10 +2089,7 @@ body.dark {
     }
 
 
-    /* =====================================================
-       GRID DOS 12 COMPONENTES
-       ===================================================== */
-
+ 
     .about-4 .features-list-4 {
         width: 100%;
         max-width: 550px;
@@ -2120,10 +2108,6 @@ body.dark {
     }
 
 
-    /* =====================================================
-       CARDS
-       ===================================================== */
-
     .about-4 .feature-card-4 {
         width: 280px;
         height: 180px;
@@ -2139,10 +2123,7 @@ body.dark {
     }
 
 
-    /* =====================================================
-       ÍCONE
-       ===================================================== */
-
+   
     .about-4 .icon-container-setting-2 {
         width: 35px;
         height: 35px;
@@ -2164,10 +2145,6 @@ body.dark {
     }
 
 
-    /* =====================================================
-       CONTEÚDO DO CARD
-       ===================================================== */
-
     .about-4 .text-content-4 {
         min-width: 0;
         display: flex;
@@ -2177,7 +2154,7 @@ body.dark {
     }
 
 
-    /* CATEGORIA */
+    
 
     .about-4 .text-content-4 > span {
         margin: 26px 0 0 2px;
@@ -2189,7 +2166,7 @@ body.dark {
     }
 
 
-    /* NOME */
+  
 
     .about-4 .text-content-4 h3 {
         margin: 0;
@@ -2201,7 +2178,7 @@ body.dark {
     }
 
 
-    /* DESCRIÇÃO */
+    
 
     .about-4 .text-content-4 p {
         width: auto;
@@ -2215,10 +2192,7 @@ body.dark {
     }
 
 
-    /* =====================================================
-       PREÇO
-       ===================================================== */
-
+    
     .about-4 .price-tag {
         margin-top: 7px;
         padding: 6px 14px;
@@ -2238,10 +2212,6 @@ body.dark {
         line-height: normal;
     }
 
-
-    /* =====================================================
-       ORDEM DOS CARDS
-       ===================================================== */
 
     .about-4 .feature-card-4:nth-child(1) {
         grid-column: 1;
@@ -2740,9 +2710,42 @@ body.dark {
         border: 1px solid var(--text-muted);
         }
     
-        body.dark .manual-card span {
-            color: var(--hero-title);
+        body.dark .about-3 {
+            background: var(--manual-bg);
         }
+
+        body.dark .about-3 h2{
+        color: var(--white) ;
+        }
+
+        body.dark .about-3 .feature-card-3 {
+             background: var(--header);
+        }
+
+        body.dark .about-3 .text-content h3{
+            color: var(--white);
+        }
+
+
+
+        body.dark  .about-4 {
+            background: var(--hero-bg);
+        }
+
+        body.dark  .about-4 h2{
+          color: var(--white);
+        }
+
+
+        body.dark .about-4 .feature-card-4{
+            background: var(--header);
+        }
+
+        body.dark .about-4 h3{
+            color: var(--white);
+        }
+
+
     
         body.dark .demonstration {
             background-color: var(--menu-active);
