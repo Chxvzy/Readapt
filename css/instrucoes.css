@@ -1251,8 +1251,8 @@
             padding:26px 40px;
             background:var(--background);
             border: 1px solid var(--text-muted);
-            border-radius:20px;
-            box-shadow:0 5px 0 var(--primary-shadow);
+            border-radius:30px;
+            box-shadow:0 9px 0 var(--primary-shadow);
             width: 800px;
     
         }
@@ -1422,7 +1422,7 @@
             background:var(--background);
             border:1px solid var(--border);
             border-radius:30px;
-            box-shadow:0 5px 0 var(--primary-shadow);
+            box-shadow:0 10px 0 var(--primary-shadow);
             text-align:center;
     
         }
@@ -1474,8 +1474,8 @@
         padding: 25px 23px;
         background: var(--background);
         border: 1px solid var(--text-muted);
-        border-radius: 28px;
-        box-shadow: 0 5px 0 var(--primary-shadow);
+        border-radius: 30px;
+        box-shadow: 0 9px 0 var(--primary-shadow);
     }
     
         .tips-card h2{
