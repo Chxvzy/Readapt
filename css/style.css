@@ -2807,7 +2807,7 @@
             var(--white) 100%
         );
             padding-block: 20px 120px;
-            padding-inline: 151px 295px;
+            padding-inline: 175px 305px;
             font-family: 'Poppins', sans-serif;
         }
     
@@ -2971,7 +2971,7 @@
     
         .floating-card{ 
             position:absolute;
-            left: 800px;
+            left: 970px;
             bottom: 30px;
             width: 300px;
             height: 100px;
@@ -3079,7 +3079,7 @@
     
             .about{
 width:100%;
-padding: 100px 20px;
+padding: 100px 20px 150px;
 background:var(--white);
 text-align:center;
 
@@ -3357,7 +3357,7 @@ text-align:center;
         background:var(--background);
         display:flex;
         flex-direction:column;
-        padding-left: 900px;
+        padding-left: 1000px;
         padding-right: 100px;
         }
     
@@ -3381,8 +3381,7 @@ text-align:center;
         }
     
         .benefits-list{  
-            margin-top: 52px;
-            margin-left: 103px;
+            margin-top: 32px;
             width: 600px;
             display:flex;
            flex-direction: column;
@@ -3412,7 +3411,7 @@ text-align:center;
     
         .steps{
             width:100%;
-            padding:50px 20px;
+            padding:100px 20px;
             background: var(--primary-50);
             display:flex;
             flex-direction:column;
@@ -3429,6 +3428,7 @@ text-align:center;
             font-weight:700;
             color:var(--text);
             margin-bottom: 20px;
+            margin-top: 20px;
     
         }
     
@@ -3446,7 +3446,7 @@ text-align:center;
             margin-top:70px;
             display:grid;
             flex-direction:column;
-            gap:15px;
+            gap:25px;
     
         }
     
@@ -3519,7 +3519,7 @@ text-align:center;
         }
       .explore{
         width:100%;
-        padding:205px 50px 300px 0px;
+        padding:185px 50px 230px 0px;
         background:var(--background);
         display:flex;
         flex-direction:column;
@@ -3559,7 +3559,8 @@ text-align:center;
         .explore-cards{ 
             margin-top:19px;
             display:flex;
-            gap:10px;
+            gap:25px;
+            text-align: left;
     
         }
     
@@ -3567,7 +3568,7 @@ text-align:center;
     
             display:flex;
             justify-content:center;
-            gap:10px;
+            gap:25px;
             margin-top: 14px;
     
         }
@@ -3590,7 +3591,8 @@ text-align:center;
         }
     
         .explore-icon{
-    
+            position: relative;
+            left: -65px;
             width:50px;
             height:50px;
             background:var(--primary);
@@ -3609,22 +3611,24 @@ text-align:center;
         .explore-card h3{
     
             margin-top:20px;
-            width:110px;
+            width:175px;
             margin-bottom:6px;
             font-family:'Poppins', sans-serif;
             font-size:16px;
             font-weight:700;
             color:var(--text);
-            text-align:center;
+            text-align:left;
     
         }
     
         .explore-card span{
-    
+            
+            width: 175px;
             font-family:'Poppins', sans-serif;
             font-size:12px;
             font-weight:600;
                 color:var(--primary);
+                text-align: left;
     
         }
         .explore-card h4{
