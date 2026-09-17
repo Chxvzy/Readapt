@@ -1190,7 +1190,7 @@ body.dark {
     .team-card{
 
      width:390px;
-    padding: 67px 8px 70px;
+    padding: 85px 8px 20px;
     background: var(--background);
     border: 1px solid var(--border);
     border-radius: 20px;
