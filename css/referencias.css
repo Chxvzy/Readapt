@@ -433,8 +433,8 @@ html{
     
 
     .reference-card{
-  width: 800px;
-    margin:  auto 0;
+  width: 300px;
+    margin:  25px auto;
     padding: 27px;
     background: var(--background);
     border: 1px solid var(--border);
@@ -447,7 +447,7 @@ html{
 
         display:flex;
         align-items:center;
-        gap:15px;
+        gap:25px;
 
     }
 
@@ -1150,11 +1150,8 @@ body.dark {
     }
 
     .references-filter a:hover{
-
-        background:var(--primary);
-        color:var(--white);
-        margin-bottom: 32px;
-
+        margin-bottom: 52px;
+        transition: 0.3s;
     }
 
     .references {
