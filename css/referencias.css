@@ -1136,7 +1136,7 @@ body.dark {
 
     .references-filter a{
        margin-top: 61px;
-    margin-bottom: 0;
+    margin-bottom: 61px;
 
     padding: 9px 11px;
     background: var(--primary-20);
