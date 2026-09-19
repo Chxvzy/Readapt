@@ -2400,7 +2400,7 @@ body.dark {
 
         gap: 50px;
     }
-
+    
 
 
     .roadmap-card {
@@ -2421,6 +2421,9 @@ body.dark {
         text-align: left;
     }
 
+
+
+
     .roadmap-status {
         display: block;
         margin: 0 0 8px 22px;
@@ -2433,6 +2436,7 @@ body.dark {
 
 
 
+    
     .roadmap-card h3 {
         margin: 0 0 20px 22px;
         font-family: 'Poppins', sans-serif;
