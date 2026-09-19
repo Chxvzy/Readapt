@@ -1504,10 +1504,11 @@ body.dark {
 
     /*COMPONENTE 1*/
       .about {
-        margin-top: 150px;
-        width: 100%;
+        margin: 0;
+        padding-bottom: 150px;
+        
         min-height: 570px;
-        padding: 55px 85px;
+        padding: 300px 85px;
         display: grid;
         grid-template-columns: 46% 58%;
         grid-template-rows: auto auto auto auto;
@@ -1647,7 +1648,7 @@ body.dark {
     }
 
     .about .text-content p {
-        width: 225px;
+        width: 203px;
         margin: 0;
         font-family: 'Poppins', sans-serif;
         font-size: 13px;
@@ -1659,7 +1660,6 @@ body.dark {
      /*COMPONENTE 2*/
     
        .about-2 {
-        margin-top: 203px;
         width: 100%;
         min-height: 680px;
         padding: 204px 15%;
@@ -1768,7 +1768,7 @@ body.dark {
         padding: 12px 13px;
         background-color: var(--background);
         border: 1px solid var(--text-muted);
-        border-radius: 11px;
+        border-radius: 20px;
         box-shadow: none;
     }
 
@@ -1830,8 +1830,8 @@ body.dark {
       .about-3 {
         width: 100%;
         min-height: 630px;
-        margin-top: 90PX;
-        padding: 48px 70px 60px;
+      
+        padding: 132px 70px 60px;
         background: var(--white);
         text-align: center;
         display: flex;
@@ -2099,7 +2099,7 @@ body.dark {
             repeat(4, 128px);
         grid-template-rows:
             repeat(3, 82px);
-        column-gap: 253px;
+        column-gap: 210px;
         row-gap: 124px;
         justify-content: center;
         align-items: center;
@@ -2112,12 +2112,12 @@ body.dark {
         width: 280px;
         height: 180px;
         box-sizing: border-box;
-        padding: 8px 9px;
+        padding: px 9px;
         display: flex;
         align-items: flex-start;
         background: var(--background);
         border: 1px solid #9AA8BE;
-        border-radius: 10px;
+        border-radius: 20px;
         box-shadow: none;
         text-align: left;
     }
@@ -2275,7 +2275,7 @@ body.dark {
 
 
     .about-4 .total-card {
-        width: 2000%;
+        width: 1015%;
         max-width: 1425px;
         height: 240px;
         margin: 41px auto 0;
@@ -2339,7 +2339,7 @@ body.dark {
         width: 100%;
         min-height: 530px;
         box-sizing: border-box;
-        padding: 66px 60px 60px;
+        padding: 0px 60px 210px;
         background: var(--white);
         text-align: center;
     }
@@ -2362,7 +2362,7 @@ body.dark {
   
 
     .roadmap-section h2 {
-        margin: 37px 0 0;
+        margin: 18px 0 0px;
         text-align: center;
         font-family: 'Poppins', sans-serif;
         font-size: 40px;
@@ -2414,7 +2414,7 @@ body.dark {
         background: var(--background);
 
         border: 1px solid var(--border);
-        border-radius: 18px;
+        border-radius: 30px;
 
         box-shadow: 0 7px 0 var(--primary-shadow);
 
@@ -2681,6 +2681,10 @@ body.dark {
         body.dark .about h2 {
             color: var(--background);
         }
+
+         body.dark .about h3{
+            color: var(--white);
+         }
         
         body.dark  .about .feature-card {
             background-color: var(--header);
@@ -2690,6 +2694,22 @@ body.dark {
         body.dark .about-3 {
             background: var(--manual-bg);
         }
+
+        body.dark .about-2{
+            background: var(--header);
+        }
+
+        body.dark .about-2 h2{
+           color: var(--white) ;
+        }
+
+         body.dark .about-2 .feature-card-2{
+            background-color: var(--switch-knob-dark);
+         }
+          
+         body.dark .about-2 .text-content h3{
+            color: var(--white);
+         }
 
         body.dark .about-3 h2{
         color: var(--white) ;
@@ -2706,7 +2726,7 @@ body.dark {
 
 
         body.dark  .about-4 {
-            background: var(--hero-bg);
+         background: var(--hero-background);
         }
 
         body.dark  .about-4 h2{
@@ -2721,7 +2741,26 @@ body.dark {
         body.dark .about-4 h3{
             color: var(--white);
         }
+          
+        body.dark  .roadmap-section{
+          background: var(--explore-bg);
+        }
 
+        body.dark .roadmap-section h2{
+            color: white;
+        }
+
+        body.dark  .roadmap-card{
+            background: var(--header);
+        }
+
+        body.dark .roadmap-card h3{
+            color: var(--white);
+        }
+
+        body.dark .roadmap-card li span{
+            color: var(--hero-p);
+        }
 
     
         body.dark .demonstration {
@@ -2729,7 +2768,7 @@ body.dark {
             margin-bottom: -50px;
             padding-bottom: 110px;
         }
-    
+        
         body.dark .demonstration h2{
             color: var(--hero-title);
         }
@@ -2737,6 +2776,7 @@ body.dark {
         body.dark .demonstration p{
             color: var(--hero-p);
         }
+
     
         body.dark .solution-card {
             background: var(--switch-knob-dark);
@@ -2791,6 +2831,9 @@ body.dark {
         --hero-p: #88909C;
     
         --manual-bg:#0F1729;
+         --hero-background:linear-gradient(0deg, #0F1729 78%, #2463EB 131.53%);
+
+         --explore-bg: linear-gradient(180deg,#0F1729 52%,#2463EB 220%);
     }
     
 
