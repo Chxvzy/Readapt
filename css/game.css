@@ -275,7 +275,7 @@ box-sizing:border-box;
         position:absolute;
         top:2px;
         left:2px;
-        transition:.3s ease;
+        transition: 0.5s;
 
     } 
 
@@ -2310,7 +2310,239 @@ body.dark {
       }
 
 
+      /* AQUI COMEÇA O DARK MODE */
+
+    body.dark header{
+        background:var(--header);
+    }
+
+    body.dark #logo-mobile{
+        max-width: 45px; 
+        height: auto;
+        object-fit: contain;
+        margin-left: 5px;
+    }
+
+    body.dark .logo-text {
+        margin-left: 5px;
+    }
+
+    body.dark .logo-text p,
+    body.dark .logo-text strong {
+        color: #FDFDFD; 
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    body.dark .switch{
+
+        background:var(--switch-dark-bg);
+
+    }
+    
+    body.dark .switch::before{
+
+        background:var(--switch-knob-dark);
+
+        transform:translateX(36px);
+        transition: 0.4s;
+
+    }
+
+    body.dark .mobile-menu{
+
+        background:var(--header);
+
+    }
+
+    body.dark .mobile-menu a{
+
+        color:var(--menu-text);
+
+    }
+
+    body.dark .mobile-menu .active{
+
+        color: var(--new-menu-active);
+
+    }
+
+    body.dark .game-hero {
+        background: var(--hero-background);
+    }
+
+    body.dark .game-hero h1 {
+        color: var(--menu-text);
+    }
+
+    body.dark .game-hero p {
+        color: var(--hero-p);
+    }
+
+    body.dark .game-tag {
+      background: var(--primary-50);
+      color: var(--primary);
+    }
+    body.dark .game-stats h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .game-stats span {
+        color: var(--hero-p);
+    }
+
+    body.dark .play-section {
+        background: var(--play-background);
+    }
+
+    body.dark .play-card {
+        background-color: var(--play-card-bg);
+    }
+
+    body.dark .play-tag {
+        background-color: var(--play-tag-bg);
+        color: var(--menu-text);
+    }
+
+    body.dark .play-card h2{
+        color: var(--menu-text);
+    }
+
+    body.dark .play-card p {
+        color: var(--hero-p);
+    }
+
+    body.dark .play-section span {
+        color: var(--hero-p);
+    }
+
+    body.dark .story-section {
+        background-color: var(--menu-active);
+    }
+
+    body.dark .story-section h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .story-section strong {
+        color: var(--new-menu-active);
+    }
+
+    body.dark .story-section p {
+        color: var(--hero-p);
+    }
+
+    body.dark .levels-section {
+        background: var(--levels-background);
+    }
+
+    body.dark .levels-section h2{
+        color: var(--menu-text);
+    }
+
+    body.dark .levels-section p{
+        color: var(--hero-p);
+    }
+
+    body.dark .level-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .level-card h3 {
+        color: var(--menu-text);
+    }
+
+    body.dark .level-card div {
+        color: var(--menu-text);
+        background-color: var(--new-menu-active);
+    }
+
+    body.dark .level-card p {
+        color: var(--hero-p);
+    }
+
+    body.dark .gameplay-section {
+        background-color: var(--menu-active);
+    }
+
+    body.dark .gameplay-section h2{
+        color: var(--menu-text);
+    }
+
+    body.dark .gameplay-section p{
+        color: var(--hero-p);
+    }
+
+    
+    body.dark .gameplay-card  {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .gameplay-card h3 {
+        color: var(--menu-text);
+    }
+
+    body.dark .gameplay-card p {
+        color: var(--hero-p);
+    }
+
+    body.dark .demonstration {
+        background: var(--demo-bg);
+        background-blend-mode: screen;
+    }
+
+    body.dark .demonstration h2 {
+        color: var(--menu-text);
+    }
+
+    body.dark .demonstration p{
+        color: var(--hero-p);
+    }
+
+    body.dark .solution-card {
+        background-color: var(--switch-knob-dark);
+    }
+
+    body.dark .solution-card h3{
+        color: var(--menu-text);
+    }
+
+    body.dark .solution-card p{
+        color: var(--hero-p);
+    }
 
 }
+
+
+/* ROOT DO DARK MODE */
+body.dark {
+    --switch-dark-bg: #FDFDFDCC;
+    --switch-knob-dark: #262C3B;
+
+    --header: #1B1E28; 
+
+    --menu-background:#65758B;
+    --menu-text:#FDFDFD;
+    --menu-active:#1B1F25;
+    --new-menu-active: #2463EB;
+
+    --hero-background:linear-gradient(0deg, #0F1729 58%, #2463EB 151.53%);
+    --hero-p: #88909C;
+
+    --play-background:linear-gradient(0deg, #0F1729 18%, #2463EB 251.53%);
+    --play-card-bg: #254387;
+
+    --play-tag-bg:#fdfdfd34;
+
+    --levels-background:linear-gradient(0deg, #0F1729 20%, #2463EB 251.53%);
+
+    --demo-bg:  
+        linear-gradient(0deg, #090e19 65%, #17429d 140%),
+        linear-gradient(180deg, #090e19 75%, #17429d 160%);
+}
+
+
+
+
 
 
