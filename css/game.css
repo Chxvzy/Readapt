@@ -1412,11 +1412,6 @@ body.dark {
         color:var(--text);
     }
 
-
-    /* =========================
-       GAME HERO
-    ========================= */
-
     .game-hero{
         position:relative;
         width:100%;
@@ -1456,9 +1451,7 @@ body.dark {
     }
 
 
-    /* =========================
-       HERO TEXT
-    ========================= */
+    
 
     .game-top{
         position:absolute;
@@ -1517,9 +1510,6 @@ body.dark {
     }
 
 
-    /* =========================
-       BOTÕES
-    ========================= */
 
     .game-buttons{
         position:absolute;
@@ -1583,9 +1573,7 @@ body.dark {
     }
 
 
-    /* =========================
-       STATS
-    ========================= */
+   
 
     .game-stats{
         position:absolute;
@@ -1630,9 +1618,6 @@ body.dark {
     }
 
 
-    /* =========================
-       GAME IMAGE
-    ========================= */
 
     .game-image{
         position:absolute;
@@ -1658,9 +1643,6 @@ body.dark {
     }
 
 
-    /* =========================
-       PLAY
-    ========================= */
 
     .play-section{
         padding:55px 5%;
@@ -1747,9 +1729,7 @@ body.dark {
     }
 
 
-    /* =========================
-       STORY
-    ========================= */
+   
 
     .story-section{
         width:100%;
@@ -1835,9 +1815,6 @@ body.dark {
     }
 
 
-    /* =========================
-       LEVELS
-    ========================= */
 
     .levels-section{
         padding:70px 5% 80px;
@@ -1949,9 +1926,7 @@ body.dark {
     }
 
 
-    /* =========================
-       GAMEPLAY
-    ========================= */
+   
 
     .gameplay-section{
         width:100%;
@@ -2059,9 +2034,6 @@ body.dark {
     }
 
 
-    /* =========================
-       DEMONSTRATION
-    ========================= */
 
     .new-tag{
         margin-top:70px;
@@ -2161,9 +2133,6 @@ body.dark {
     }
 
 
-    /* =========================
-       FOOTER
-    ========================= */
 
     .footer-desktop{
         background-color:#191c26;
@@ -2276,9 +2245,10 @@ body.dark {
     }
 
 
-    /* =========================
-       DARK MODE
-    ========================= */
+    
+/* AQUI COMEÇA O DARK MODE */
+
+
 
     body.dark header{
         background:var(--header);
