@@ -1151,7 +1151,7 @@ body.dark {
        width: 732px;
     margin: 85px auto 0;
     padding-bottom: 200px;
-    margin-left: 315px;
+    margin-left: 1px;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     column-gap: 31px;
