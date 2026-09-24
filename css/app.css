@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ==========================================================================
+   RESET & ESTRUTURA GLOBAL (SPA COM BLOQUEIO DE SCROLL)
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden !important; /* Impede a rolagem na página inteira */
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+}
+
+/* Força botões e inputs a herdarem a fonte Poppins */
+button, input, select, textarea {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Oculta todos os ecrãs por padrão */
+.screen {
+  display: none !important;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+}
+
+/* Exibe apenas o ecrã ativo */
+.screen.active {
+  display: flex !important;
+}
+
+/* ==========================================================================
+   1. TELA DE CARREGAMENTO (LOADING)
+   ========================================================================== */
+#screen-loading {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #FCFCFC;
+}
+
+.brand-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.brand-logo {
+  width: 170px;
+  height: auto;
+  display: block;
+}
+
+.logo-text p {
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 30px;
+  font-weight: 800;
+  color: #2463EB; 
+}
+
+.logo-text strong {
+  color: #F22525;
+  font-weight: 800;
+}
+
+
+/* ==========================================================================
+   2. TELA DE BOAS-VINDAS (WELCOME)
+   ========================================================================== */
+#screen-welcome {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 30px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* Imagem de Fundo (Ajustada para cobrir o fundo sem sumir) */
+.welcome-bg {
+  position: absolute;
+  top: -45px;
+  left: 50px;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.welcome-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 375px;
+  padding: 0 20px 30px 20px;
+}
+
+/* Ilustração do Mascote (Distância reduzida) */
+.welcome-illustration {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+  margin-bottom: 10px; /* Reduz o espaço entre o robô e o título */
+}
+
+.mascot-img {
+  width: 100%;
+  max-width: 354px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Bloco de Texto */
+.welcome-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px; /* Espaço até aos botões */
+}
+
+.welcome-content h2 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 25px;
+  font-weight: 600;
+  color: #1F41BB;
+  max-width: 295px;
+  margin-bottom: 30px;
+}
+
+.welcome-content p {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 10px;
+  font-weight: 400;
+  color: #000000;
+  max-width: 237px;
+}
+
+/* Botões */
+.welcome-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-app-solid {
+  width: 120px;
+  height: 52px;
+  background-color: #2463EB;
+  color: #FDFDFD;
+  border: none;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-app-outline {
+  width: 130px;
+  height: 52px;
+  background-color: transparent;
+  color: #1F41BB;
+  border: 1px solid #2463EB;
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-app-solid:active,
+.btn-app-outline:active {
+  opacity: 0.85;
+}
