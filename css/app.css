@@ -388,3 +388,74 @@ button, input, select, textarea {
 .btn-social:active {
   background-color: #e0e0e0;
 }
+
+/* ==========================================================================
+   4. TELA DE CADASTRO
+   ========================================================================== */
+#screen-register {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 70px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.register-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 375px;
+  padding: 0 30px 40px 30px;
+}
+
+/* Cabeçalho */
+.register-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.register-header h2 {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 30px;
+  font-weight: 700;
+  color: #1F41BB;
+  margin-bottom: 25px;
+}
+
+.register-header p {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 1.4;
+}
+
+/* Formulário */
+.register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-form .input-group {
+  margin-bottom: 22px;
+}
+
+/* Ajustes específicos do botão e link de cadastro */
+.btn-register {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.link-login {
+  margin-bottom: 0;
+}

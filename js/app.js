@@ -49,7 +49,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnRegister = document.querySelector("#screen-welcome .btn-app-outline");
     if (btnRegister) {
         btnRegister.addEventListener("click", () => {
-            alert("Tela de cadastro a ser implementada!");
+            showScreen("screen-register");
         });
     }
+
+    const btnGoToRegister = document.querySelector("#screen-login .btn-secondary-link");
+if (btnGoToRegister) {
+    btnGoToRegister.addEventListener("click", (e) => {
+        e.preventDefault();
+        showScreen("screen-register");
+    });
+}
+
+// Direciona o link "Já tenho uma conta" no Cadastro para o Login
+const btnGoToLogin = document.querySelector("#screen-register .link-login");
+if (btnGoToLogin) {
+    btnGoToLogin.addEventListener("click", (e) => {
+        e.preventDefault();
+        showScreen("screen-login");
+    });
+}
 });
+
