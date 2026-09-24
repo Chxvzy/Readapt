@@ -6,7 +6,7 @@ document.querySelectorAll('.references-filter a').forEach(link => {
       const targetElement = document.querySelector(targetId);
       
       if (targetElement) {
-        scrollToElement(targetElement, 800); 
+        scrollToElement(targetElement, 100); 
       }
     });
   });
