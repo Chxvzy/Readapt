@@ -1027,12 +1027,12 @@ box-sizing:border-box;
         background:var(--header);
     }
 
-    body.dark #logo-mobile{
-        max-width: 45px; 
-        height: auto;
-        object-fit: contain;
-        margin-left: 5px;
-    }
+    body.dark .logo img {
+  width: 45px;
+  height: auto;          /* Ajuste o tamanho do ícone conforme necessário */
+  object-fit: contain; 
+  margin-left: 7px;    /* Garante que o Flexbox não estique o elemento */
+}
 
     body.dark .logo-text {
         margin-left: 5px;
