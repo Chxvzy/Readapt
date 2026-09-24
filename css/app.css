@@ -341,7 +341,7 @@ button, input, select, textarea {
   font-weight: 600;
   color: #65758B;
   text-decoration: none;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
 }
 
 /* Seção Social */
@@ -357,7 +357,7 @@ button, input, select, textarea {
   font-size: 14px;
   font-weight: 600;
   color: #1F41BB;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .social-buttons {
