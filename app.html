@@ -64,6 +64,62 @@
             </div>
         </section>
 
+        <!-- ==========================================
+     3. TELA DE LOGIN
+     ========================================== -->
+<section id="screen-login" class="screen">
+    <!-- Imagem de Fundo Decorativa (Mesma posição) -->
+    <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
+
+    <div class="login-container">
+        <!-- Cabeçalho -->
+        <div class="login-header">
+            <h2>Faça seu Login</h2>
+            <p>Bem-vindo de volta!<br>Sentimos sua falta!</p>
+        </div>
+
+        <!-- Formulário de Login -->
+        <form class="login-form" onsubmit="event.preventDefault();">
+            <div class="input-group">
+                <input type="email" placeholder="Email" class="app-input active" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" placeholder="Senha" class="app-input" required>
+            </div>
+
+            <div class="forgot-password">
+                <a href="#">Esqueceu sua senha?</a>
+            </div>
+
+            <button type="submit" class="btn-primary">Entrar</button>
+        </form>
+
+        <a href="#" class="btn-secondary-link">Criar nova conta</a>
+
+<!-- Login Social -->
+<div class="social-login-section">
+    <p class="social-title">Ou continue com</p>
+    <div class="social-buttons">
+        <!-- Google -->
+        <button type="button" class="btn-social" aria-label="Login com Google">
+            <img src="assets/google-logo.png" alt="Google">
+        </button>
+
+        <!-- Facebook -->
+        <button type="button" class="btn-social" aria-label="Login com Facebook">
+            <img src="assets/facebook-logo.png" alt="Facebook">
+        </button>
+
+        <!-- Apple -->
+        <button type="button" class="btn-social" aria-label="Login com Apple">
+            <img src="assets/apple-logo.png" alt="Apple">
+        </button>
+    </div>
+</div>
+    </div>
+</section>
+
     </main>
 
     <!-- Script de Navegação entre Telas -->
