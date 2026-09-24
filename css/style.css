@@ -687,6 +687,21 @@
             border-radius:20px;
     
         }
+
+        .benefits-tag{
+            margin-top: 30px;
+            margin-left: -11px;
+            padding:5px 12px;
+            background-color: var(--primary-20);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            font-size: 8px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            border-radius:30px;
+    
+        }
     
         .benefits{
     
