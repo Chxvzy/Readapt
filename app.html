@@ -65,99 +65,194 @@
         </section>
 
         <!-- ==========================================
-     3. TELA DE LOGIN
-     ========================================== -->
-<section id="screen-login" class="screen">
-    <!-- Imagem de Fundo Decorativa (Mesma posição) -->
-    <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
+             3. TELA DE LOGIN
+             ========================================== -->
+        <section id="screen-login" class="screen">
+            <!-- Imagem de Fundo Decorativa -->
+            <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
 
-    <div class="login-container">
-        <!-- Cabeçalho -->
-        <div class="login-header">
-            <h2>Faça seu Login</h2>
-            <p>Bem-vindo de volta!<br>Sentimos sua falta!</p>
-        </div>
+            <div class="login-container">
+                <!-- Cabeçalho -->
+                <div class="login-header">
+                    <h2>Faça seu Login</h2>
+                    <p>Bem-vindo de volta!<br>Sentimos sua falta!</p>
+                </div>
 
-        <!-- Formulário de Login -->
-        <form class="login-form" onsubmit="event.preventDefault();">
-            <div class="input-group">
-                <input type="email" placeholder="Email" class="app-input active" required>
+                <!-- Formulário de Login -->
+                <form class="login-form" onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <input type="email" placeholder="Email" class="app-input active" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" placeholder="Senha" class="app-input" required>
+                    </div>
+
+                    <div class="forgot-password">
+                        <a href="#">Esqueceu sua senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+
+                <a href="#" class="btn-secondary-link">Criar nova conta</a>
+
+                <!-- Login Social -->
+                <div class="social-login-section">
+                    <p class="social-title">Ou continue com</p>
+                    <div class="social-buttons">
+                        <!-- Google -->
+                        <button type="button" class="btn-social" aria-label="Login com Google">
+                            <img src="assets/google-logo.png" alt="Google">
+                        </button>
+
+                        <!-- Facebook -->
+                        <button type="button" class="btn-social" aria-label="Login com Facebook">
+                            <img src="assets/facebook-logo.png" alt="Facebook">
+                        </button>
+
+                        <!-- Apple -->
+                        <button type="button" class="btn-social" aria-label="Login com Apple">
+                            <img src="assets/apple-logo.png" alt="Apple">
+                        </button>
+                    </div>
+                </div>
             </div>
-            
-            <div class="input-group">
-                <input type="password" placeholder="Senha" class="app-input" required>
+        </section>
+
+        <!-- ==========================================
+             4. TELA DE CADASTRO
+             ========================================== -->
+        <section id="screen-register" class="screen">
+            <!-- Imagem de Fundo Decorativa -->
+            <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
+
+            <div class="register-container">
+                <!-- Cabeçalho -->
+                <div class="register-header">
+                    <h2>Crie sua Conta</h2>
+                    <p>Crie uma conta para poder explorar<br>todas as atividades disponíveis.</p>
+                </div>
+
+                <!-- Formulário de Cadastro -->
+                <form class="register-form" onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <input type="email" placeholder="Email" class="app-input active" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" placeholder="Senha" class="app-input" required>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" placeholder="Confirmar senha" class="app-input" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-register">Cadastrar</button>
+                </form>
+
+                <a href="#" class="btn-secondary-link link-login">Já tenho uma conta</a>
             </div>
+        </section>
 
-            <div class="forgot-password">
-                <a href="#">Esqueceu sua senha?</a>
-            </div>
+        <!-- ==========================================
+             5. TELA PRINCIPAL (DASHBOARD)
+             ========================================== -->
+        <section id="screen-main" class="screen">
+            <!-- Cabeçalho Superior -->
+            <header class="app-header">
+                <h1 class="app-title">Readapt</h1>
+            </header>
 
-            <button type="submit" class="btn-primary">Entrar</button>
-        </form>
+            <!-- Conteúdo da Tela -->
+            <div class="app-body">
+                <!-- Card de Perfil -->
+                <div class="profile-card">
+                    <div class="profile-avatar" id="btn-edit-photo" title="Alterar Foto">
+                        <img src="assets/perfil-img.png" alt="Foto do Usuário">
+                    </div>
+                    
+                    <div class="profile-info">
+                        <h2 class="profile-name">Arthur</h2>
+                        <p class="profile-role">Leitor Iniciante</p>
+                    </div>
 
-        <a href="#" class="btn-secondary-link">Criar nova conta</a>
+                    <div class="profile-actions">
+                        <span class="level-badge">Nvl. <strong>3</strong></span>
+                        <button type="button" class="btn-edit-profile" id="btn-edit-name" aria-label="Editar Nome">
+                            <img src="assets/edit-perfil.svg" alt="Editar">
+                        </button>
+                    </div>
+                </div>
 
-<!-- Login Social -->
-<div class="social-login-section">
-    <p class="social-title">Ou continue com</p>
-    <div class="social-buttons">
-        <!-- Google -->
-        <button type="button" class="btn-social" aria-label="Login com Google">
-            <img src="assets/google-logo.png" alt="Google">
-        </button>
+<!-- Seção do Gráfico com os 4 Confetes -->
+<div class="chart-container">
+  <div class="donut-chart-wrapper">
+    <!-- Confetes da Esquerda -->
+    <img src="assets/confetes.png" alt="" class="confetti-img confetti-left-top confetti-sm">
+    <img src="assets/confetes.png" alt="" class="confetti-img confetti-left-bottom confetti-lg">
 
-        <!-- Facebook -->
-        <button type="button" class="btn-social" aria-label="Login com Facebook">
-            <img src="assets/facebook-logo.png" alt="Facebook">
-        </button>
-
-        <!-- Apple -->
-        <button type="button" class="btn-social" aria-label="Login com Apple">
-            <img src="assets/apple-logo.png" alt="Apple">
-        </button>
+    <!-- Gráfico -->
+    <div class="donut-chart">
+      <div class="donut-center">
+        <span class="chart-percent">75%</span>
+        <span class="chart-label">Progresso Geral</span>
+      </div>
     </div>
+
+    <!-- Confetes da Direita -->
+    <img src="assets/confetes.png" alt="" class="confetti-img confetti-right-top confetti-lg">
+    <img src="assets/confetes.png" alt="" class="confetti-img confetti-right-bottom confetti-sm">
+  </div>
 </div>
+
+                <!-- Card de Conquistas -->
+                <div class="achievements-card">
+                    <div class="achievement-icon">
+                        <img src="assets/trofeu-conquistas.png" alt="Troféu Conquistas">
+                    </div>
+                    <div class="achievement-info">
+                        <h3>Conquistas</h3>
+                        <p>Continue praticando para desbloquear novas conquistas!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             MODAIS / POP-UPS
+             ========================================== -->
+        <!-- Pop-up de Login -->
+<div id="popup-login" class="popup-overlay">
+  <div class="popup-card">
+    <!-- Chama a nova função ao clicar no "X" -->
+    <button type="button" class="popup-close" onclick="fecharPopupEIrParaMain('popup-login')" aria-label="Fechar">
+      <img src="assets/x-icon.svg" alt="Fechar">
+    </button>
+    <div class="popup-content">
+      <h2>Login realizado com sucesso!</h2>
+      <p>Você terá acesso ilimitado aos conteúdos.</p>
     </div>
-</section>
+  </div>
+</div>
 
-<!-- ==========================================
-     4. TELA DE CADASTRO
-     ========================================== -->
-<section id="screen-register" class="screen">
-    <!-- Imagem de Fundo Decorativa -->
-    <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
-
-    <div class="register-container">
-        <!-- Cabeçalho -->
-        <div class="register-header">
-            <h2>Crie sua Conta</h2>
-            <p>Crie uma conta para poder explorar<br>todas as atividades disponíveis.</p>
-        </div>
-
-        <!-- Formulário de Cadastro -->
-        <form class="register-form" onsubmit="event.preventDefault();">
-            <div class="input-group">
-                <input type="email" placeholder="Email" class="app-input active" required>
-            </div>
-            
-            <div class="input-group">
-                <input type="password" placeholder="Senha" class="app-input" required>
-            </div>
-
-            <div class="input-group">
-                <input type="password" placeholder="Confirmar senha" class="app-input" required>
-            </div>
-
-            <button type="submit" class="btn-primary btn-register">Cadastrar</button>
-        </form>
-
-        <a href="#" class="btn-secondary-link link-login">Já tenho uma conta</a>
+        <!-- Pop-up de Cadastro -->
+<div id="popup-cadastro" class="popup-overlay">
+  <div class="popup-card">
+    <!-- Chama a nova função ao clicar no "X" -->
+    <button type="button" class="popup-close" onclick="fecharPopupEIrParaMain('popup-cadastro')" aria-label="Fechar">
+      <img src="assets/x-icon.svg" alt="Fechar">
+    </button>
+    <div class="popup-content">
+      <h2>Cadastro realizado com sucesso!</h2>
+      <p>Você terá acesso ilimitado aos conteúdos.</p>
     </div>
-</section>
+  </div>
+</div>
 
     </main>
 
-    <!-- Script de Navegação entre Telas -->
+    <!-- Script de Navegação e Lógica da Aplicação -->
     <script src="js/app.js"></script>
 </body>
 </html>
