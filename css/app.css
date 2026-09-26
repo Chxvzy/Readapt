@@ -728,7 +728,7 @@ button, input, select, textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 0;
+  padding: 50px 0;
 }
 
 /* Wrapper fixo do gráfico que segura os confetes nas bordas */
@@ -880,4 +880,381 @@ button, input, select, textarea {
   color: #6C6C6C;
   margin: 0;
   width: 152px;
+}
+
+/* ==========================================================================
+   SECÇÃO DE DESEMPENHO
+   ========================================================================== */
+
+.performance-section {
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-sizing: border-box;
+  
+  padding-top: 40px;
+}
+
+.section-title {
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 20px;
+  font-weight: 800;
+  color: #1D4EB8;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.period-filter {
+  display: inline-flex;
+  width: 233px;
+  height: 32px;
+  background-color: #F1F5F9;
+  border-radius: 12px;
+  align-self: flex-start;
+  overflow: hidden; /* Mantém os cantos arredondados nos botões das pontas */
+  box-sizing: border-box;
+}
+
+.period-btn {
+  flex: 1; /* Divide o espaço de forma igual entre os 3 botões */
+  height: 100%;
+  background: transparent;
+  border: none;
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 15px;
+  font-weight: 800;
+  color: #1D4EB8;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+/* Linha vertical divisória entre os botões */
+.period-btn + .period-btn {
+  border-left: 1px solid #2563EB;
+}
+
+/* Esconde a linha divisória nas laterais do botão selecionado */
+.period-btn.active,
+.period-btn.active + .period-btn {
+  border-left-color: transparent;
+}
+
+/* Botão selecionado */
+.period-btn.active {
+  background-color: #6B8CEF; /* Azul suave do ativo */
+  color: #FFFFFF;
+}
+
+/* Cartões de Desempenho */
+.performance-card {
+  width: 100%;
+  max-width: 330px;
+  max-height: 180px;
+  background-color: #F1F5F9;
+  border-radius: 20px;
+  padding: 18px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  color: #2563EB;
+  margin: 0;
+}
+
+.trend-badge {
+  font-family: 'Nunito', sans-serif ;
+  font-size: 15px;  
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 800;
+  color: #2563EB
+}
+
+.trend-badge .trend-icon {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+}
+
+.trend-badge .trend-icon[src*="arrow-green"] {
+    width: 23px;  /* Ajusta a largura para o valor pretendido */
+    height: 35px; /* Ajusta a altura para o valor pretendido */
+}
+
+.trend-up {
+  color: #10B981;
+}
+
+.trend-down {
+  color: #EAB308;
+}
+
+/* Estrutura do Gráfico */
+.chart-box {
+  display: flex;
+  align-items: flex-start; /* Alinha o eixo Y com o topo do gráfico */
+  gap: 6px;                /* Reduz o espaço, aproximando os números do gráfico */
+  width: 100%;
+}
+
+.y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90px;            /* Mesma altura exata do .line-chart */
+  font-family: 'Nunito', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #6C6C6C;
+  text-align: right;
+  align-items: center;    /* Garante que os números fiquem alinhados à direita */
+  padding: 0; 
+  margin-right: 5px;             /* Remove o padding que empurrava os números para cima */
+  box-sizing: border-box;
+}
+
+.chart-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.line-chart {
+  width: 100%;
+  height: 90px;
+  border-radius: 4px;
+  padding: 0;              /* Removido o padding para o gráfico ir de ponta a ponta */
+  overflow: visible;       /* Evita que os pontos das extremidades fiquem cortados */
+  box-sizing: border-box;
+}
+
+.x-axis {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Nunito', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  color: #6C6C6C;
+  padding: 0;             /* Garante que "Inicio" e "Hoje" comecem e terminem exatamente nas bordas */
+  width: 100%;
+}
+
+.line-chart {
+  display: none;
+  width: 100%;
+  height: 90px;
+  border-radius: 4px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Exibe apenas o gráfico do período ativo */
+.line-chart.active {
+  display: block;
+}
+
+.chart-content svg.line-chart {
+    display: none !important;
+}
+
+/* Exibe APENAS o SVG que estiver ativo e força a altura */
+.chart-content svg.line-chart.active {
+    display: block !important;
+    width: 100%;
+    height: 80px; /* Garante que o SVG ocupe o espaço correto e não colapse */
+}
+
+/* Container Principal */
+.history-container {
+    font-family: 'Nunito', sans-serif;
+    max-width: 330px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.history-title {
+    color: #2563EB;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+/* Lista de Cards */
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Card Base */
+.history-card {
+    width: 100%;
+    max-width: 330px;
+    height: 77px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-radius: 22px;
+    color: #FFFFFF;
+    border: 4px solid #E6EAF2;
+    box-sizing: border-box;
+}
+
+/* Variações de Cores dos Cards */
+.history-card.yellow { background-color: #ffcc00c9; }
+.history-card.red    { background-color: #ff3b3ec9; }
+.history-card.blue   { background-color: #2563ffc9; }
+.history-card.green  { background-color: #00cc88c9; }
+
+/* Wrapper do Ícone (Fundo na mesma cor do card com transparência e borda) */
+.card-icon-box {
+    width: 38px;
+    height: 38px;
+    background-color: rgba(255, 255, 255, 0.0);
+    border: 2px solid #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    margin-left: -2px;
+}
+
+.card-icon-box img {
+    width: 31px;
+    height: 26px;
+    object-fit: contain;
+}
+
+/* 1º card */
+.history-list .history-card:nth-child(1) .card-icon-box img{
+  margin-left: 4px;
+  margin-top: 3px;
+}
+
+/* 2º card */
+.history-list .history-card:nth-child(2) .card-icon-box img {
+margin-left: 3px;
+}
+
+/* Informações Centrais */
+.card-content {
+    flex: 1;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+
+/* Linha com Matéria + Barra lado a lado */
+.subtitle-progress-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100px;
+}
+
+.card-subtitle {
+    color: #FCFCFC;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Barra de Progresso (preenche o espaço ao lado) */
+.progress-bar {
+    width: 80px;       /* Medida exata do Figma */
+    height: 4px;       /* Medida exata do Figma */
+    flex: none;        /* Impede que a barra estique tomando o espaço restante */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.yellow .progress-bar { background-color: #FFF066; }
+.red .progress-bar    { background-color: #FF8A8D; }
+.blue .progress-bar   { background-color: #2563FF; }
+
+.progress-fill {
+    height: 100%;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+/* Lado Direito (Tempo e Pontuação) */
+.card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+    margin-right: -2px;
+}
+
+.card-time {
+    font-size: 8px;
+    font-weight: 800;
+    color: #FCFCFC;
+}
+
+.card-score {
+    background-color: #FCFCFC;
+    padding: 1px 9px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    width: 36px;
+    height: 16px;
+}
+
+/* Cor do texto do Score correspondente à cor do card */
+.yellow .card-score { color: #FFCC00; }
+.red .card-score    { color: #FF3B3F; }
+.blue .card-score   { color: #2563FF; }
+.green .card-score  { color: #00CC88; }
+
+/* Seleciona APENAS os .card-title que estão DENTRO do .history-container */
+.history-container .card-title {
+    color: #FCFCFC;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+/* Aplica estas regras APENAS quando a tela for menor ou igual a 346px */
+@media (max-width: 346px) {
+
+    .history-container .card-title {
+        font-size: 16px;
+    }
+
 }

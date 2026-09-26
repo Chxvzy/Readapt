@@ -134,3 +134,52 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const periodButtons = document.querySelectorAll('.period-btn');
+
+  periodButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove a classe 'active' de todos os botões
+      periodButtons.forEach(btn => btn.classList.remove('active'));
+
+      // Adiciona a classe 'active' apenas no botão clicado
+      button.classList.add('active');
+    });
+  });
+});
+
+document.querySelectorAll('.period-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const period = button.getAttribute('data-period'); // 'dia', 'semana' ou 'mes'
+
+        // 1. Atualiza botão ativo
+        document.querySelectorAll('.period-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // 2. Atualiza os gráficos visíveis
+        document.querySelectorAll('.chart-content svg.line-chart').forEach(chart => {
+            chart.classList.remove('active');
+        });
+        document.querySelectorAll(`.chart-content svg.line-chart.${period}`).forEach(chart => {
+            chart.classList.add('active');
+        });
+
+        // 3. Atualiza o ícone SVG e a porcentagem
+        document.querySelectorAll('.trend-badge').forEach(badge => {
+            const newText = badge.getAttribute(`data-${period}`);
+            const newIcon = badge.getAttribute(`data-${period}-icon`);
+
+            const textElement = badge.querySelector('.trend-text');
+            const iconElement = badge.querySelector('.trend-icon');
+
+            if (newText && textElement) {
+                textElement.textContent = newText;
+            }
+
+            if (newIcon && iconElement) {
+                iconElement.src = newIcon;
+            }
+        });
+    });
+});
