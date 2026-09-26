@@ -640,7 +640,7 @@ button, input, select, textarea {
   height: 53px;
   min-width: 53px;
   border-radius: 15px;
-  border: 4px solid #2463EB;
+  border: 3px solid #2463EB;
   overflow: hidden;
   background-color: #E2E8F0;
   display: flex;
