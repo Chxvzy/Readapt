@@ -13,50 +13,47 @@
 html, body {
   width: 100%;
   height: 100%;
-  max-height: 100dvh;
+  /* Força a altura exata do espaço visível com a barra do navegador aberta */
+  height: 100svh;
   margin: 0;
   padding: 0;
-  overflow: hidden !important; /* Impede a rolagem na página inteira */
+  overflow: hidden !important; 
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #ffffff;
 }
 
-/* Força botões e inputs a herdarem a fonte Poppins */
 button, input, select, textarea {
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 }
 
 .app-container {
   width: 100%;
-  height: 100dvh;
+  height: 100%;
   position: relative;
   overflow: hidden;
 }
 
-/* Oculta todos os ecrãs por padrão */
 .screen {
   display: none !important;
   width: 100%;
-  height: 100dvh;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   box-sizing: border-box;
+  /* Margem de segurança para o rodapé não colar no limite inferior */
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
 }
 
-/* Exibe apenas o ecrã ativo */
 .screen.active {
   display: flex !important;
 }
 
-/* ==========================================================================
-   1. TELA DE CARREGAMENTO (LOADING)
-   ========================================================================== */
 #screen-loading {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100dvh;
+  height: 100%;
   width: 100%;
   background-color: #FCFCFC;
 }
@@ -97,7 +94,7 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100dvh;
+  min-height: 100vh;
   width: 100%;
   padding-top: 30px;
   background-color: #ffffff;
@@ -220,7 +217,7 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100dvh;
+  min-height: 100vh;
   width: 100%;
   padding-top: 70px;
   background-color: #ffffff;
@@ -398,7 +395,7 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100dvh;
+  min-height: 100vh;
   width: 100%;
   padding-top: 70px;
   background-color: #ffffff;
@@ -579,7 +576,7 @@ button, input, select, textarea {
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
-  min-height: 100dvh;
+  min-height: 100vh;
   background-color: #2563EB;
   overflow-y: auto;
   box-sizing: border-box;
