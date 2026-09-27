@@ -473,7 +473,6 @@ button, input, select, textarea {
   align-items: center;
   padding: 20px;
   z-index: 1000;
-  
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -486,43 +485,48 @@ button, input, select, textarea {
 
 .popup-card {
   position: relative;
-  max-width: 375px;
-  height: 200px;
+  width: 100%;
+  max-width: 340px; /* Adapta-se a qualquer largura de ecrã */
+  min-height: 170px; /* Usa min-height em vez de height fixo */
+  height: auto;      /* Permite expandir se o texto quebrar em mais linhas */
   background: #ffffff;
   border-radius: 20px;
-  padding: 40px 30px;
+  padding: 32px 20px 24px 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   transform: scale(0.9);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* Centraliza o bloco .popup-content no meio do card */
+  align-items: center;
 }
 
 .popup-overlay.active .popup-card {
   transform: scale(1);
 }
 
-/* Container do texto que força o alinhamento interno à esquerda */
+/* Conteúdo interno responsivo */
 .popup-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
   width: 100%;
-  max-width: 290px; /* Limita a largura para o bloco ficar centrado */
 }
 
 .popup-content h2 {
+  width: 100%;
+  max-width: 280px; /* Limite fluido em vez de largura fixa */
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-weight: 600;
   color: #1F41BB;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .popup-content p {
+  width: 100%;
+  max-width: 250px;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   font-weight: 400;
@@ -530,11 +534,11 @@ button, input, select, textarea {
   margin: 0;
 }
 
-/* Botão Fechar */
+/* Botão Fechar interno do popup */
 .popup-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 16px;
+  right: 16px;
   background: none;
   border: none;
   cursor: pointer;
@@ -544,8 +548,8 @@ button, input, select, textarea {
 }
 
 .popup-close img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   display: block;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
@@ -554,15 +558,6 @@ button, input, select, textarea {
   opacity: 0.75;
   transform: scale(1.1);
 }
-
-#popup-login .popup-card {
-  padding-left: 42px; /* Aumente ou diminua este valor para mover o texto para a direita/esquerda */
-}
-
-#popup-cadastro .popup-card {
-  padding-left: 32px;
-}
-
 /* ==========================================================================
    CORREÇÃO COMPLETA: TELA PRINCIPAL (#screen-main)
    ========================================================================== */
