@@ -238,7 +238,7 @@ button, input, select, textarea {
 /* Cabeçalho */
 .login-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 65px;
 }
 
 .login-header h2 {
@@ -338,7 +338,7 @@ button, input, select, textarea {
   font-weight: 600;
   color: #65758B;
   text-decoration: none;
-  margin-bottom: 60px;
+  margin-bottom: 55px;
 }
 
 /* Seção Social */
@@ -416,7 +416,7 @@ button, input, select, textarea {
 /* Cabeçalho */
 .register-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 66px;
 }
 
 .register-header h2 {
