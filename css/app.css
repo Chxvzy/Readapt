@@ -129,8 +129,8 @@ button, input, select, textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
-  margin-bottom: 5px; /* Reduz o espaço entre o robô e o título */
+  margin-top: 35px;
+  margin-bottom: 10px; /* Reduz o espaço entre o robô e o título */
 }
 
 .mascot-img {
@@ -146,7 +146,7 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 50px; /* Espaço até aos botões */
+  margin-bottom: 70px; /* Espaço até aos botões */
 }
 
 .welcome-content h2 {
@@ -155,7 +155,7 @@ button, input, select, textarea {
   font-weight: 600;
   color: #1F41BB;
   max-width: 295px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .welcome-content p {
@@ -219,7 +219,7 @@ button, input, select, textarea {
   justify-content: flex-start;
   min-height: 100vh;
   width: 100%;
-  padding-top: 70px;
+  padding-top: 80px;
   background-color: #ffffff;
   overflow: hidden;
 }
@@ -238,7 +238,7 @@ button, input, select, textarea {
 /* Cabeçalho */
 .login-header {
   text-align: center;
-  margin-bottom: 65px;
+  margin-bottom: 80px;
 }
 
 .login-header h2 {
@@ -266,7 +266,7 @@ button, input, select, textarea {
 
 .input-group {
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 .app-input {
@@ -299,7 +299,7 @@ button, input, select, textarea {
   width: 100%;
   text-align: right;
   margin-top: -10px;
-  margin-bottom: 70px;
+  margin-bottom: 80px;
 }
 
 .forgot-password a {
@@ -324,6 +324,7 @@ button, input, select, textarea {
   cursor: pointer;
   transition: opacity 0.2s ease, transform 0.1s ease;
   margin-bottom: 30px;
+  margin-top: 5px;
 }
 
 .btn-primary:active {
@@ -338,7 +339,7 @@ button, input, select, textarea {
   font-weight: 600;
   color: #65758B;
   text-decoration: none;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 /* Seção Social */
@@ -354,7 +355,7 @@ button, input, select, textarea {
   font-size: 14px;
   font-weight: 600;
   color: #1F41BB;
-  margin-bottom: 15px;
+  margin-bottom: 25px;
 }
 
 .social-buttons {
@@ -397,7 +398,7 @@ button, input, select, textarea {
   justify-content: flex-start;
   min-height: 100vh;
   width: 100%;
-  padding-top: 70px;
+  padding-top: 80px;
   background-color: #ffffff;
   overflow: hidden;
 }
@@ -416,7 +417,7 @@ button, input, select, textarea {
 /* Cabeçalho */
 .register-header {
   text-align: center;
-  margin-bottom: 66px;
+  margin-bottom: 85px;
 }
 
 .register-header h2 {
@@ -444,13 +445,13 @@ button, input, select, textarea {
 }
 
 .register-form .input-group {
-  margin-bottom: 22px;
+  margin-bottom: 19px;
 }
 
 /* Ajustes específicos do botão e link de cadastro */
 .btn-register {
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .link-login {
@@ -590,6 +591,44 @@ button, input, select, textarea {
   text-align: center;
   box-sizing: border-box;
   flex-shrink: 0;
+}
+
+#screen-main .app-header img {
+  width: 39px;
+  height: 36px;
+  margin-bottom: -5px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  text-decoration: none; /* Remove sublinhados de links */
+}
+
+.close-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.login-container .close-btn {
+  transform: translateY(-70px);
+  right: 20px;
+}
+
+.welcome-container .close-btn {
+  transform: translateY(-20px);
+  right: 20px;
+}
+
+.register-container .close-btn {
+  transform: translateY(-70px);
+  right: 20px;
 }
 
 #screen-main .app-title {
@@ -1254,4 +1293,30 @@ margin-left: 3px;
         font-size: 16px;
     }
 
+}
+
+.readapt-footer {
+  width: 100%;
+  background-color: #2463EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 14px 0 max(14px, env(safe-area-inset-bottom));
+  flex-shrink: 0;
+  margin-bottom: -35px; /* Puxa e trava a barra no final exato da tela */
+}
+
+.readapt-footer-logo {
+  width: 24px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.readapt-footer-text {
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  margin-top: 5px;
 }
