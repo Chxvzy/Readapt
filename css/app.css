@@ -129,8 +129,8 @@ button, input, select, textarea {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 35px;
-  margin-bottom: 10px; /* Reduz o espaço entre o robô e o título */
+  margin-top: 25px;
+  margin-bottom: 5px; /* Reduz o espaço entre o robô e o título */
 }
 
 .mascot-img {
@@ -146,7 +146,7 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 60px; /* Espaço até aos botões */
+  margin-bottom: 50px; /* Espaço até aos botões */
 }
 
 .welcome-content h2 {
