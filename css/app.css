@@ -12,12 +12,10 @@
 
 html, body {
   width: 100%;
-  min-height: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
-  /* Libera o scroll apenas na vertical */
-  overflow-x: hidden;
-  overflow-y: auto; 
+  overflow: hidden !important;
   font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: #ffffff;
 }
@@ -28,17 +26,23 @@ button, input, select, textarea {
 
 .app-container {
   width: 100%;
-  /* Adiciona 1px a mais que a tela para ativar o gatilho de scroll do navegador */
-  min-height: calc(100dvh + 1px);
+  /* Trava na altura exata capturada pelo JS */
+  height: var(--app-height, 100vh); 
   position: relative;
+  overflow: hidden;
 }
 
 .screen {
   display: none !important;
   width: 100%;
-  min-height: 100dvh;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   box-sizing: border-box;
-  padding-bottom: calc(24px + env(safe-area-inset-bottom));
+  
+  /* Margem de segurança física para afastar o conteúdo dos botões do sistema */
+  padding-bottom: 36px;
 }
 
 .screen.active {
@@ -49,7 +53,7 @@ button, input, select, textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100dvh;
+  height: 100%;
   width: 100%;
   background-color: #FCFCFC;
 }

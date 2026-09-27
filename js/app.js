@@ -183,3 +183,13 @@ document.querySelectorAll('.period-btn').forEach(button => {
         });
     });
 });
+
+function setRealAppHeight() {
+    const doc = document.documentElement;
+    doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+}
+
+// Executa ao carregar e sempre que a tela redimensionar
+window.addEventListener('resize', setRealAppHeight);
+window.addEventListener('orientationchange', setRealAppHeight);
+setRealAppHeight();
