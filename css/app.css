@@ -594,15 +594,15 @@ button, input, select, textarea {
 }
 
 #screen-main .app-header img {
-  width: 39px;
+  width: 39px ;
   height: 36px;
   margin-bottom: -5px;
 }
 
 .close-btn {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 25px;
+  right: 21px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -611,8 +611,8 @@ button, input, select, textarea {
 }
 
 .close-icon {
-  width: 24px;
-  height: 24px;
+  width: 24px !important;
+  height: 24px !important;
   object-fit: contain;
 }
 
