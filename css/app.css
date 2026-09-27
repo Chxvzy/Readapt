@@ -1315,3 +1315,77 @@ margin-left: 3px;
   font-family: 'Nunito', sans-serif;
   margin-top: 5px;
 }
+
+/* Botões do Pop-up de Escolha */
+.popup-choice-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-pop-primary {
+  background-color: #2463EB;
+  color: #FDFDFD;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-pop-outline {
+  background-color: transparent;
+  color: #2563FF;
+  border: 1px solid #2463EB;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Campo de Input para o Nome */
+.popup-input {
+  width: 100%;
+  max-width: 220px;
+  height: 28px;
+  padding: 6px 12px;
+  border: 1.5px solid #2563FF;
+  border-radius: 5px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #2563FF;
+  outline: none;
+  margin-bottom: 12px;
+}
+
+/* Caixa de Preview da Foto */
+.photo-preview-box {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #2463EB;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Botões em formato de Link ("Confirmar" / "Acessar biblioteca...") */
+.btn-action-link {
+  background: none;
+  border: none;
+  color: #1D4EB8;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btn-action-link:hover {
+  text-decoration: underline;
+}

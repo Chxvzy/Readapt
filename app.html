@@ -632,6 +632,47 @@
             </div>
         </div>
 
+        <!-- Pop-up 1: Escolha (Nome ou Foto) -->
+<div class="popup-overlay" id="popup-choice">
+  <div class="popup-card">
+    <button type="button" class="popup-close" onclick="closePopup('popup-choice')" aria-label="Fechar">
+      <img src="assets/x-icon.svg" alt="Fechar">
+    </button>
+    <div class="popup-choice-buttons">
+      <button type="button" class="btn-pop-primary" onclick="switchPopup('popup-choice', 'popup-edit-name')">Editar Nome</button>
+      <button type="button" class="btn-pop-outline" onclick="switchPopup('popup-choice', 'popup-edit-photo')">Editar Foto</button>
+    </div>
+  </div>
+</div>
+
+<!-- Pop-up 2: Editar Nome -->
+<div class="popup-overlay" id="popup-edit-name">
+  <div class="popup-card">
+    <button type="button" class="popup-close" onclick="closePopup('popup-edit-name')" aria-label="Fechar">
+      <img src="assets/x-icon.svg" alt="Fechar">
+    </button>
+    <div class="popup-content">
+      <h2>Escreva seu nome</h2>
+      <input type="text" class="popup-input" placeholder="...">
+      <button type="button" class="btn-action-link" onclick="closePopup('popup-edit-name')">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Pop-up 3: Editar Foto -->
+<div class="popup-overlay" id="popup-edit-photo">
+  <div class="popup-card">
+    <button type="button" class="popup-close" onclick="closePopup('popup-edit-photo')" aria-label="Fechar">
+      <img src="assets/x-icon.svg" alt="Fechar">
+    </button>
+    <div class="popup-content">
+      <h2>Escolha sua Foto</h2>
+      <div class="photo-preview-box"></div>
+      <button type="button" class="btn-action-link" onclick="closePopup('popup-edit-photo')">Acessar biblioteca de fotos</button>
+    </div>
+  </div>
+</div>
+
     </main>
 
     <!-- Script de Navegação e Lógica da Aplicação -->

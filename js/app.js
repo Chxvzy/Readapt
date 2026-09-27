@@ -193,3 +193,26 @@ function setRealAppHeight() {
 window.addEventListener('resize', setRealAppHeight);
 window.addEventListener('orientationchange', setRealAppHeight);
 setRealAppHeight();
+
+// Ativa o botão de editar perfil para abrir o primeiro pop-up
+document.getElementById('btn-edit-name').addEventListener('click', function () {
+  openPopup('popup-choice');
+});
+
+// Função para abrir pop-up
+function openPopup(id) {
+  document.getElementById(id).classList.add('active');
+}
+
+// Função para fechar pop-up
+function closePopup(id) {
+  document.getElementById(id).classList.remove('active');
+}
+
+// Função para fechar um pop-up e abrir o outro logo em seguida
+function switchPopup(fromId, toId) {
+  closePopup(fromId);
+  setTimeout(() => {
+    openPopup(toId);
+  }, 150); // Pequeno atraso para suavizar a animação
+}
