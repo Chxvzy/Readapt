@@ -13,7 +13,7 @@
 html, body {
   width: 100%;
   height: 100%;
-  max-height: 100vh;
+  max-height: 100dvh;
   margin: 0;
   padding: 0;
   overflow: hidden !important; /* Impede a rolagem na página inteira */
@@ -28,7 +28,7 @@ button, input, select, textarea {
 
 .app-container {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   position: relative;
   overflow: hidden;
 }
@@ -37,7 +37,7 @@ button, input, select, textarea {
 .screen {
   display: none !important;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   position: absolute;
   top: 0;
   left: 0;
@@ -56,7 +56,7 @@ button, input, select, textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   background-color: #FCFCFC;
 }
@@ -97,7 +97,7 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   padding-top: 30px;
   background-color: #ffffff;
@@ -220,7 +220,7 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   padding-top: 70px;
   background-color: #ffffff;
@@ -398,7 +398,7 @@ button, input, select, textarea {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   padding-top: 70px;
   background-color: #ffffff;
@@ -579,7 +579,7 @@ button, input, select, textarea {
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: #2563EB;
   overflow-y: auto;
   box-sizing: border-box;
