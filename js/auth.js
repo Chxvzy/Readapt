@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok && data.user) {
           localStorage.setItem('user', JSON.stringify(data.user));
           atualizarNomePerfil(data.user.name);
+          atualizarFotoPerfil(data.user.photo_url);
           formRegister.reset();
           limparErro(formRegister);
           abrirPopup('popup-cadastro'); // ao fechar, vai para screen-main
@@ -173,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok && data.user) {
           localStorage.setItem('user', JSON.stringify(data.user));
           atualizarNomePerfil(data.user.name);
+          atualizarFotoPerfil(data.user.photo_url);
           formLogin.reset();
           limparErro(formLogin);
           abrirPopup('popup-login'); // ao fechar, vai para screen-main

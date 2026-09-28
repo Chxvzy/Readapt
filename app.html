@@ -546,19 +546,25 @@
             </div>
         </div>
 
+        
         <!-- Pop-up 3: Editar Foto -->
-        <div class="popup-overlay" id="popup-edit-photo">
-            <div class="popup-card">
-                <button type="button" class="popup-close" onclick="closePopup('popup-edit-photo')" aria-label="Fechar">
-                    <img src="assets/x-icon.svg" alt="Fechar">
-                </button>
-                <div class="popup-content">
-                    <h2>Escolha sua Foto</h2>
-                    <div class="photo-preview-box"></div>
-                    <button type="button" class="btn-action-link" onclick="closePopup('popup-edit-photo')">Acessar biblioteca de fotos</button>
-                </div>
+<div class="popup-overlay" id="popup-edit-photo">
+    <div class="popup-card">
+        <button type="button" class="popup-close" onclick="closePopup('popup-edit-photo')" aria-label="Fechar">
+            <img src="assets/x-icon.svg" alt="Fechar">
+        </button>
+        <div class="popup-content">
+            <h2>Escolha sua Foto</h2>
+            <div class="photo-preview-box">
+                <img id="photo-preview" alt="Prévia da foto" hidden>
             </div>
+            <input type="file" id="input-photo" accept="image/*" hidden>
+            <p class="photo-error" id="photo-error" role="alert"></p>
+            <button type="button" id="btn-pick-photo" class="btn-action-link">Acessar biblioteca de fotos</button>
+            <button type="button" id="btn-save-photo" class="btn-action-link" disabled>Salvar foto</button>
         </div>
+    </div>
+</div>
 
     </main>
 

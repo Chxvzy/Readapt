@@ -1422,3 +1422,50 @@ margin-left: 3px;
 .btn-action-link:hover {
   text-decoration: underline;
 }
+
+/* ==========================================================================
+   FOTO DE PERFIL
+   ========================================================================== */
+.profile-avatar {
+  cursor: pointer;
+}
+
+.photo-preview-box {
+  overflow: hidden;
+}
+
+.photo-preview-box img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* o atributo hidden perde para "display: block" acima, então reforça */
+.photo-preview-box img[hidden] {
+  display: none;
+}
+
+.photo-error {
+  margin: 0 0 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  color: #F22525;
+  text-align: center;
+}
+
+.photo-error:empty {
+  display: none;
+}
+
+#popup-edit-photo .btn-action-link + .btn-action-link {
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.btn-action-link:disabled {
+  opacity: 0.4;
+  cursor: default;
+  text-decoration: none;
+}
