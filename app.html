@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Readapt - App</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo-readapt-white.png">
-    <script src="js/app.js" defer></script>
-    <script src="js/auth.js" defer></script>
-    <!-- Carregamento direto do Google Fonts via HTML -->
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;600;700&family=Nunito:wght@700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Estilo CSS principal -->
     <link rel="stylesheet" href="css/app.css">
+
+    <!-- Scripts (a ordem importa: app.js primeiro, depois auth.js) -->
+    <script src="js/app.js" defer></script>
+    <script src="js/auth.js" defer></script>
 </head>
 <body>
 
@@ -38,33 +41,30 @@
              2. TELA DE BOAS-VINDAS (WELCOME)
              ========================================== -->
         <section id="screen-welcome" class="screen">
-            <!-- Imagem de Fundo Decorativa -->
             <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
 
             <div class="welcome-container">
-                
+
                 <a href="index.html" class="close-btn" aria-label="Fechar">
-                <img src="assets/x-icon.svg" alt="Fechar" class="close-icon">
+                    <img src="assets/x-icon.svg" alt="Fechar" class="close-icon">
                 </a>
-                <!-- Ilustração do Mascote -->
+
                 <div class="welcome-illustration">
                     <img src="assets/welcome-robo.png" alt="Mascote Readapt" class="mascot-img">
                 </div>
 
-                <!-- Textos e Título -->
                 <div class="welcome-content">
                     <h2>Descubra uma nova forma de aprender</h2>
                     <p>
-                        Explore ferramentas inteligentes criadas para 
-                        transformar leitura, escrita e aprendizagem 
+                        Explore ferramentas inteligentes criadas para
+                        transformar leitura, escrita e aprendizagem
                         em experiências mais acessíveis e divertidas
                     </p>
                 </div>
 
-                <!-- Botões de Ação -->
                 <div class="welcome-actions">
-                    <button class="btn-app-solid">Login</button>
-                    <button class="btn-app-outline">Cadastrar</button>
+                    <button type="button" class="btn-app-solid">Login</button>
+                    <button type="button" class="btn-app-outline">Cadastrar</button>
                 </div>
             </div>
         </section>
@@ -72,120 +72,120 @@
         <!-- ==========================================
              3. TELA DE LOGIN
              ========================================== -->
+        <section id="screen-login" class="screen">
+            <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
+
+            <div class="login-container">
+                <a href="index.html" class="close-btn" aria-label="Fechar">
+                    <img src="assets/x-icon.svg" alt="Fechar" class="close-icon">
+                </a>
+
+                <div class="login-header">
+                    <h2>Faça seu Login</h2>
+                    <p>Bem-vindo de volta!<br>Sentimos sua falta!</p>
+                </div>
+
+                <form id="form-login" class="login-form" novalidate>
+                    <div class="input-group">
+                        <input type="email" id="login-email" placeholder="Email" class="app-input active" required autocomplete="username">
+                        <span class="field-error" role="alert"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="login-password" placeholder="Senha" class="app-input" required autocomplete="current-password">
+                        <span class="field-error" role="alert"></span>
+                    </div>
+
+                    <div class="forgot-password">
+                        <a href="#">Esqueceu sua senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+
+                <a href="#" class="btn-secondary-link">Criar nova conta</a>
+
+                <div class="social-login-section">
+                    <p class="social-title">Ou continue com</p>
+                    <div class="social-buttons">
+                        <button type="button" class="btn-social" aria-label="Login com Google">
+                            <img src="assets/google-logo.png" alt="Google">
+                        </button>
+                        <button type="button" class="btn-social" aria-label="Login com Facebook">
+                            <img src="assets/facebook-logo.png" alt="Facebook">
+                        </button>
+                        <button type="button" class="btn-social" aria-label="Login com Apple">
+                            <img src="assets/apple-logo.png" alt="Apple">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ==========================================
-     3. TELA DE LOGIN
-     ========================================== -->
-<section id="screen-login" class="screen">
-    <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
+             4. TELA DE CADASTRO
+             ========================================== -->
+        <section id="screen-register" class="screen">
+            <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
 
-    <div class="login-container">
-        <a href="index.html" class="close-btn" aria-label="Fechar">
-            <img src="assets/x-icon.svg" alt="Fechar" class="close-icon">
-        </a>
-        
-        <div class="login-header">
-            <h2>Faça seu Login</h2>
-            <p>Bem-vindo de volta!<br>Sentimos sua falta!</p>
-        </div>
+            <div class="register-container">
+                <a href="index.html" class="close-btn" aria-label="Fechar">
+                    <img src="assets/x-icon.svg" alt="Fechar" class="close-icon">
+                </a>
 
-        <!-- Form de Login com ID -->
-        <form id="form-login" class="login-form">
-            <div class="input-group">
-                <input type="email" id="login-email" placeholder="Email" class="app-input active" required>
+                <div class="register-header">
+                    <h2>Crie sua Conta</h2>
+                    <p>Crie uma conta para poder explorar<br>todas as atividades disponíveis.</p>
+                </div>
+
+                <form id="form-register" class="register-form" novalidate>
+                    <div class="input-group">
+                        <input type="text" id="reg-name" placeholder="Nome completo" class="app-input active" required>
+                        <span class="field-error" role="alert"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" id="reg-email" placeholder="Email" class="app-input" required>
+                        <span class="field-error" role="alert"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="reg-password" placeholder="Senha" class="app-input" required>
+                        <span class="field-error" role="alert"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" id="reg-confirm-password" placeholder="Confirmar senha" class="app-input" required>
+                        <span class="field-error" role="alert"></span>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-register">Cadastrar</button>
+                </form>
+
+                <a href="#" class="btn-secondary-link link-login">Já tenho uma conta</a>
             </div>
-            
-            <div class="input-group">
-                <input type="password" id="login-password" placeholder="Senha" class="app-input" required>
-            </div>
+        </section>
 
-            <div class="forgot-password">
-                <a href="#">Esqueceu sua senha?</a>
-            </div>
-
-            <button type="submit" class="btn-primary">Entrar</button>
-        </form>
-
-        <a href="#" class="btn-secondary-link">Criar nova conta</a>
-
-        <div class="social-login-section">
-            <p class="social-title">Ou continue com</p>
-            <div class="social-buttons">
-                <button type="button" class="btn-social" aria-label="Login com Google">
-                    <img src="assets/google-logo.png" alt="Google">
-                </button>
-                <button type="button" class="btn-social" aria-label="Login com Facebook">
-                    <img src="assets/facebook-logo.png" alt="Facebook">
-                </button>
-                <button type="button" class="btn-social" aria-label="Login com Apple">
-                    <img src="assets/apple-logo.png" alt="Apple">
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ==========================================
-     4. TELA DE CADASTRO
-     ========================================== -->
-<section id="screen-register" class="screen">
-    <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
-
-    <div class="register-container">
-        <a href="index.html" class="close-btn" aria-label="Fechar">
-            <img src="assets/x-icon.svg" alt="Fechar" class="close-icon">
-        </a>
-        
-        <div class="register-header">
-            <h2>Crie sua Conta</h2>
-            <p>Crie uma conta para poder explorar<br>todas as atividades disponíveis.</p>
-        </div>
-
-        <!-- Form de Cadastro com ID e campo de Nome -->
-        <form id="form-register" class="register-form">
-            <div class="input-group">
-                <input type="text" id="reg-name" placeholder="Nome completo" class="app-input active" required>
-            </div>
-
-            <div class="input-group">
-                <input type="email" id="reg-email" placeholder="Email" class="app-input" required>
-            </div>
-            
-            <div class="input-group">
-                <input type="password" id="reg-password" placeholder="Senha" class="app-input" required>
-            </div>
-
-            <div class="input-group">
-                <input type="password" id="reg-confirm-password" placeholder="Confirmar senha" class="app-input" required>
-            </div>
-
-            <button type="submit" class="btn-primary btn-register">Cadastrar</button>
-        </form>
-
-        <a href="#" class="btn-secondary-link link-login">Já tenho uma conta</a>
-    </div>
-</section>
         <!-- ==========================================
              5. TELA PRINCIPAL (DASHBOARD)
              ========================================== -->
         <section id="screen-main" class="screen">
-            
-            <!-- Cabeçalho Superior -->
+
             <header class="app-header">
                 <a href="index.html" class="close-btn" aria-label="Fechar">
-                <img src="assets/x-icon-white.svg" alt="Fechar" class="close-icon">
+                    <img src="assets/x-icon-white.svg" alt="Fechar" class="close-icon">
                 </a>
                 <img src="assets/logo-readapt-white.png" alt="" class="app-logo-header">
                 <h1 class="app-title">Readapt</h1>
             </header>
 
-            <!-- Conteúdo da Tela -->
             <div class="app-body">
                 <!-- Card de Perfil -->
                 <div class="profile-card">
                     <div class="profile-avatar" id="btn-edit-photo" title="Alterar Foto">
                         <img src="assets/perfil-img.png" alt="Foto do Usuário">
                     </div>
-                    
+
                     <div class="profile-info">
                         <h2 class="profile-name">Arthur</h2>
                         <p class="profile-role">Leitor Iniciante</p>
@@ -199,14 +199,12 @@
                     </div>
                 </div>
 
-                <!-- Seção do Gráfico com os 4 Confetes -->
+                <!-- Gráfico com os 4 confetes -->
                 <div class="chart-container">
                     <div class="donut-chart-wrapper">
-                        <!-- Confetes da Esquerda -->
                         <img src="assets/confetes.png" alt="" class="confetti-img confetti-left-top confetti-sm">
                         <img src="assets/confetes.png" alt="" class="confetti-img confetti-left-bottom confetti-lg">
 
-                        <!-- Gráfico -->
                         <div class="donut-chart">
                             <div class="donut-center">
                                 <span class="chart-percent">75%</span>
@@ -214,7 +212,6 @@
                             </div>
                         </div>
 
-                        <!-- Confetes da Direita -->
                         <img src="assets/confetes.png" alt="" class="confetti-img confetti-right-top confetti-lg">
                         <img src="assets/confetes.png" alt="" class="confetti-img confetti-right-bottom confetti-sm">
                     </div>
@@ -232,29 +229,28 @@
                 </div>
 
                 <!-- ==========================================
-     SEÇÃO DE DESEMPENHO
-     ========================================== -->
-<section class="performance-section">
-    <h2 class="section-title">Desempenho</h2>
+                     SEÇÃO DE DESEMPENHO
+                     ========================================== -->
+                <section class="performance-section">
+                    <h2 class="section-title">Desempenho</h2>
 
-    <!-- Filtro de Período -->
-    <div class="period-filter">
-        <button class="period-btn active" data-period="dia">Dia</button>
-        <button class="period-btn" data-period="semana">Semana</button>
-        <button class="period-btn" data-period="mes">Mês</button>
-    </div>
+                    <div class="period-filter">
+                        <button type="button" class="period-btn active" data-period="dia">Dia</button>
+                        <button type="button" class="period-btn" data-period="semana">Semana</button>
+                        <button type="button" class="period-btn" data-period="mes">Mês</button>
+                    </div>
 
     <!-- Cartão: Leitura -->
     <div class="performance-card">
         <div class="card-header">
             <h3 class="card-title">Leitura</h3>
-            <span class="trend-badge" 
-              data-dia="17%" data-dia-icon="assets/arrow-green.svg"
-              data-semana="2,4%" data-semana-icon="assets/arrow-green.svg"
-              data-mes="0,6%" data-mes-icon="assets/arrow-green.svg">
-            <img src="assets/arrow-green.svg" class="trend-icon" alt="Seta Subida">
-            <span class="trend-text">17%</span>
-        </span>
+            <span class="trend-badge"
+                  data-dia="17%" data-dia-icon="assets/arrow-green.svg"
+                  data-semana="2,4%" data-semana-icon="assets/arrow-green.svg"
+                  data-mes="0,6%" data-mes-icon="assets/arrow-green.svg">
+                <img src="assets/arrow-green.svg" class="trend-icon" alt="Seta Subida">
+                <span class="trend-text">17%</span>
+            </span>
         </div>
         <div class="chart-box">
             <div class="y-axis">
@@ -265,59 +261,23 @@
             <div class="chart-content">
                 <!-- DIA -->
                 <svg class="line-chart dia active" viewBox="0 0 200 80" preserveAspectRatio="none">
-                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
+                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
                     <polyline points="0,80 40,45 80,40 120,25 150,28 190,12" fill="none" stroke="#2463EB" stroke-width="2" />
-                    <circle cx="0" cy="80" r="3" fill="#2463EB" />
-                    <circle cx="40" cy="45" r="3" fill="#2463EB" />
-                    <circle cx="80" cy="40" r="3" fill="#2463EB" />
-                    <circle cx="120" cy="25" r="3" fill="#2463EB" />
-                    <circle cx="150" cy="28" r="3" fill="#2463EB" />
-                    <circle cx="190" cy="12" r="3" fill="#2463EB" />
+                    <circle cx="0" cy="80" r="3" fill="#2463EB" /><circle cx="40" cy="45" r="3" fill="#2463EB" /><circle cx="80" cy="40" r="3" fill="#2463EB" /><circle cx="120" cy="25" r="3" fill="#2463EB" /><circle cx="150" cy="28" r="3" fill="#2463EB" /><circle cx="190" cy="12" r="3" fill="#2463EB" />
                 </svg>
 
                 <!-- SEMANA -->
                 <svg class="line-chart semana" viewBox="0 0 200 80" preserveAspectRatio="none">
-                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
+                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
                     <polyline points="0,80 40,55 80,35 120,45 150,25 190,15" fill="none" stroke="#2463EB" stroke-width="2" />
-                    <circle cx="0" cy="80" r="3" fill="#2463EB" />
-                    <circle cx="40" cy="55" r="3" fill="#2463EB" />
-                    <circle cx="80" cy="35" r="3" fill="#2463EB" />
-                    <circle cx="120" cy="45" r="3" fill="#2463EB" />
-                    <circle cx="150" cy="25" r="3" fill="#2463EB" />
-                    <circle cx="190" cy="15" r="3" fill="#2463EB" />
+                    <circle cx="0" cy="80" r="3" fill="#2463EB" /><circle cx="40" cy="55" r="3" fill="#2463EB" /><circle cx="80" cy="35" r="3" fill="#2463EB" /><circle cx="120" cy="45" r="3" fill="#2463EB" /><circle cx="150" cy="25" r="3" fill="#2463EB" /><circle cx="190" cy="15" r="3" fill="#2463EB" />
                 </svg>
 
                 <!-- MÊS -->
                 <svg class="line-chart mes" viewBox="0 0 200 80" preserveAspectRatio="none">
-                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
+                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
                     <polyline points="0,80 40,65 80,40 120,50 150,20 190,8" fill="none" stroke="#2463EB" stroke-width="2" />
-                    <circle cx="0" cy="80" r="3" fill="#2463EB" />
-                    <circle cx="40" cy="65" r="3" fill="#2463EB" />
-                    <circle cx="80" cy="40" r="3" fill="#2463EB" />
-                    <circle cx="120" cy="50" r="3" fill="#2463EB" />
-                    <circle cx="150" cy="20" r="3" fill="#2463EB" />
-                    <circle cx="190" cy="8" r="3" fill="#2463EB" />
+                    <circle cx="0" cy="80" r="3" fill="#2463EB" /><circle cx="40" cy="65" r="3" fill="#2463EB" /><circle cx="80" cy="40" r="3" fill="#2463EB" /><circle cx="120" cy="50" r="3" fill="#2463EB" /><circle cx="150" cy="20" r="3" fill="#2463EB" /><circle cx="190" cy="8" r="3" fill="#2463EB" />
                 </svg>
 
                 <div class="x-axis">
@@ -335,12 +295,13 @@
     <div class="performance-card">
         <div class="card-header">
             <h3 class="card-title">Escrita</h3>
-            <span class="trend-badge" 
-              data-dia="9%" data-dia-icon="assets/arrow-yellow.svg"
-              data-semana="1,3%" data-semana-icon="assets/arrow-yellow.svg"
-              data-mes="0,3%" data-mes-icon="assets/arrow-yellow.svg">
-            <img src="assets/arrow-yellow.svg" class="trend-icon" alt="Seta Queda">
-            <span class="trend-text">9%</span>
+            <span class="trend-badge"
+                  data-dia="9%" data-dia-icon="assets/arrow-yellow.svg"
+                  data-semana="1,3%" data-semana-icon="assets/arrow-yellow.svg"
+                  data-mes="0,3%" data-mes-icon="assets/arrow-yellow.svg">
+                <img src="assets/arrow-yellow.svg" class="trend-icon" alt="Seta Queda">
+                <span class="trend-text">9%</span>
+            </span>
         </div>
         <div class="chart-box">
             <div class="y-axis">
@@ -351,59 +312,23 @@
             <div class="chart-content">
                 <!-- DIA -->
                 <svg class="line-chart dia active" viewBox="0 0 200 80" preserveAspectRatio="none">
-                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
+                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
                     <polyline points="0,80 40,40 80,25 120,50 150,35 190,45" fill="none" stroke="#2463EB" stroke-width="2" />
-                    <circle cx="0" cy="80" r="3" fill="#2463EB" />
-                    <circle cx="40" cy="40" r="3" fill="#2463EB" />
-                    <circle cx="80" cy="25" r="3" fill="#2463EB" />
-                    <circle cx="120" cy="50" r="3" fill="#2463EB" />
-                    <circle cx="150" cy="35" r="3" fill="#2463EB" />
-                    <circle cx="190" cy="45" r="3" fill="#2463EB" />
+                    <circle cx="0" cy="80" r="3" fill="#2463EB" /><circle cx="40" cy="40" r="3" fill="#2463EB" /><circle cx="80" cy="25" r="3" fill="#2463EB" /><circle cx="120" cy="50" r="3" fill="#2463EB" /><circle cx="150" cy="35" r="3" fill="#2463EB" /><circle cx="190" cy="45" r="3" fill="#2463EB" />
                 </svg>
 
                 <!-- SEMANA -->
                 <svg class="line-chart semana" viewBox="0 0 200 80" preserveAspectRatio="none">
-                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
+                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
                     <polyline points="0,80 40,35 80,50 120,30 150,60 190,52" fill="none" stroke="#2463EB" stroke-width="2" />
-                    <circle cx="0" cy="80" r="3" fill="#2463EB" />
-                    <circle cx="40" cy="35" r="3" fill="#2463EB" />
-                    <circle cx="80" cy="50" r="3" fill="#2463EB" />
-                    <circle cx="120" cy="30" r="3" fill="#2463EB" />
-                    <circle cx="150" cy="60" r="3" fill="#2463EB" />
-                    <circle cx="190" cy="52" r="3" fill="#2463EB" />
+                    <circle cx="0" cy="80" r="3" fill="#2463EB" /><circle cx="40" cy="35" r="3" fill="#2463EB" /><circle cx="80" cy="50" r="3" fill="#2463EB" /><circle cx="120" cy="30" r="3" fill="#2463EB" /><circle cx="150" cy="60" r="3" fill="#2463EB" /><circle cx="190" cy="52" r="3" fill="#2463EB" />
                 </svg>
 
                 <!-- MÊS -->
                 <svg class="line-chart mes" viewBox="0 0 200 80" preserveAspectRatio="none">
-                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
+                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
                     <polyline points="0,80 40,30 80,45 120,25 150,55 190,62" fill="none" stroke="#2463EB" stroke-width="2" />
-                    <circle cx="0" cy="80" r="3" fill="#2463EB" />
-                    <circle cx="40" cy="30" r="3" fill="#2463EB" />
-                    <circle cx="80" cy="45" r="3" fill="#2463EB" />
-                    <circle cx="120" cy="25" r="3" fill="#2463EB" />
-                    <circle cx="150" cy="55" r="3" fill="#2463EB" />
-                    <circle cx="190" cy="62" r="3" fill="#2463EB" />
+                    <circle cx="0" cy="80" r="3" fill="#2463EB" /><circle cx="40" cy="30" r="3" fill="#2463EB" /><circle cx="80" cy="45" r="3" fill="#2463EB" /><circle cx="120" cy="25" r="3" fill="#2463EB" /><circle cx="150" cy="55" r="3" fill="#2463EB" /><circle cx="190" cy="62" r="3" fill="#2463EB" />
                 </svg>
 
                 <div class="x-axis">
@@ -421,12 +346,13 @@
     <div class="performance-card">
         <div class="card-header">
             <h3 class="card-title">Compreensão</h3>
-            <span class="trend-badge" 
-              data-dia="24%" data-dia-icon="assets/arrow-green.svg"
-              data-semana="3,4%" data-semana-icon="assets/arrow-green.svg"
-              data-mes="0,8%" data-mes-icon="assets/arrow-green.svg">
-            <img src="assets/arrow-green.svg" class="trend-icon" alt="Seta Subida">
-            <span class="trend-text">24%</span>
+            <span class="trend-badge"
+                  data-dia="24%" data-dia-icon="assets/arrow-green.svg"
+                  data-semana="3,4%" data-semana-icon="assets/arrow-green.svg"
+                  data-mes="0,8%" data-mes-icon="assets/arrow-green.svg">
+                <img src="assets/arrow-green.svg" class="trend-icon" alt="Seta Subida">
+                <span class="trend-text">24%</span>
+            </span>
         </div>
         <div class="chart-box">
             <div class="y-axis">
@@ -437,59 +363,23 @@
             <div class="chart-content">
                 <!-- DIA -->
                 <svg class="line-chart dia active" viewBox="0 0 200 80" preserveAspectRatio="none">
-                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
+                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
                     <polyline points="0,80 40,60 80,40 120,20 150,20 190,10" fill="none" stroke="#2463EB" stroke-width="2" />
-                    <circle cx="0" cy="80" r="3" fill="#2463EB" />
-                    <circle cx="40" cy="60" r="3" fill="#2463EB" />
-                    <circle cx="80" cy="40" r="3" fill="#2463EB" />
-                    <circle cx="120" cy="20" r="3" fill="#2463EB" />
-                    <circle cx="150" cy="20" r="3" fill="#2463EB" />
-                    <circle cx="190" cy="10" r="3" fill="#2463EB" />
+                    <circle cx="0" cy="80" r="3" fill="#2463EB" /><circle cx="40" cy="60" r="3" fill="#2463EB" /><circle cx="80" cy="40" r="3" fill="#2463EB" /><circle cx="120" cy="20" r="3" fill="#2463EB" /><circle cx="150" cy="20" r="3" fill="#2463EB" /><circle cx="190" cy="10" r="3" fill="#2463EB" />
                 </svg>
 
                 <!-- SEMANA -->
                 <svg class="line-chart semana" viewBox="0 0 200 80" preserveAspectRatio="none">
-                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
+                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
                     <polyline points="0,80 40,50 80,60 120,30 150,18 190,5" fill="none" stroke="#2463EB" stroke-width="2" />
-                    <circle cx="0" cy="80" r="3" fill="#2463EB" />
-                    <circle cx="40" cy="50" r="3" fill="#2463EB" />
-                    <circle cx="80" cy="60" r="3" fill="#2463EB" />
-                    <circle cx="120" cy="30" r="3" fill="#2463EB" />
-                    <circle cx="150" cy="18" r="3" fill="#2463EB" />
-                    <circle cx="190" cy="5" r="3" fill="#2463EB" />
+                    <circle cx="0" cy="80" r="3" fill="#2463EB" /><circle cx="40" cy="50" r="3" fill="#2463EB" /><circle cx="80" cy="60" r="3" fill="#2463EB" /><circle cx="120" cy="30" r="3" fill="#2463EB" /><circle cx="150" cy="18" r="3" fill="#2463EB" /><circle cx="190" cy="5" r="3" fill="#2463EB" />
                 </svg>
 
                 <!-- MÊS -->
                 <svg class="line-chart mes" viewBox="0 0 200 80" preserveAspectRatio="none">
-                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
-                    <line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
+                    <line x1="0" y1="0" x2="200" y2="0" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="40" x2="200" y2="40" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="80" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="0" y1="0" x2="0" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="50" y1="0" x2="50" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="100" y1="0" x2="100" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="150" y1="0" x2="150" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" /><line x1="200" y1="0" x2="200" y2="80" stroke="#6C6C6C" stroke-opacity="0.7" />
                     <polyline points="0,80 40,55 80,30 120,40 150,15 190,2" fill="none" stroke="#2463EB" stroke-width="2" />
-                    <circle cx="0" cy="80" r="3" fill="#2463EB" />
-                    <circle cx="40" cy="55" r="3" fill="#2463EB" />
-                    <circle cx="80" cy="30" r="3" fill="#2463EB" />
-                    <circle cx="120" cy="40" r="3" fill="#2463EB" />
-                    <circle cx="150" cy="15" r="3" fill="#2463EB" />
-                    <circle cx="190" cy="2" r="3" fill="#2463EB" />
+                    <circle cx="0" cy="80" r="3" fill="#2463EB" /><circle cx="40" cy="55" r="3" fill="#2463EB" /><circle cx="80" cy="30" r="3" fill="#2463EB" /><circle cx="120" cy="40" r="3" fill="#2463EB" /><circle cx="150" cy="15" r="3" fill="#2463EB" /><circle cx="190" cy="2" r="3" fill="#2463EB" />
                 </svg>
 
                 <div class="x-axis">
@@ -502,13 +392,16 @@
             </div>
         </div>
     </div>
-</section>
 
-<div class="history-container">
-    <h2 class="history-title">Histórico</h2>
+                </section>
 
-    <div class="history-list">
-        <!-- Card 1: Ler -->
+                <!-- ==========================================
+                     HISTÓRICO
+                     ========================================== -->
+                <div class="history-container">
+                    <h2 class="history-title">Histórico</h2>
+
+                    <div class="history-list">
         <div class="history-card yellow">
             <div class="card-icon-box">
                 <img src="assets/livro-atividade.png" alt="Ler">
@@ -528,7 +421,6 @@
             </div>
         </div>
 
-        <!-- Card 2: Soletrar -->
         <div class="history-card red">
             <div class="card-icon-box">
                 <img src="assets/letras-atividade.png" alt="Soletrar">
@@ -543,12 +435,11 @@
                 </div>
             </div>
             <div class="card-meta">
-                <span class="card-time">Há 3 dia</span>
+                <span class="card-time">Há 3 dias</span>
                 <span class="card-score">2/4</span>
             </div>
         </div>
 
-        <!-- Card 3: Jogo do Alfabeto -->
         <div class="history-card blue">
             <div class="card-icon-box">
                 <img src="assets/correto-errado-atividade.png" alt="Jogo do Alfabeto">
@@ -568,7 +459,6 @@
             </div>
         </div>
 
-        <!-- Card 4: Monte a Palavra -->
         <div class="history-card green">
             <div class="card-icon-box">
                 <img src="assets/palavra-atividade.png" alt="Monte a Palavra">
@@ -587,23 +477,23 @@
                 <span class="card-score">6/6</span>
             </div>
         </div>
-    </div>
-</div>
 
-
+                    </div>
+                </div>
 
             </div>
 
             <footer class="readapt-footer">
-  <img src="assets/logo-readapt-white.png" alt="Readapt" class="readapt-footer-logo">
-  <span class="readapt-footer-text">Readapt</span>
-</footer>
+                <img src="assets/logo-readapt-white.png" alt="Readapt" class="readapt-footer-logo">
+                <span class="readapt-footer-text">Readapt</span>
+            </footer>
         </section>
 
         <!-- ==========================================
              MODAIS / POP-UPS
              ========================================== -->
-        <!-- Pop-up de Login -->
+
+        <!-- Pop-up de Login (sucesso) -->
         <div id="popup-login" class="popup-overlay">
             <div class="popup-card">
                 <button type="button" class="popup-close" onclick="fecharPopupEIrParaMain('popup-login')" aria-label="Fechar">
@@ -616,7 +506,7 @@
             </div>
         </div>
 
-        <!-- Pop-up de Cadastro -->
+        <!-- Pop-up de Cadastro (sucesso) -->
         <div id="popup-cadastro" class="popup-overlay">
             <div class="popup-card">
                 <button type="button" class="popup-close" onclick="fecharPopupEIrParaMain('popup-cadastro')" aria-label="Fechar">
@@ -630,49 +520,47 @@
         </div>
 
         <!-- Pop-up 1: Escolha (Nome ou Foto) -->
-<div class="popup-overlay" id="popup-choice">
-  <div class="popup-card">
-    <button type="button" class="popup-close" onclick="closePopup('popup-choice')" aria-label="Fechar">
-      <img src="assets/x-icon.svg" alt="Fechar">
-    </button>
-    <div class="popup-choice-buttons">
-      <button type="button" class="btn-pop-primary" onclick="switchPopup('popup-choice', 'popup-edit-name')">Editar Nome</button>
-      <button type="button" class="btn-pop-outline" onclick="switchPopup('popup-choice', 'popup-edit-photo')">Editar Foto</button>
-    </div>
-  </div>
-</div>
+        <div class="popup-overlay" id="popup-choice">
+            <div class="popup-card">
+                <button type="button" class="popup-close" onclick="closePopup('popup-choice')" aria-label="Fechar">
+                    <img src="assets/x-icon.svg" alt="Fechar">
+                </button>
+                <div class="popup-choice-buttons">
+                    <button type="button" class="btn-pop-primary" onclick="switchPopup('popup-choice', 'popup-edit-name')">Editar Nome</button>
+                    <button type="button" class="btn-pop-outline" onclick="switchPopup('popup-choice', 'popup-edit-photo')">Editar Foto</button>
+                </div>
+            </div>
+        </div>
 
-<!-- Pop-up 2: Editar Nome -->
-<div class="popup-overlay" id="popup-edit-name">
-  <div class="popup-card">
-    <button type="button" class="popup-close" onclick="closePopup('popup-edit-name')" aria-label="Fechar">
-      <img src="assets/x-icon.svg" alt="Fechar">
-    </button>
-    <div class="popup-content">
-      <h2>Escreva seu nome</h2>
-      <input type="text" class="popup-input" placeholder="...">
-      <button type="button" class="btn-action-link" onclick="closePopup('popup-edit-name')">Confirmar</button>
-    </div>
-  </div>
-</div>
+        <!-- Pop-up 2: Editar Nome -->
+        <div class="popup-overlay" id="popup-edit-name">
+            <div class="popup-card">
+                <button type="button" class="popup-close" onclick="closePopup('popup-edit-name')" aria-label="Fechar">
+                    <img src="assets/x-icon.svg" alt="Fechar">
+                </button>
+                <div class="popup-content">
+                    <h2>Escreva seu nome</h2>
+                    <input type="text" id="input-edit-name" class="popup-input" placeholder="Digite seu novo nome">
+                    <button type="button" id="btn-confirm-edit-name" class="btn-action-link">Confirmar</button>
+                </div>
+            </div>
+        </div>
 
-<!-- Pop-up 3: Editar Foto -->
-<div class="popup-overlay" id="popup-edit-photo">
-  <div class="popup-card">
-    <button type="button" class="popup-close" onclick="closePopup('popup-edit-photo')" aria-label="Fechar">
-      <img src="assets/x-icon.svg" alt="Fechar">
-    </button>
-    <div class="popup-content">
-      <h2>Escolha sua Foto</h2>
-      <div class="photo-preview-box"></div>
-      <button type="button" class="btn-action-link" onclick="closePopup('popup-edit-photo')">Acessar biblioteca de fotos</button>
-    </div>
-  </div>
-</div>
+        <!-- Pop-up 3: Editar Foto -->
+        <div class="popup-overlay" id="popup-edit-photo">
+            <div class="popup-card">
+                <button type="button" class="popup-close" onclick="closePopup('popup-edit-photo')" aria-label="Fechar">
+                    <img src="assets/x-icon.svg" alt="Fechar">
+                </button>
+                <div class="popup-content">
+                    <h2>Escolha sua Foto</h2>
+                    <div class="photo-preview-box"></div>
+                    <button type="button" class="btn-action-link" onclick="closePopup('popup-edit-photo')">Acessar biblioteca de fotos</button>
+                </div>
+            </div>
+        </div>
 
     </main>
 
-    <!-- Script de Navegação e Lógica da Aplicação -->
-    <script src="js/app.js"></script>
 </body>
 </html>

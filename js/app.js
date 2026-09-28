@@ -1,218 +1,178 @@
+const API_URL = 'http://localhost:3000/api';
+
 // ==========================================
-// 1. GERENCIAMENTO DE TELAS (NAVEGAÇÃO)
+// 1. NAVEGAÇÃO ENTRE TELAS
 // ==========================================
 function showScreen(screenId) {
-  document.querySelectorAll(".screen").forEach(screen => {
-    screen.classList.remove("active");
-  });
-
-  const targetScreen = document.getElementById(screenId);
-  if (targetScreen) {
-    targetScreen.classList.add("active");
-  }
-}
-
-// Aliases para manter compatibilidade
-function mudarTela(idDaNovaTela) {
-  showScreen(idDaNovaTela);
-}
-
-function navegarPara(idDaNovaTela) {
-  showScreen(idDaNovaTela);
+  document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+  const target = document.getElementById(screenId);
+  if (target) target.classList.add('active');
 }
 
 // ==========================================
-// 2. GERENCIAMENTO DOS POP-UPS (MODAIS)
+// 2. POP-UPS
 // ==========================================
 function abrirPopup(id) {
   const popup = document.getElementById(id);
-  if (popup) {
-    popup.classList.add('active');
-  }
+  if (popup) popup.classList.add('active');
 }
 
 function fecharPopup(id) {
   const popup = document.getElementById(id);
-  if (popup) {
-    popup.classList.remove('active');
-  }
+  if (popup) popup.classList.remove('active');
 }
 
-// Fecha o pop-up de sucesso e redireciona para a Tela Principal (Dashboard)
+function openPopup(id) { abrirPopup(id); }
+function closePopup(id) { fecharPopup(id); }
+
+function switchPopup(fromId, toId) {
+  closePopup(fromId);
+  setTimeout(() => openPopup(toId), 150);
+}
+
+// Fecha o pop-up de sucesso e vai para a tela principal
 function fecharPopupEIrParaMain(id) {
   fecharPopup(id);
-  showScreen("screen-main");
+  showScreen('screen-main');
 }
 
-// Fechar qualquer pop-up ao clicar no fundo escuro (overlay)
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('popup-overlay')) {
-    const popupId = e.target.id;
-    e.target.classList.remove('active');
-
-    // Se for o pop-up de Login ou Cadastro, também direciona para a tela principal
-    if (popupId === 'popup-login' || popupId === 'popup-cadastro') {
-      showScreen("screen-main");
-    }
+// Mostra o primeiro nome no card de perfil
+function atualizarNomePerfil(nomeCompleto) {
+  const el = document.querySelector('.profile-name');
+  if (el && nomeCompleto) {
+    el.textContent = nomeCompleto.trim().split(' ')[0];
   }
-});
+}
 
 // ==========================================
-// 3. INICIALIZAÇÃO DE EVENTOS
+// 3. INICIALIZAÇÃO
 // ==========================================
-document.addEventListener("DOMContentLoaded", () => {
-
-  // 1. Simula a tela de Loading por 2 segundos e vai para o Welcome
-  setTimeout(() => {
-    showScreen("screen-welcome");
-  }, 2000);
-
-  // 2. Botão "Login" da tela de Boas-vindas -> Vai para a Tela de Login
-  const btnWelcomeLogin = document.querySelector("#screen-welcome .btn-app-solid");
-  if (btnWelcomeLogin) {
-    btnWelcomeLogin.addEventListener("click", () => {
-      showScreen("screen-login");
-    });
-  }
-
-  // 3. Botão "Criar nova conta" na Tela de Boas-vindas -> Vai para Cadastro
-  const btnRegister = document.querySelector("#screen-welcome .btn-app-outline");
-  if (btnRegister) {
-    btnRegister.addEventListener("click", () => {
-      showScreen("screen-register");
-    });
-  }
-
-  // 4. Link "Criar conta" na Tela de Login -> Vai para Cadastro
-  const btnGoToRegister = document.querySelector("#screen-login .btn-secondary-link");
-  if (btnGoToRegister) {
-    btnGoToRegister.addEventListener("click", (e) => {
-      e.preventDefault();
-      showScreen("screen-register");
-    });
-  }
-
-  // 5. Link "Já tenho uma conta" no Cadastro -> Vai para Login
-  const btnGoToLogin = document.querySelector("#screen-register .link-login");
-  if (btnGoToLogin) {
-    btnGoToLogin.addEventListener("click", (e) => {
-      e.preventDefault();
-      showScreen("screen-login");
-    });
-  }
-
-  // 6. Ação do formulário/botão de Login -> Exibe o Pop-up de Login
-  const formLogin = document.querySelector("#screen-login form") || document.querySelector("#screen-login .btn-app-solid");
-  if (formLogin) {
-    formLogin.addEventListener("submit", (e) => {
-      e.preventDefault();
-      abrirPopup("popup-login");
-    });
-    // Caso seja apenas um botão sem <form>
-    if (formLogin.tagName !== "FORM") {
-      formLogin.addEventListener("click", (e) => {
-        e.preventDefault();
-        abrirPopup("popup-login");
-      });
-    }
-  }
-
-  // 7. Ação do formulário/botão de Cadastro -> Exibe o Pop-up de Cadastro
-  const formRegister = document.querySelector("#screen-register form") || document.querySelector("#screen-register .btn-app-solid");
-  if (formRegister) {
-    formRegister.addEventListener("submit", (e) => {
-      e.preventDefault();
-      abrirPopup("popup-cadastro");
-    });
-    // Caso seja apenas um botão sem <form>
-    if (formRegister.tagName !== "FORM") {
-      formRegister.addEventListener("click", (e) => {
-        e.preventDefault();
-        abrirPopup("popup-cadastro");
-      });
-    }
-  }
-
-});
-
 document.addEventListener('DOMContentLoaded', () => {
-  const periodButtons = document.querySelectorAll('.period-btn');
 
+  // Não mantém login: ao abrir ou recarregar a página, descarta qualquer usuário salvo
+  localStorage.removeItem('user');
+
+  // Loading (2s) -> sempre vai para a tela de escolha (Login / Cadastrar)
+  setTimeout(() => showScreen('screen-welcome'), 2000);
+
+  // Welcome -> Login / Cadastro
+  const btnWelcomeLogin = document.querySelector('#screen-welcome .btn-app-solid');
+  if (btnWelcomeLogin) btnWelcomeLogin.addEventListener('click', () => showScreen('screen-login'));
+
+  const btnWelcomeRegister = document.querySelector('#screen-welcome .btn-app-outline');
+  if (btnWelcomeRegister) btnWelcomeRegister.addEventListener('click', () => showScreen('screen-register'));
+
+  // Login <-> Cadastro
+  const btnGoToRegister = document.querySelector('#screen-login .btn-secondary-link');
+  if (btnGoToRegister) {
+    btnGoToRegister.addEventListener('click', (e) => {
+      e.preventDefault();
+      showScreen('screen-register');
+    });
+  }
+
+  const btnGoToLogin = document.querySelector('#screen-register .link-login');
+  if (btnGoToLogin) {
+    btnGoToLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      showScreen('screen-login');
+    });
+  }
+
+  // Pop-ups de sucesso: clicar em qualquer ponto fecha e vai para a tela principal
+  ['popup-login', 'popup-cadastro'].forEach(id => {
+    const popup = document.getElementById(id);
+    if (popup) popup.addEventListener('click', () => fecharPopupEIrParaMain(id));
+  });
+
+  // Editar nome
+  const btnEditName = document.getElementById('btn-edit-name');
+  if (btnEditName) btnEditName.addEventListener('click', () => openPopup('popup-choice'));
+
+  const btnConfirmName = document.getElementById('btn-confirm-edit-name');
+  const inputEditName = document.getElementById('input-edit-name');
+
+  if (btnConfirmName) {
+    btnConfirmName.addEventListener('click', async () => {
+      const novoNome = inputEditName ? inputEditName.value.trim() : '';
+
+      if (!novoNome) {
+        alert('Por favor, digite um nome válido!');
+        return;
+      }
+
+      const rawUser = localStorage.getItem('user');
+      if (!rawUser) {
+        alert('Usuário não autenticado.');
+        return;
+      }
+      const userObj = JSON.parse(rawUser);
+
+      try {
+        const response = await fetch(`${API_URL}/update-name`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: userObj.id, name: novoNome })
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+          userObj.name = novoNome;
+          localStorage.setItem('user', JSON.stringify(userObj));
+          atualizarNomePerfil(novoNome);
+          inputEditName.value = '';
+          closePopup('popup-edit-name');
+        } else {
+          alert(data.error || 'Erro ao atualizar o nome.');
+        }
+      } catch (error) {
+        console.error('Erro de conexão ao atualizar nome:', error);
+        alert('Não foi possível conectar ao servidor.');
+      }
+    });
+  }
+
+  // Troca de período nos gráficos
+  const periodButtons = document.querySelectorAll('.period-btn');
   periodButtons.forEach(button => {
     button.addEventListener('click', () => {
-      // Remove a classe 'active' de todos os botões
-      periodButtons.forEach(btn => btn.classList.remove('active'));
+      const period = button.getAttribute('data-period');
 
-      // Adiciona a classe 'active' apenas no botão clicado
+      periodButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
+
+      document.querySelectorAll('.chart-content svg.line-chart').forEach(chart => chart.classList.remove('active'));
+      document.querySelectorAll(`.chart-content svg.line-chart.${period}`).forEach(chart => chart.classList.add('active'));
+
+      document.querySelectorAll('.trend-badge').forEach(badge => {
+        const newText = badge.getAttribute(`data-${period}`);
+        const newIcon = badge.getAttribute(`data-${period}-icon`);
+        const textElement = badge.querySelector('.trend-text');
+        const iconElement = badge.querySelector('.trend-icon');
+
+        if (newText && textElement) textElement.textContent = newText;
+        if (newIcon && iconElement) iconElement.src = newIcon;
+      });
     });
   });
 });
 
-document.querySelectorAll('.period-btn').forEach(button => {
-    button.addEventListener('click', () => {
-        const period = button.getAttribute('data-period'); // 'dia', 'semana' ou 'mes'
-
-        // 1. Atualiza botão ativo
-        document.querySelectorAll('.period-btn').forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-
-        // 2. Atualiza os gráficos visíveis
-        document.querySelectorAll('.chart-content svg.line-chart').forEach(chart => {
-            chart.classList.remove('active');
-        });
-        document.querySelectorAll(`.chart-content svg.line-chart.${period}`).forEach(chart => {
-            chart.classList.add('active');
-        });
-
-        // 3. Atualiza o ícone SVG e a porcentagem
-        document.querySelectorAll('.trend-badge').forEach(badge => {
-            const newText = badge.getAttribute(`data-${period}`);
-            const newIcon = badge.getAttribute(`data-${period}-icon`);
-
-            const textElement = badge.querySelector('.trend-text');
-            const iconElement = badge.querySelector('.trend-icon');
-
-            if (newText && textElement) {
-                textElement.textContent = newText;
-            }
-
-            if (newIcon && iconElement) {
-                iconElement.src = newIcon;
-            }
-        });
-    });
+// Fechar pop-ups comuns clicando no fundo escuro
+// (os de sucesso têm tratamento próprio acima)
+document.addEventListener('click', (e) => {
+  if (
+    e.target.classList.contains('popup-overlay') &&
+    e.target.id !== 'popup-login' &&
+    e.target.id !== 'popup-cadastro'
+  ) {
+    e.target.classList.remove('active');
+  }
 });
 
+// Altura real no PWA
 function setRealAppHeight() {
-    const doc = document.documentElement;
-    doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+  document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
 }
-
-// Executa ao carregar e sempre que a tela redimensionar
 window.addEventListener('resize', setRealAppHeight);
 window.addEventListener('orientationchange', setRealAppHeight);
 setRealAppHeight();
-
-// Ativa o botão de editar perfil para abrir o primeiro pop-up
-document.getElementById('btn-edit-name').addEventListener('click', function () {
-  openPopup('popup-choice');
-});
-
-// Função para abrir pop-up
-function openPopup(id) {
-  document.getElementById(id).classList.add('active');
-}
-
-// Função para fechar pop-up
-function closePopup(id) {
-  document.getElementById(id).classList.remove('active');
-}
-
-// Função para fechar um pop-up e abrir o outro logo em seguida
-function switchPopup(fromId, toId) {
-  closePopup(fromId);
-  setTimeout(() => {
-    openPopup(toId);
-  }, 150); // Pequeno atraso para suavizar a animação
-}

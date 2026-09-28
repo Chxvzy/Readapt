@@ -267,6 +267,7 @@ button, input, select, textarea {
 .input-group {
   width: 100%;
   margin-bottom: 15px;
+  position: relative; /* NOVO: permite posicionar a mensagem de erro embaixo do campo */
 }
 
 .app-input {
@@ -294,12 +295,44 @@ button, input, select, textarea {
   background-color: #F1F4FF;
 }
 
+/* ==========================================================================
+   NOVO: MENSAGENS DE ERRO NOS CAMPOS (LOGIN E CADASTRO)
+   A mensagem fica logo abaixo do campo, dentro do espaço que já existe
+   entre os inputs, então o layout da tela não se mexe.
+   ========================================================================== */
+.field-error {
+  display: none;
+  position: absolute;
+  left: 2px;
+  top: 100%;
+  margin-top: 1px;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #F22525;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.field-error.show {
+  display: block;
+}
+
+/* Campo com borda vermelha */
+.app-input.input-error,
+.app-input.input-error:focus {
+  border-color: #F22525;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 1px #F22525;
+}
+
 /* Esqueceu sua senha */
 .forgot-password {
   width: 100%;
   text-align: right;
-  margin-top: -10px;
-  margin-bottom: 80px;
+  margin-top: 0;        /* AJUSTADO: era -10px (agora não cola na mensagem de erro) */
+  margin-bottom: 70px;  /* AJUSTADO: era 80px (compensa os 10px acima) */
 }
 
 .forgot-password a {
