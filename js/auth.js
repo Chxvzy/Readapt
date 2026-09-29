@@ -195,8 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // LOGIN SOCIAL (Google / Facebook / Apple)
   // ==========================================
   const btnGoogle = document.getElementById('btn-google');
-  const btnFacebook = document.getElementById('btn-facebook');
-  const btnApple = document.getElementById('btn-apple');
 
   // Mostra o erro sem abrir o teclado do celular
   function erroSocial(mensagem) {
@@ -264,9 +262,5 @@ document.addEventListener('DOMContentLoaded', () => {
       client.requestCode();
     });
   }
-
-  // Ainda não implementados: avisam em vez de "não fazer nada"
-  if (btnFacebook) btnFacebook.addEventListener('click', () => erroSocial('Login com Facebook em breve.'));
-  if (btnApple) btnApple.addEventListener('click', () => erroSocial('Login com Apple em breve.'));
 
 });

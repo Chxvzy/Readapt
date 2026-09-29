@@ -135,8 +135,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // Não mantém login: ao abrir ou recarregar a página, descarta qualquer usuário salvo
   localStorage.removeItem('user');
 
-  // Loading (2s) -> sempre vai para a tela de escolha (Login / Cadastrar)
-  setTimeout(() => showScreen('screen-welcome'), 2000);
+  // Loading -> (pergunta de tela cheia, se fizer sentido) -> tela de escolha (Login / Cadastrar)
+  const btnFsYes = document.getElementById('btn-fullscreen-yes');
+  const btnFsNo = document.getElementById('btn-fullscreen-no');
+
+  if (podePedirTelaCheia() && btnFsYes && btnFsNo) {
+    abrirPopup('popup-fullscreen');
+
+    btnFsYes.addEventListener('click', (e) => {
+      e.stopPropagation();
+      querTelaCheia = true;
+      entrarTelaCheia(); // dentro do clique = gesto válido para o navegador
+      fecharPopup('popup-fullscreen');
+      setTimeout(() => showScreen('screen-welcome'), 400);
+    });
+
+    btnFsNo.addEventListener('click', () => {
+      fecharPopup('popup-fullscreen');
+      setTimeout(() => showScreen('screen-welcome'), 400);
+    });
+  } else {
+    // Computador, iPhone ou app já instalado: só o carregamento de 2s
+    setTimeout(() => showScreen('screen-welcome'), 2000);
+  }
 
   // Welcome -> Login / Cadastro
   const btnWelcomeLogin = document.querySelector('#screen-welcome .btn-app-solid');
@@ -377,7 +398,8 @@ document.addEventListener('click', (e) => {
   if (
     e.target.classList.contains('popup-overlay') &&
     e.target.id !== 'popup-login' &&
-    e.target.id !== 'popup-cadastro'
+    e.target.id !== 'popup-cadastro' &&
+    e.target.id !== 'popup-fullscreen'
   ) {
     e.target.classList.remove('active');
   }
@@ -390,3 +412,32 @@ function setRealAppHeight() {
 window.addEventListener('resize', setRealAppHeight);
 window.addEventListener('orientationchange', setRealAppHeight);
 setRealAppHeight();
+
+// ==========================================
+// 5. TELA CHEIA (NO NAVEGADOR)
+// ==========================================
+
+// A pessoa aceitou a tela cheia? (se recusou, não insistimos)
+let querTelaCheia = false;
+
+// Só faz sentido perguntar em celular/tablet e se o navegador suporta.
+// (iPhone/Safari não suporta tela cheia em páginas normais)
+function podePedirTelaCheia() {
+  return window.matchMedia('(pointer: coarse)').matches && !!document.fullscreenEnabled;
+}
+
+// Só funciona dentro de um toque do usuário
+function entrarTelaCheia() {
+  if (document.fullscreenElement || !document.fullscreenEnabled) return;
+
+  const pedido = document.documentElement.requestFullscreen({ navigationUI: 'hide' });
+  if (pedido && pedido.catch) pedido.catch(() => {});
+}
+
+// Se aceitou e depois saiu (arrastando a borda), o próximo toque volta para a tela cheia
+document.addEventListener('click', () => {
+  if (querTelaCheia) entrarTelaCheia();
+});
+
+// Recalcula a altura quando entra/sai da tela cheia
+document.addEventListener('fullscreenchange', setRealAppHeight);

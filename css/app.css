@@ -392,32 +392,51 @@ button, input, select, textarea {
 }
 
 .social-buttons {
+  width: 100%;
   display: flex;
-  gap: 15px;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center; /* centraliza o botão */
+  gap: 12px;
 }
 
 .btn-social {
-  width: 50px;
-  height: 50px;
-  background-color: #D9D9D9;
-  border: none;
-  border-radius: 10px;
+  max-width: 260px;
+  height: 48px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 0 18px;
+  background-color: #FFFFFF;
+  border: 1px solid #ECECEC;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
 }
 
 .btn-social img {
-  width: 31px;
-  height: 31px;
+  width: 22px;
+  height: 22px;
   object-fit: contain;
+  flex-shrink: 0;
+}
+
+.btn-social span {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6C6C6C;
 }
 
 .btn-social:active {
-  background-color: #e0e0e0;
+  transform: scale(0.99);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn-social:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 /* ==========================================================================
@@ -1478,7 +1497,11 @@ margin-left: 3px;
   color: #F22525;
 }
 
-.btn-social:disabled {
-  opacity: 0.6;
-  cursor: default;
+#popup-fullscreen h2 {
+  margin-top: -5px;
+}
+
+#popup-fullscreen p {
+  margin-bottom: 10px;
+  margin-top: -5px;
 }
