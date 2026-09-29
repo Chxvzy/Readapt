@@ -1599,3 +1599,13 @@ margin-left: 3px;
     margin-bottom: clamp(28px, 6svh, 70px);
   }
 }
+
+/* ==========================================================================
+   LOGIN E CADASTRO: conteúdo centralizado na área livre
+   ========================================================================== */
+#screen-login .login-container,
+#screen-register .register-container {
+  flex: 1;                   /* ocupa toda a altura disponível */
+  justify-content: center;   /* centraliza o conteúdo na vertical */
+  padding-bottom: 4svh;         /* tira os 40px de baixo para o centro ficar exato */
+}
