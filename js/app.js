@@ -434,9 +434,13 @@ function entrarTelaCheia() {
   if (pedido && pedido.catch) pedido.catch(() => {});
 }
 
-// Se aceitou e depois saiu (arrastando a borda), o próximo toque volta para a tela cheia
-document.addEventListener('click', () => {
-  if (querTelaCheia) entrarTelaCheia();
+document.addEventListener('click', (e) => {
+  if (!querTelaCheia) return;
+
+  // Não disputa com janelas nativas (galeria de fotos e login do Google)
+  if (e.target.closest('#btn-pick-photo, #input-photo, .btn-social')) return;
+
+  entrarTelaCheia();
 });
 
 // Recalcula a altura quando entra/sai da tela cheia
