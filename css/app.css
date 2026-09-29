@@ -1469,3 +1469,16 @@ margin-left: 3px;
   cursor: default;
   text-decoration: none;
 }
+
+.btn-action-link[hidden] {
+  display: none;
+}
+
+.btn-remove {
+  color: #F22525;
+}
+
+.btn-social:disabled {
+  opacity: 0.6;
+  cursor: default;
+}

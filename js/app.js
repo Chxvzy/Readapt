@@ -1,4 +1,5 @@
 const API_URL = 'http://localhost:3000/api';
+const GOOGLE_CLIENT_ID = '687552103290-i8c78dbchjrhad8tq32e4i7qhle809v5.apps.googleusercontent.com';
 const BASE_URL = API_URL.replace(/\/api\/?$/, ''); // origem do servidor (para montar o link das fotos)
 const FOTO_PADRAO = 'assets/perfil-img.png';
 
@@ -112,6 +113,18 @@ function resetarPopupFoto() {
   }
   if (btnSave) btnSave.disabled = true;
   if (erro) erro.textContent = '';
+
+  // "Remover foto" só aparece se a pessoa tem uma foto salva
+  const btnRemove = document.getElementById('btn-remove-photo');
+  if (btnRemove) {
+    let temFoto = false;
+    try {
+      const u = JSON.parse(localStorage.getItem('user') || 'null');
+      temFoto = !!(u && u.photo_url);
+    } catch (e) {}
+    btnRemove.hidden = !temFoto;
+    btnRemove.disabled = false;
+  }
 }
 
 // ==========================================
@@ -213,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnSavePhoto = document.getElementById('btn-save-photo');
   const photoPreview = document.getElementById('photo-preview');
   const photoError = document.getElementById('photo-error');
+  const btnRemovePhoto = document.getElementById('btn-remove-photo');
 
   // Tocar na foto do perfil abre direto o pop-up de foto
   if (avatar) avatar.addEventListener('click', () => openPopup('popup-edit-photo'));
@@ -288,6 +302,44 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Erro de conexão ao enviar foto:', error);
         photoError.textContent = 'Não foi possível conectar ao servidor.';
         btnSavePhoto.disabled = false;
+      }
+    });
+  }
+
+  // "Remover foto": apaga no servidor e volta para a foto padrão
+  if (btnRemovePhoto) {
+    btnRemovePhoto.addEventListener('click', async () => {
+      const rawUser = localStorage.getItem('user');
+      if (!rawUser) {
+        photoError.textContent = 'Usuário não autenticado.';
+        return;
+      }
+      const userObj = JSON.parse(rawUser);
+
+      btnRemovePhoto.disabled = true;
+      photoError.textContent = '';
+
+      try {
+        const response = await fetch(`${API_URL}/remove-photo`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: userObj.id })
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+          userObj.photo_url = null;
+          localStorage.setItem('user', JSON.stringify(userObj));
+          atualizarFotoPerfil(null); // volta para assets/perfil-img.png
+          closePopup('popup-edit-photo');
+        } else {
+          photoError.textContent = data.error || 'Erro ao remover a foto.';
+          btnRemovePhoto.disabled = false;
+        }
+      } catch (error) {
+        console.error('Erro de conexão ao remover foto:', error);
+        photoError.textContent = 'Não foi possível conectar ao servidor.';
+        btnRemovePhoto.disabled = false;
       }
     });
   }

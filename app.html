@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/app.css">
 
     <!-- Scripts (a ordem importa: app.js primeiro, depois auth.js) -->
+     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="js/app.js" defer></script>
     <script src="js/auth.js" defer></script>
 </head>
@@ -108,13 +109,13 @@
                 <div class="social-login-section">
                     <p class="social-title">Ou continue com</p>
                     <div class="social-buttons">
-                        <button type="button" class="btn-social" aria-label="Login com Google">
-                            <img src="assets/google-logo.png" alt="Google">
+                        <button type="button" id="btn-google" class="btn-social" aria-label="Login com Google">
+                           <img src="assets/google-logo.png" alt="Google">
                         </button>
-                        <button type="button" class="btn-social" aria-label="Login com Facebook">
-                            <img src="assets/facebook-logo.png" alt="Facebook">
+                        <button type="button" id="btn-facebook" class="btn-social" aria-label="Login com Facebook">
+                           <img src="assets/facebook-logo.png" alt="Facebook">
                         </button>
-                        <button type="button" class="btn-social" aria-label="Login com Apple">
+                        <button type="button" id="btn-apple" class="btn-social" aria-label="Login com Apple">
                             <img src="assets/apple-logo.png" alt="Apple">
                         </button>
                     </div>
@@ -562,6 +563,7 @@
             <p class="photo-error" id="photo-error" role="alert"></p>
             <button type="button" id="btn-pick-photo" class="btn-action-link">Acessar biblioteca de fotos</button>
             <button type="button" id="btn-save-photo" class="btn-action-link" disabled>Salvar foto</button>
+            <button type="button" id="btn-remove-photo" class="btn-action-link btn-remove" hidden>Remover foto</button>
         </div>
     </div>
 </div>

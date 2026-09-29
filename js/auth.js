@@ -50,7 +50,7 @@ function validarEmail(email) {
   if (!email) return 'Digite seu e-mail.';
 
   const partes = email.split('@');
-  if (partes.length !== 2) return 'Digite um e-mail válido, como nome@exemplo.com';
+  if (partes.length !== 2) return 'Digite um e-mail válido, como nome@exemplo.com.';
 
   const [usuario, dominio] = partes;
 
@@ -58,7 +58,7 @@ function validarEmail(email) {
                     !usuario.startsWith('.') && !usuario.endsWith('.') && !usuario.includes('..');
   const dominioOk = /^([A-Za-z0-9]([A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/.test(dominio);
 
-  if (!usuarioOk || !dominioOk) return 'Digite um e-mail válido, como nome@exemplo.com';
+  if (!usuarioOk || !dominioOk) return 'Digite um e-mail válido, como nome@exemplo.com.';
 
   const sugestao = DOMINIOS_COM_ERRO[dominio.toLowerCase()];
   if (sugestao) return `Você quis dizer ${usuario}@${sugestao}?`;
@@ -190,4 +190,83 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ==========================================
+  // LOGIN SOCIAL (Google / Facebook / Apple)
+  // ==========================================
+  const btnGoogle = document.getElementById('btn-google');
+  const btnFacebook = document.getElementById('btn-facebook');
+  const btnApple = document.getElementById('btn-apple');
+
+  // Mostra o erro sem abrir o teclado do celular
+  function erroSocial(mensagem) {
+    if (!formLogin) return;
+    mostrarErro(formLogin, mensagem);
+    if (document.activeElement) document.activeElement.blur();
+  }
+
+  if (btnGoogle && formLogin) {
+    btnGoogle.addEventListener('click', () => {
+      limparErro(formLogin);
+
+      if (!window.google || !google.accounts || !google.accounts.oauth2) {
+        return erroSocial('Não foi possível carregar o login do Google.');
+      }
+      if (!GOOGLE_CLIENT_ID || GOOGLE_CLIENT_ID.startsWith('COLE_')) {
+        console.error('Defina GOOGLE_CLIENT_ID no js/app.js');
+        return erroSocial('Login com Google não configurado.');
+      }
+
+      const client = google.accounts.oauth2.initCodeClient({
+        client_id: GOOGLE_CLIENT_ID,
+        scope: 'openid email profile',
+        ux_mode: 'popup',
+
+        callback: async (resp) => {
+          if (resp.error || !resp.code) {
+            return erroSocial('Login com Google cancelado.');
+          }
+
+          btnGoogle.disabled = true;
+          try {
+            const response = await fetch(`${API_URL}/auth/google`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ code: resp.code })
+            });
+            const data = await response.json();
+
+            if (response.ok && data.user) {
+              localStorage.setItem('user', JSON.stringify(data.user));
+              atualizarNomePerfil(data.user.name);
+              atualizarFotoPerfil(data.user.photo_url);
+              formLogin.reset();
+              limparErro(formLogin);
+              abrirPopup('popup-login'); // ao fechar, vai para screen-main
+            } else {
+              erroSocial(data.error || 'Não foi possível entrar com o Google.');
+            }
+          } catch (error) {
+            console.error('Erro de conexão no login com Google:', error);
+            erroSocial('Não foi possível conectar ao servidor.');
+          } finally {
+            btnGoogle.disabled = false;
+          }
+        },
+
+        // Fechou a janela do Google sem escolher a conta: não é erro
+        error_callback: (err) => {
+          if (err && err.type === 'popup_closed') return;
+          erroSocial('Não foi possível abrir o login do Google.');
+        }
+      });
+
+      client.requestCode();
+    });
+  }
+
+  // Ainda não implementados: avisam em vez de "não fazer nada"
+  if (btnFacebook) btnFacebook.addEventListener('click', () => erroSocial('Login com Facebook em breve.'));
+  if (btnApple) btnApple.addEventListener('click', () => erroSocial('Login com Apple em breve.'));
+
 });
