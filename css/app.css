@@ -1572,4 +1572,30 @@ margin-left: 3px;
     margin-top: clamp(16px, 3svh, 30px);
     margin-bottom: clamp(16px, 3svh, 35px);
   }
+
+  
+}
+
+/* ==========================================================================
+   BOAS-VINDAS: centralizada na área livre e com mascote maior
+   ========================================================================== */
+@supports (height: 1svh) {
+  /* Ocupa toda a altura disponível e centraliza o conteúdo na vertical */
+  #screen-welcome .welcome-container {
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* Mascote maior */
+  .mascot-img {
+    max-height: 42svh;
+  }
+
+  .welcome-illustration {
+    margin-top: clamp(20px, 4svh, 40px);
+  }
+
+  .welcome-content {
+    margin-bottom: clamp(28px, 6svh, 70px);
+  }
 }
