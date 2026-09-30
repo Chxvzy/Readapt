@@ -8,6 +8,7 @@ const { put, del } = require('@vercel/blob');
 require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 const db = require('./db');
 const { OAuth2Client } = require('google-auth-library');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 
@@ -21,6 +22,44 @@ const googleClient = new OAuth2Client(
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, '..', 'frontend')));
+
+// ==========================================
+// FUNÇÕES AUXILIARES
+// ==========================================
+
+// Padroniza o e-mail (sem espaços e em minúsculas) para cadastro, login e Google
+function normalizarEmail(valor) {
+  return String(valor || '').trim().toLowerCase();
+}
+
+// Cria o token de login (JWT) que o front guarda e manda nas rotas protegidas
+function gerarToken(userId) {
+  if (!process.env.JWT_SECRET) {
+    console.warn('JWT_SECRET não configurado: o login funciona, mas rotas protegidas não.');
+    return null;
+  }
+  return jwt.sign({ id: userId }, process.env.JWT_SECRET, { expiresIn: '7d' });
+}
+
+// Protege rotas: só deixa passar quem mandou um token válido
+function autenticar(req, res, next) {
+  if (!process.env.JWT_SECRET) {
+    return res.status(500).json({ error: 'Servidor sem JWT_SECRET configurado.' });
+  }
+
+  const header = req.headers.authorization || '';
+  const token = header.startsWith('Bearer ') ? header.slice(7) : null;
+  if (!token) {
+    return res.status(401).json({ error: 'Não autenticado.' });
+  }
+
+  try {
+    req.userId = jwt.verify(token, process.env.JWT_SECRET).id;
+    next();
+  } catch (error) {
+    res.status(401).json({ error: 'Sessão inválida ou expirada. Entre novamente.' });
+  }
+}
 
 // ==========================================
 // UPLOAD DE FOTO DE PERFIL
@@ -37,7 +76,7 @@ if (!usarBlob) {
   app.use('/uploads', express.static(UPLOADS_DIR));
 }
 
-// Recebe o arquivo na memória (limite 2 MB); quem grava no disco é a rota, depois de validar
+// Recebe o arquivo na memória (limite 2 MB); quem grava é a rota, depois de validar
 const upload = multer({
   storage: multer.memoryStorage(),
   limits: { fileSize: 2 * 1024 * 1024, files: 1 }
@@ -147,7 +186,8 @@ app.post('/api/remove-photo', async (req, res) => {
 // CADASTRO
 // ==========================================
 app.post('/api/register', async (req, res) => {
-  const { name, email, password } = req.body;
+  const { name, password } = req.body;
+  const email = normalizarEmail(req.body.email);
 
   if (!name || !email || !password) {
     return res.status(400).json({ error: 'Preencha todos os campos!' });
@@ -169,7 +209,13 @@ app.post('/api/register', async (req, res) => {
 
     res.status(201).json({
       message: 'Conta criada com sucesso!',
-      user: { id: result.insertId, name, email, photo_url: null }
+      user: {
+        id: result.insertId,
+        name,
+        email,
+        photo_url: null,
+        token: gerarToken(result.insertId)
+      }
     });
   } catch (error) {
     if (error.code === 'ER_DUP_ENTRY') {
@@ -184,7 +230,8 @@ app.post('/api/register', async (req, res) => {
 // LOGIN
 // ==========================================
 app.post('/api/login', async (req, res) => {
-  const { email, password } = req.body;
+  const { password } = req.body;
+  const email = normalizarEmail(req.body.email);
 
   if (!email || !password) {
     return res.status(400).json({ error: 'Preencha e-mail e senha!' });
@@ -197,10 +244,12 @@ app.post('/api/login', async (req, res) => {
     }
 
     const user = users[0];
-        // Conta criada pelo Google não tem senha
+
+    // Conta criada pelo Google não tem senha
     if (!user.password_hash) {
       return res.status(400).json({ error: 'Esta conta usa o login com Google.' });
     }
+
     const validPassword = await bcrypt.compare(password, user.password_hash);
     if (!validPassword) {
       return res.status(400).json({ error: 'E-mail ou senha incorretos!' });
@@ -212,7 +261,8 @@ app.post('/api/login', async (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
-        photo_url: user.photo_url || null
+        photo_url: user.photo_url || null,
+        token: gerarToken(user.id)
       }
     });
   } catch (error) {
@@ -253,31 +303,41 @@ app.post('/api/auth/google', async (req, res) => {
     return res.status(401).json({ error: 'O e-mail da conta Google não está verificado.' });
   }
 
-  const email = payload.email.toLowerCase();
+  const email = normalizarEmail(payload.email);
   const googleId = payload.sub;
   const name = (payload.name || email.split('@')[0]).slice(0, 100);
 
   try {
-    // 2. Já existe? (pelo id do Google ou pelo e-mail)
-    const [rows] = await db.query(
-      'SELECT * FROM users WHERE google_id = ? OR email = ? LIMIT 1',
-      [googleId, email]
-    );
-
+    // 2. Já entrou com esse Google antes?
+    let [rows] = await db.query('SELECT * FROM users WHERE google_id = ? LIMIT 1', [googleId]);
     let user = rows[0];
 
-    if (user) {
-      // Conta criada com e-mail/senha: vincula o Google a ela
-      if (!user.google_id) {
+    // 3. Não? Procura uma conta com o mesmo e-mail (cadastro normal) e vincula o Google a ela
+    if (!user) {
+      [rows] = await db.query('SELECT * FROM users WHERE email = ? LIMIT 1', [email]);
+      user = rows[0];
+      if (user && !user.google_id) {
         await db.query('UPDATE users SET google_id = ? WHERE id = ?', [googleId, user.id]);
       }
-    } else {
-      // 3. Primeira vez: cria a conta (sem senha)
-      const [result] = await db.query(
-        'INSERT INTO users (name, email, google_id) VALUES (?, ?, ?)',
-        [name, email, googleId]
-      );
-      user = { id: result.insertId, name, email, photo_url: null };
+    }
+
+    // 4. Continua sem conta: cria uma nova (sem senha)
+    if (!user) {
+      try {
+        const [result] = await db.query(
+          'INSERT INTO users (name, email, google_id) VALUES (?, ?, ?)',
+          [name, email, googleId]
+        );
+        user = { id: result.insertId, name, email, photo_url: null };
+      } catch (e) {
+        if (e.code !== 'ER_DUP_ENTRY') throw e;
+        // Duas requisições ao mesmo tempo: pega a conta que a outra criou
+        [rows] = await db.query(
+          'SELECT * FROM users WHERE email = ? OR google_id = ? LIMIT 1',
+          [email, googleId]
+        );
+        user = rows[0];
+      }
     }
 
     res.status(200).json({
@@ -286,9 +346,32 @@ app.post('/api/auth/google', async (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
-        photo_url: user.photo_url || null
+        photo_url: user.photo_url || null,
+        token: gerarToken(user.id) // sempre gera, para conta nova E existente
       }
     });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro interno no servidor.' });
+  }
+});
+
+// ==========================================
+// EXCLUIR CONTA (protegida por token)
+// ==========================================
+app.delete('/api/delete-account', autenticar, async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT photo_url FROM users WHERE id = ?', [req.userId]);
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'Usuário não encontrado.' });
+    }
+
+    await db.query('DELETE FROM users WHERE id = ?', [req.userId]);
+
+    // Apaga a foto (Blob ou disco) sem travar a resposta
+    apagarFoto(rows[0].photo_url).catch((error) => console.error('Erro ao apagar foto:', error));
+
+    res.status(200).json({ message: 'Conta excluída com sucesso.' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Erro interno no servidor.' });

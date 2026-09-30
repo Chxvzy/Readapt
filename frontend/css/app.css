@@ -1660,3 +1660,46 @@ margin-left: 3px;
 .btn-remove {
   color: #F22525;
 }
+
+/* ==========================================================================
+   EXCLUIR CONTA
+   ========================================================================== */
+.btn-delete-account {
+  margin-top: 18px;
+}
+
+#popup-delete-account .popup-content > p:first-of-type {
+  margin-bottom: 12px;
+}
+
+#popup-delete-account .popup-content strong {
+  color: #F22525;
+}
+
+/* Erros dentro de pop-ups. Precisa do ".popup-content" na frente para
+   vencer a regra genérica ".popup-content p" (que deixaria o texto azul). */
+.popup-content .photo-error,
+.popup-content .popup-error {
+  margin: 0 0 8px;
+  font-size: 10px;
+  font-weight: 500;
+  color: #F22525;
+  text-align: center;
+}
+
+.popup-content .photo-error:empty,
+.popup-content .popup-error:empty {
+  display: none;
+}
+
+/* Pop-up de escolha: card compacto, botões mais abaixo e sem sobra embaixo */
+#popup-choice .popup-card {
+  min-height: 0;                 /* tira a altura mínima que criava o espaço sobrando */
+  padding: 54px 20px 24px;       /* mais espaço em cima (desce os botões) e menos embaixo */
+  justify-content: flex-start;
+}
+
+#popup-choice .btn-delete-account {
+  margin-top: 10px;
+  padding: 8px 12px;             /* aumenta a área de toque sem mudar o visual */
+}

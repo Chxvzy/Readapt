@@ -519,18 +519,19 @@
             </div>
         </div>
 
-        <!-- Pop-up 1: Escolha (Nome ou Foto) -->
-        <div class="popup-overlay" id="popup-choice">
-            <div class="popup-card">
-                <button type="button" class="popup-close" onclick="closePopup('popup-choice')" aria-label="Fechar">
-                    <img src="assets/x-icon.svg" alt="Fechar">
-                </button>
-                <div class="popup-choice-buttons">
-                    <button type="button" class="btn-pop-primary" onclick="switchPopup('popup-choice', 'popup-edit-name')">Editar Nome</button>
-                    <button type="button" class="btn-pop-outline" onclick="switchPopup('popup-choice', 'popup-edit-photo')">Editar Foto</button>
-                </div>
-            </div>
+<!-- Pop-up 1: Escolha (Nome, Foto ou Excluir conta) -->
+<div class="popup-overlay" id="popup-choice">
+    <div class="popup-card">
+        <button type="button" class="popup-close" onclick="closePopup('popup-choice')" aria-label="Fechar">
+            <img src="assets/x-icon.svg" alt="Fechar">
+        </button>
+        <div class="popup-choice-buttons">
+            <button type="button" class="btn-pop-primary" onclick="switchPopup('popup-choice', 'popup-edit-name')">Editar Nome</button>
+            <button type="button" class="btn-pop-outline" onclick="switchPopup('popup-choice', 'popup-edit-photo')">Editar Foto</button>
         </div>
+        <button type="button" id="btn-delete-account" class="btn-action-link btn-remove btn-delete-account">Excluir conta</button>
+    </div>
+</div>
 
         <!-- Pop-up 2: Editar Nome -->
         <div class="popup-overlay" id="popup-edit-name">
@@ -579,6 +580,22 @@
                 </div>
             </div>
         </div>
+
+        <!-- Pop-up: confirmar exclusão da conta -->
+<div class="popup-overlay" id="popup-delete-account">
+    <div class="popup-card">
+        <button type="button" class="popup-close" onclick="closePopup('popup-delete-account')" aria-label="Fechar">
+            <img src="assets/x-icon.svg" alt="Fechar">
+        </button>
+        <div class="popup-content">
+            <h2>Excluir conta</h2>
+            <p>Essa ação é permanente e não pode ser desfeita. Para confirmar, escreva <strong>deletar</strong> abaixo.</p>
+            <input type="text" id="input-delete-confirm" class="popup-input" placeholder='Digite "deletar"' autocomplete="off" autocapitalize="off" spellcheck="false">
+            <p class="popup-error" id="delete-error" role="alert"></p>
+            <button type="button" id="btn-confirm-delete" class="btn-action-link btn-remove" disabled>Confirmar</button>
+        </div>
+    </div>
+</div>
 
     </main>
 

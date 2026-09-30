@@ -26,8 +26,9 @@ function fecharPopup(id) {
 }
 
 function openPopup(id) {
-  // Sempre abre o pop-up de foto "limpo"
+  // Sempre abre os pop-ups de foto e de exclusão "limpos"
   if (id === 'popup-edit-photo') resetarPopupFoto();
+  if (id === 'popup-delete-account') resetarPopupExcluir();
   abrirPopup(id);
 }
 function closePopup(id) { fecharPopup(id); }
@@ -125,6 +126,16 @@ function resetarPopupFoto() {
     btnRemove.hidden = !temFoto;
     btnRemove.disabled = false;
   }
+}
+
+function resetarPopupExcluir() {
+  const input = document.getElementById('input-delete-confirm');
+  const btn = document.getElementById('btn-confirm-delete');
+  const erro = document.getElementById('delete-error');
+
+  if (input) input.value = '';
+  if (btn) btn.disabled = true;
+  if (erro) erro.textContent = '';
 }
 
 // ==========================================
@@ -361,6 +372,67 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Erro de conexão ao remover foto:', error);
         photoError.textContent = 'Não foi possível conectar ao servidor.';
         btnRemovePhoto.disabled = false;
+      }
+    });
+  }
+
+    // ------------------------------------------
+  // Excluir conta
+  // ------------------------------------------
+  const btnDeleteAccount = document.getElementById('btn-delete-account');
+  const inputDeleteConfirm = document.getElementById('input-delete-confirm');
+  const btnConfirmDelete = document.getElementById('btn-confirm-delete');
+  const deleteError = document.getElementById('delete-error');
+
+  const palavraConfere = () =>
+    inputDeleteConfirm.value.trim().toLowerCase() === 'deletar';
+
+  if (btnDeleteAccount) {
+    btnDeleteAccount.addEventListener('click', () => switchPopup('popup-choice', 'popup-delete-account'));
+  }
+
+  // O botão "Confirmar" só libera quando a palavra está certa
+  if (inputDeleteConfirm && btnConfirmDelete) {
+    inputDeleteConfirm.addEventListener('input', () => {
+      deleteError.textContent = '';
+      btnConfirmDelete.disabled = !palavraConfere();
+    });
+  }
+
+  if (btnConfirmDelete) {
+    btnConfirmDelete.addEventListener('click', async () => {
+      if (!palavraConfere()) return;
+
+      const rawUser = localStorage.getItem('user');
+      if (!rawUser) {
+        deleteError.textContent = 'Usuário não autenticado.';
+        return;
+      }
+      const userObj = JSON.parse(rawUser);
+
+      btnConfirmDelete.disabled = true;
+      deleteError.textContent = '';
+
+      try {
+        const response = await fetch(`${API_URL}/delete-account`, {
+          method: 'DELETE',
+          headers: { 'Authorization': `Bearer ${userObj.token}` }
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+          localStorage.removeItem('user');
+          atualizarFotoPerfil(null);
+          closePopup('popup-delete-account');
+          showScreen('screen-welcome'); // volta para a tela de escolha
+        } else {
+          deleteError.textContent = data.error || 'Erro ao excluir a conta.';
+          btnConfirmDelete.disabled = false;
+        }
+      } catch (error) {
+        console.error('Erro de conexão ao excluir conta:', error);
+        deleteError.textContent = 'Não foi possível conectar ao servidor.';
+        btnConfirmDelete.disabled = false;
       }
     });
   }
