@@ -4,8 +4,9 @@ const fs = require('fs');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
+const { put, del } = require('@vercel/blob');
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 const db = require('./db');
-require('dotenv').config();
 const { OAuth2Client } = require('google-auth-library');
 
 const app = express();
@@ -19,14 +20,22 @@ const googleClient = new OAuth2Client(
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.resolve(__dirname, '..', 'frontend')));
 
 // ==========================================
 // UPLOAD DE FOTO DE PERFIL
 // ==========================================
 const UPLOADS_DIR = path.join(__dirname, 'uploads');
-fs.mkdirSync(UPLOADS_DIR, { recursive: true });
-app.use('/uploads', express.static(UPLOADS_DIR));
+const usarBlob = Boolean(
+  process.env.VERCEL === '1' ||
+  process.env.BLOB_READ_WRITE_TOKEN ||
+  (process.env.BLOB_STORE_ID && process.env.VERCEL_OIDC_TOKEN)
+);
+
+if (!usarBlob) {
+  fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+  app.use('/uploads', express.static(UPLOADS_DIR));
+}
 
 // Recebe o arquivo na memória (limite 2 MB); quem grava no disco é a rota, depois de validar
 const upload = multer({
@@ -55,6 +64,16 @@ function detectarTipoImagem(buf) {
   return null;
 }
 
+async function apagarFoto(photoUrl) {
+  if (!photoUrl) return;
+
+  if (/^https:\/\/[^/]+\.blob\.vercel-storage\.com\//.test(photoUrl)) {
+    await del(photoUrl);
+  } else if (photoUrl.startsWith('/uploads/')) {
+    await fs.promises.unlink(path.join(UPLOADS_DIR, path.basename(photoUrl))).catch(() => {});
+  }
+}
+
 app.post('/api/upload-photo', receberFoto, async (req, res) => {
   const id = parseInt(req.body && req.body.id, 10);
 
@@ -73,17 +92,25 @@ app.post('/api/upload-photo', receberFoto, async (req, res) => {
       return res.status(404).json({ error: 'Usuário não encontrado.' });
     }
 
-    const nomeArquivo = `user-${id}-${Date.now()}.${ext}`;
-    await fs.promises.writeFile(path.join(UPLOADS_DIR, nomeArquivo), req.file.buffer);
+    let photo_url;
+    if (usarBlob) {
+      const contentType = ext === 'jpg' ? 'image/jpeg' : `image/${ext}`;
+      const blob = await put(`profile-photos/user-${id}.${ext}`, req.file.buffer, {
+        access: 'public',
+        addRandomSuffix: true,
+        contentType
+      });
+      photo_url = blob.url;
+    } else {
+      const nomeArquivo = `user-${id}-${Date.now()}.${ext}`;
+      await fs.promises.writeFile(path.join(UPLOADS_DIR, nomeArquivo), req.file.buffer);
+      photo_url = `/uploads/${nomeArquivo}`;
+    }
 
-    const photo_url = `/uploads/${nomeArquivo}`;
     await db.query('UPDATE users SET photo_url = ? WHERE id = ?', [photo_url, id]);
 
     // Apaga a foto anterior para não acumular arquivos
-    const antiga = rows[0].photo_url;
-    if (antiga && antiga.startsWith('/uploads/')) {
-      fs.promises.unlink(path.join(UPLOADS_DIR, path.basename(antiga))).catch(() => {});
-    }
+    apagarFoto(rows[0].photo_url).catch((error) => console.error('Erro ao apagar foto anterior:', error));
 
     res.status(200).json({ message: 'Foto atualizada com sucesso!', photo_url });
   } catch (error) {
@@ -107,11 +134,7 @@ app.post('/api/remove-photo', async (req, res) => {
 
     await db.query('UPDATE users SET photo_url = NULL WHERE id = ?', [id]);
 
-    // Apaga o arquivo da pasta uploads
-    const antiga = rows[0].photo_url;
-    if (antiga && antiga.startsWith('/uploads/')) {
-      fs.promises.unlink(path.join(UPLOADS_DIR, path.basename(antiga))).catch(() => {});
-    }
+    apagarFoto(rows[0].photo_url).catch((error) => console.error('Erro ao apagar foto anterior:', error));
 
     res.status(200).json({ message: 'Foto removida com sucesso!' });
   } catch (error) {

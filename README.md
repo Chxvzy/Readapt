@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo-readapt-white.png" alt="Readapt Logo" width="120"/>
+<img src="frontend/assets/logo-readapt-white.png" alt="Readapt Logo" width="120"/>
 
 # Readapt
 
@@ -65,7 +65,7 @@ A proposta é transformar o aprendizado em uma experiência interativa, personal
 
 ---
 
-## 📱 Estrutura do Site
+## Estrutura do Site
 
 - Home
 - Instruções
@@ -76,52 +76,60 @@ A proposta é transformar o aprendizado em uma experiência interativa, personal
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```text
 Readapt/
-│
-├── assets/
-│
-├── css/
-│   ├── style.css
-│   ├── instrucoes.css
-│   ├── produto.css
-│   ├── quem-somos.css
-│   ├── referencias.css
-│   └── game.css
-│
-├── js/
-│   ├── referencias.js
-│   └── script.js
-│
-├── index.html
-├── instrucoes.html
-├── produto.html
-├── quem-somos.html
-├── referencias.html
-└── game.html
+├── frontend/
+│   ├── assets/
+│   ├── css/
+│   ├── js/
+│   │   └── config.js
+│   └── *.html
+├── backend/
+│   ├── uploads/
+│   ├── package.json
+│   ├── db.js
+│   └── server.js
+├── .env
+├── .env.example
+├── package.json
+└── package-lock.json
 ```
 
 ---
 
 ## 🚀 Como Executar
 
-1. Clone o repositório
+1. Instale as dependências na raiz do projeto:
 
 ```bash
-git clone https://github.com/Chxvzy/Readapt.git
+npm install
 ```
 
-2. Abra a pasta do projeto.
+2. Configure as variáveis no arquivo `.env` da raiz. Use `.env.example` como referência; não compartilhe nem versione o `.env`.
 
-3. Execute o arquivo:
+3. Inicie a API e o frontend:
 
-```text
-index.html
+```bash
+npm start
 ```
 
-ou utilize a extensão **Live Server** no Visual Studio Code.
+4. Acesse `http://localhost:3000` no navegador.
+
+## Publicar na Vercel
+
+O frontend e o backend devem ser projetos Vercel separados:
+
+1. Crie o projeto do backend com **Root Directory** `backend/`.
+2. Configure no projeto do backend `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `GOOGLE_CLIENT_ID` e `GOOGLE_CLIENT_SECRET`.
+3. Crie um Blob Store, conecte-o ao projeto do backend e disponibilize `BLOB_READ_WRITE_TOKEN` (ou as credenciais OIDC geradas pela Vercel).
+4. Faça o deploy do backend e copie sua URL pública.
+5. Em `frontend/js/config.js`, substitua a URL local pela URL do backend seguida de `/api`.
+6. Crie o projeto do frontend com **Root Directory** `frontend/` e faça o deploy.
+7. Adicione o domínio do frontend às origens JavaScript autorizadas do cliente OAuth do Google e confirme que o MySQL aceita conexões da Vercel.
+
+As fotos enviadas em produção são armazenadas no Blob com acesso público, como no fluxo atual de `/uploads`. Qualquer pessoa com a URL da foto pode visualizá-la. O token do Blob deve ficar somente nas variáveis de ambiente do backend.
 
 ---
 

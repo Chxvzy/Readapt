@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = (window.READAPT_API_URL || 'http://localhost:3000/api').replace(/\/$/, '');
 const GOOGLE_CLIENT_ID = '687552103290-i8c78dbchjrhad8tq32e4i7qhle809v5.apps.googleusercontent.com';
 const BASE_URL = API_URL.replace(/\/api\/?$/, ''); // origem do servidor (para montar o link das fotos)
 const FOTO_PADRAO = 'assets/perfil-img.png';
@@ -56,7 +56,7 @@ function atualizarNomePerfil(nomeCompleto) {
 // Sem foto salva -> volta para a foto padrão
 function atualizarFotoPerfil(photoUrl) {
   const img = document.querySelector('.profile-avatar img');
-  if (img) img.src = photoUrl ? BASE_URL + photoUrl : FOTO_PADRAO;
+  if (img) img.src = photoUrl ? new URL(photoUrl, BASE_URL).href : FOTO_PADRAO;
 }
 
 // Reduz a foto (máx. 512px) e converte para JPEG antes de enviar.
