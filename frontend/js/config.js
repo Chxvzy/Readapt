@@ -1,1 +1,1 @@
-window.READAPT_API_URL = 'http://localhost:3000/api';
+window.READAPT_API_URL = 'https://readapt-backend.vercel.app/api';
