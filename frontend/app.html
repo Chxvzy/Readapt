@@ -102,7 +102,7 @@
                     </div>
 
                     <div class="forgot-password">
-                        <a href="#">Esqueceu sua senha?</a>
+                        <a href="#" id="link-forgot">Esqueceu sua senha?</a>
                     </div>
 
                     <button type="submit" class="btn-primary">Entrar</button>
@@ -165,6 +165,61 @@
                 <a href="#" class="btn-secondary-link link-login">Já tenho uma conta</a>
             </div>
         </section>
+
+        <!-- ==========================================
+     TELA: ESQUECI A SENHA (pedir o e-mail)
+     ========================================== -->
+<section id="screen-forgot" class="screen">
+    <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Esqueceu a senha?</h2>
+            <p>Digite seu e-mail e enviaremos<br>um link para criar uma nova senha.</p>
+        </div>
+
+        <form id="form-forgot" class="login-form" novalidate>
+            <div class="input-group">
+                <input type="email" id="forgot-email" placeholder="Email" class="app-input active" required autocomplete="email">
+                <span class="field-error" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn-primary">Enviar link</button>
+        </form>
+
+        <a href="#" class="btn-secondary-link" id="link-forgot-back">Voltar ao login</a>
+    </div>
+</section>
+
+<!-- ==========================================
+     TELA: NOVA SENHA (abre pelo link do e-mail)
+     ========================================== -->
+<section id="screen-reset" class="screen">
+    <img src="assets/background-img-welcome.png" alt="" class="welcome-bg">
+
+    <div class="login-container">
+        <div class="login-header">
+            <h2>Nova senha</h2>
+            <p>Escolha uma senha nova<br>para a sua conta.</p>
+        </div>
+
+        <form id="form-reset" class="login-form" novalidate>
+            <div class="input-group">
+                <input type="password" id="reset-password" placeholder="Nova senha" class="app-input active" required autocomplete="new-password">
+                <span class="field-error" role="alert"></span>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="reset-confirm-password" placeholder="Confirmar nova senha" class="app-input" required autocomplete="new-password">
+                <span class="field-error" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn-primary">Salvar senha</button>
+        </form>
+
+        <a href="#" class="btn-secondary-link" id="link-reset-new">Pedir um novo link</a>
+    </div>
+</section>
 
         <!-- ==========================================
              5. TELA PRINCIPAL (DASHBOARD)
@@ -593,6 +648,32 @@
             <input type="text" id="input-delete-confirm" class="popup-input" placeholder='Digite "deletar"' autocomplete="off" autocapitalize="off" spellcheck="false">
             <p class="popup-error" id="delete-error" role="alert"></p>
             <button type="button" id="btn-confirm-delete" class="btn-action-link btn-remove" disabled>Confirmar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Pop-up: link enviado -->
+<div id="popup-forgot-sent" class="popup-overlay">
+    <div class="popup-card">
+        <button type="button" class="popup-close" onclick="fecharPopupEIrParaLogin('popup-forgot-sent')" aria-label="Fechar">
+            <img src="assets/x-icon.svg" alt="Fechar">
+        </button>
+        <div class="popup-content">
+            <h2>Confira seu e-mail</h2>
+            <p>Se esse e-mail estiver cadastrado, enviamos um link para criar uma nova senha. Ele vale por 30 minutos.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Pop-up: senha alterada -->
+<div id="popup-reset-done" class="popup-overlay">
+    <div class="popup-card">
+        <button type="button" class="popup-close" onclick="fecharPopupEIrParaLogin('popup-reset-done')" aria-label="Fechar">
+            <img src="assets/x-icon.svg" alt="Fechar">
+        </button>
+        <div class="popup-content">
+            <h2>Senha alterada!</h2>
+            <p>Agora é só entrar com a sua nova senha.</p>
         </div>
     </div>
 </div>

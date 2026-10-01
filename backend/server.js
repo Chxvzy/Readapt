@@ -9,6 +9,8 @@ require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 const db = require('./db');
 const { OAuth2Client } = require('google-auth-library');
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
 
 const app = express();
 
@@ -59,6 +61,60 @@ function autenticar(req, res, next) {
   } catch (error) {
     res.status(401).json({ error: 'Sessão inválida ou expirada. Entre novamente.' });
   }
+}
+
+// ==========================================
+// ENVIO DE E-MAIL (REDEFINIÇÃO DE SENHA)
+// ==========================================
+function emailConfigurado() {
+  return Boolean(process.env.GMAIL_USER && process.env.GMAIL_APP_PASSWORD && process.env.FRONTEND_URL);
+}
+
+let transporter = null;
+function getTransporter() {
+  if (!transporter) {
+    transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD
+      }
+    });
+  }
+  return transporter;
+}
+
+function escaparHtml(texto) {
+  return String(texto).replace(/[&<>"']/g, (c) => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+}
+
+async function enviarEmailRedefinicao(destino, nome, link) {
+  const primeiroNome = escaparHtml(String(nome || '').trim().split(' ')[0]);
+  const saudacao = primeiroNome ? `Olá, ${primeiroNome}!` : 'Olá!';
+
+  await getTransporter().sendMail({
+    from: `"Readapt" <${process.env.GMAIL_USER}>`,
+    to: destino,
+    subject: 'Criar nova senha do Readapt',
+    text:
+      `${saudacao.replace(/&#39;/g, "'")}\n\n` +
+      `Recebemos um pedido para criar uma nova senha na sua conta do Readapt.\n` +
+      `Abra o link abaixo para continuar (vale por 30 minutos e só pode ser usado uma vez):\n\n` +
+      `${link}\n\n` +
+      `Se você não pediu isso, ignore este e-mail: sua senha continua a mesma.`,
+    html:
+      `<div style="font-family:Arial,sans-serif;max-width:480px;margin:0 auto;padding:24px;color:#222">` +
+      `<h2 style="color:#1F41BB;margin:0 0 16px">Readapt</h2>` +
+      `<p>${saudacao}</p>` +
+      `<p>Recebemos um pedido para criar uma nova senha na sua conta. Toque no botão abaixo para continuar:</p>` +
+      `<p style="margin:28px 0"><a href="${link}" style="background:#2463EB;color:#ffffff;text-decoration:none;` +
+      `padding:14px 28px;border-radius:12px;font-weight:bold;display:inline-block">Criar nova senha</a></p>` +
+      `<p style="font-size:13px;color:#555">O link vale por 30 minutos e só pode ser usado uma vez.</p>` +
+      `<p style="font-size:13px;color:#555">Se você não pediu isso, pode ignorar este e-mail: sua senha continua a mesma.</p>` +
+      `</div>`
+  });
 }
 
 // ==========================================
@@ -350,6 +406,117 @@ app.post('/api/auth/google', async (req, res) => {
         token: gerarToken(user.id) // sempre gera, para conta nova E existente
       }
     });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro interno no servidor.' });
+  }
+});
+
+// ==========================================
+// ESQUECI A SENHA: pedir o link por e-mail
+// ==========================================
+app.post('/api/forgot-password', async (req, res) => {
+  const email = normalizarEmail(req.body && req.body.email);
+
+  // Resposta igual exista o e-mail ou não (ninguém descobre quem tem conta)
+  const RESPOSTA = {
+    message: 'Se esse e-mail estiver cadastrado, enviamos um link para criar uma nova senha.'
+  };
+
+  if (!email) {
+    return res.status(400).json({ error: 'Digite seu e-mail.' });
+  }
+  if (!emailConfigurado()) {
+    console.error('GMAIL_USER / GMAIL_APP_PASSWORD / FRONTEND_URL não configurados.');
+    return res.status(500).json({ error: 'Envio de e-mail não configurado no servidor.' });
+  }
+
+  try {
+    const [users] = await db.query('SELECT id, name, email FROM users WHERE email = ? LIMIT 1', [email]);
+    const user = users[0];
+
+    if (user) {
+      // Limite: no máximo 3 pedidos por hora para cada conta
+      const [recentes] = await db.query(
+        'SELECT COUNT(*) AS total FROM password_resets WHERE user_id = ? AND created_at > DATE_SUB(NOW(), INTERVAL 1 HOUR)',
+        [user.id]
+      );
+
+      if (Number(recentes[0].total) < 3) {
+        const token = crypto.randomBytes(32).toString('hex');
+        const tokenHash = crypto.createHash('sha256').update(token).digest('hex');
+
+        // Links anteriores deixam de valer
+        await db.query('UPDATE password_resets SET used_at = NOW() WHERE user_id = ? AND used_at IS NULL', [user.id]);
+
+        // No banco fica só o hash do código, nunca o código em si
+        await db.query(
+          'INSERT INTO password_resets (user_id, token_hash, expires_at) VALUES (?, ?, DATE_ADD(NOW(), INTERVAL 30 MINUTE))',
+          [user.id, tokenHash]
+        );
+
+        const base = process.env.FRONTEND_URL.replace(/\/+$/, '');
+        const link = `${base}/app.html#reset=${token}`;
+
+        try {
+          await enviarEmailRedefinicao(user.email, user.name, link);
+        } catch (erroEmail) {
+          // Não revela a falha para quem pediu; fica só no log do servidor
+          console.error('Erro ao enviar e-mail de redefinição:', erroEmail.message);
+        }
+      }
+    }
+
+    res.status(200).json(RESPOSTA);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro interno no servidor.' });
+  }
+});
+
+// ==========================================
+// ESQUECI A SENHA: criar a nova senha com o link
+// ==========================================
+app.post('/api/reset-password', async (req, res) => {
+  const token = String((req.body && req.body.token) || '');
+  const password = String((req.body && req.body.password) || '');
+  const LINK_INVALIDO = { error: 'Link inválido ou expirado. Peça um novo.' };
+
+  if (!/^[a-f0-9]{64}$/.test(token)) {
+    return res.status(400).json(LINK_INVALIDO);
+  }
+  if (password.length < 6) {
+    return res.status(400).json({ error: 'A senha deve ter pelo menos 6 caracteres.' });
+  }
+
+  try {
+    const tokenHash = crypto.createHash('sha256').update(token).digest('hex');
+
+    const [rows] = await db.query(
+      'SELECT id, user_id FROM password_resets WHERE token_hash = ? AND used_at IS NULL AND expires_at > NOW() LIMIT 1',
+      [tokenHash]
+    );
+    if (rows.length === 0) {
+      return res.status(400).json(LINK_INVALIDO);
+    }
+    const reset = rows[0];
+
+    // "Reserva" o link: se duas requisições chegarem juntas, só uma passa
+    const [reserva] = await db.query(
+      'UPDATE password_resets SET used_at = NOW() WHERE id = ? AND used_at IS NULL',
+      [reset.id]
+    );
+    if (reserva.affectedRows !== 1) {
+      return res.status(400).json(LINK_INVALIDO);
+    }
+
+    const password_hash = await bcrypt.hash(password, 10);
+    await db.query('UPDATE users SET password_hash = ? WHERE id = ?', [password_hash, reset.user_id]);
+
+    // Qualquer outro link ainda aberto dessa conta também deixa de valer
+    await db.query('UPDATE password_resets SET used_at = NOW() WHERE user_id = ? AND used_at IS NULL', [reset.user_id]);
+
+    res.status(200).json({ message: 'Senha alterada com sucesso!' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Erro interno no servidor.' });

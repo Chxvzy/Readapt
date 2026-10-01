@@ -67,11 +67,13 @@ function validarEmail(email) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const formLogin = document.getElementById('form-login');
-  const formRegister = document.getElementById('form-register');
+    const formLogin = document.getElementById('form-login');
+    const formRegister = document.getElementById('form-register');
+    const formForgot = document.getElementById('form-forgot');
+    const formReset = document.getElementById('form-reset');
 
   // Some o erro assim que a pessoa volta a digitar
-  [formLogin, formRegister].forEach(form => {
+  [formLogin, formRegister, formForgot, formReset].forEach(form => {
     if (form) form.addEventListener('input', () => limparErro(form));
   });
 
@@ -260,6 +262,98 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       client.requestCode();
+    });
+  }
+
+    // ==========================================
+  // ESQUECI A SENHA: pedir o link
+  // ==========================================
+  if (formForgot) {
+    formForgot.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const emailInput = document.getElementById('forgot-email');
+      const email = emailInput.value.trim();
+
+      const erroEmail = validarEmail(email);
+      if (erroEmail) {
+        return mostrarErro(formForgot, erroEmail, [emailInput]);
+      }
+
+      const submitBtn = formForgot.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(`${API_URL}/forgot-password`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok) {
+          formForgot.reset();
+          limparErro(formForgot);
+          abrirPopup('popup-forgot-sent'); // ao fechar, volta para o login
+        } else {
+          mostrarErro(formForgot, data.error || 'Não foi possível enviar o e-mail.', [emailInput]);
+        }
+      } catch (error) {
+        console.error('Erro de conexão ao pedir link de senha:', error);
+        mostrarErro(formForgot, 'Não foi possível conectar ao servidor.');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  }
+
+  // ==========================================
+  // NOVA SENHA (tela aberta pelo link do e-mail)
+  // ==========================================
+  if (formReset) {
+    formReset.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const passwordInput = document.getElementById('reset-password');
+      const confirmInput = document.getElementById('reset-confirm-password');
+      const password = passwordInput.value;
+      const confirmPassword = confirmInput.value;
+
+      if (!resetToken) {
+        return mostrarErro(formReset, 'Link inválido ou expirado. Peça um novo.');
+      }
+      if (password.length < 6) {
+        return mostrarErro(formReset, 'A senha deve ter pelo menos 6 caracteres.', [passwordInput]);
+      }
+      if (password !== confirmPassword) {
+        return mostrarErro(formReset, 'As senhas não coincidem.', [passwordInput, confirmInput], confirmInput);
+      }
+
+      const submitBtn = formReset.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(`${API_URL}/reset-password`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token: resetToken, password })
+        });
+        const data = await response.json().catch(() => ({}));
+
+        if (response.ok) {
+          resetToken = null;
+          formReset.reset();
+          limparErro(formReset);
+          abrirPopup('popup-reset-done'); // ao fechar, vai para o login
+        } else {
+          mostrarErro(formReset, data.error || 'Não foi possível salvar a senha.');
+        }
+      } catch (error) {
+        console.error('Erro de conexão ao salvar nova senha:', error);
+        mostrarErro(formReset, 'Não foi possível conectar ao servidor.');
+      } finally {
+        submitBtn.disabled = false;
+      }
     });
   }
 

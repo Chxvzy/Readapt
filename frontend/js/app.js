@@ -3,6 +3,30 @@ const GOOGLE_CLIENT_ID = '687552103290-i8c78dbchjrhad8tq32e4i7qhle809v5.apps.goo
 const BASE_URL = API_URL.replace(/\/api\/?$/, ''); // origem do servidor (para montar o link das fotos)
 const FOTO_PADRAO = 'assets/perfil-img.png';
 
+
+// Link de redefinição de senha (vem do e-mail como #reset=CÓDIGO)
+let resetToken = null;
+
+function lerTokenDeRedefinicao() {
+  const m = window.location.hash.match(/reset=([a-f0-9]{64})/i);
+  if (m) {
+    resetToken = m[1].toLowerCase();
+    // Tira o código da barra de endereço para não ficar no histórico
+    history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+}
+
+// Quem chegou pelo link do e-mail vai direto para a tela de nova senha
+function telaInicial() {
+  return resetToken ? 'screen-reset' : 'screen-welcome';
+}
+
+// Fecha o pop-up e volta para o login
+function fecharPopupEIrParaLogin(id) {
+  fecharPopup(id);
+  showScreen('screen-login');
+}
+
 // ==========================================
 // 1. NAVEGAÇÃO ENTRE TELAS
 // ==========================================
@@ -143,6 +167,8 @@ function resetarPopupExcluir() {
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
 
+  lerTokenDeRedefinicao();
+
   // Não mantém login: ao abrir ou recarregar a página, descarta qualquer usuário salvo
   localStorage.removeItem('user');
 
@@ -158,16 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
       querTelaCheia = true;
       entrarTelaCheia(); // dentro do clique = gesto válido para o navegador
       fecharPopup('popup-fullscreen');
-      setTimeout(() => showScreen('screen-welcome'), 400);
+      setTimeout(() => showScreen(telaInicial()), 400);
     });
 
     btnFsNo.addEventListener('click', () => {
       fecharPopup('popup-fullscreen');
-      setTimeout(() => showScreen('screen-welcome'), 400);
+      setTimeout(() => showScreen(telaInicial()), 400);
     });
   } else {
     // Computador, iPhone ou app já instalado: só o carregamento de 2s
-    setTimeout(() => showScreen('screen-welcome'), 2000);
+    setTimeout(() => showScreen(telaInicial()), 2000);
   }
 
   // Welcome -> Login / Cadastro
@@ -437,6 +463,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+    // Esqueceu a senha: abre a tela e já leva o e-mail digitado no login
+  const linkForgot = document.getElementById('link-forgot');
+  if (linkForgot) {
+    linkForgot.addEventListener('click', (e) => {
+      e.preventDefault();
+      const loginEmail = document.getElementById('login-email');
+      const forgotEmail = document.getElementById('forgot-email');
+      if (loginEmail && forgotEmail && loginEmail.value.trim()) {
+        forgotEmail.value = loginEmail.value.trim();
+      }
+      showScreen('screen-forgot');
+    });
+  }
+
+  const linkForgotBack = document.getElementById('link-forgot-back');
+  if (linkForgotBack) {
+    linkForgotBack.addEventListener('click', (e) => {
+      e.preventDefault();
+      showScreen('screen-login');
+    });
+  }
+
+  const linkResetNew = document.getElementById('link-reset-new');
+  if (linkResetNew) {
+    linkResetNew.addEventListener('click', (e) => {
+      e.preventDefault();
+      resetToken = null;
+      showScreen('screen-forgot');
+    });
+  }
+
+  // Pop-ups que voltam para o login: clicar em qualquer ponto fecha
+  ['popup-forgot-sent', 'popup-reset-done'].forEach(id => {
+    const popup = document.getElementById(id);
+    if (popup) popup.addEventListener('click', () => fecharPopupEIrParaLogin(id));
+  });
+
   // ------------------------------------------
   // Troca de período nos gráficos
   // ------------------------------------------
@@ -465,13 +528,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Fechar pop-ups comuns clicando no fundo escuro
-// (os de sucesso têm tratamento próprio acima)
+// (os abaixo têm tratamento próprio)
+const POPUPS_COM_DESTINO = [
+  'popup-login', 'popup-cadastro', 'popup-fullscreen',
+  'popup-forgot-sent', 'popup-reset-done'
+];
+
 document.addEventListener('click', (e) => {
   if (
     e.target.classList.contains('popup-overlay') &&
-    e.target.id !== 'popup-login' &&
-    e.target.id !== 'popup-cadastro' &&
-    e.target.id !== 'popup-fullscreen'
+    !POPUPS_COM_DESTINO.includes(e.target.id)
   ) {
     e.target.classList.remove('active');
   }
