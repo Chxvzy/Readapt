@@ -4097,3 +4097,38 @@ body.dark {
         text-align:center;
     }
 }
+
+/* 992px–1199px: imagem menor para sobrar espaço aos cards
+   (o texto "Processamento" saía da caixa em 1024px) */
+@media (min-width:992px) and (max-width:1199.98px){
+
+    .about{
+        grid-template-columns:minmax(0, 380px) minmax(0, 1fr);
+        column-gap:40px;
+    }
+
+    .about-2{
+        grid-template-columns:minmax(0, 1fr) minmax(0, 340px);
+        column-gap:40px;
+    }
+
+    .about .features-list,
+    .about-2 > .features-list-2{
+        gap:16px;
+    }
+
+    .about .feature-card,
+    .about-2 .feature-card-2{
+        padding:22px 16px 18px 18px;
+        gap:12px;
+    }
+
+    .about .text-content p,
+    .about-2 .text-content p{
+        overflow-wrap:anywhere;
+    }
+
+    .about-2 .robo-2{
+        align-self:center;
+    }
+}
