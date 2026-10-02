@@ -3467,3 +3467,91 @@ body.dark {
         column-gap:35px;
     }
 }
+
+/* Header igual em todas as páginas: todos os links do menu têm o mesmo
+   espaço interno da pílula azul, então nada "anda" quando muda a página ativa */
+@media (min-width:768px){
+
+    .navegacao{
+        gap:2px;
+    }
+
+    .navegacao a{
+        height:50px;
+        padding:0 17px;
+        display:inline-flex;
+        align-items:center;
+        border-radius:50px;
+    }
+}
+
+@media (min-width:768px) and (max-width:1199.98px){
+
+    .navegacao{
+        gap:0;
+    }
+
+    .navegacao a,
+    .navegacao .ativo{
+        padding:0 12px;
+    }
+}
+
+@media (min-width:768px) and (max-width:991.98px){
+
+    .navegacao a,
+    .navegacao .ativo{
+        height:42px;
+        padding:0 9px;
+    }
+}
+
+/* Header no modo escuro igual em todas as páginas */
+@media (min-width:768px){
+
+    body.dark .header-desktop{
+        background:#1B1E28;
+    }
+
+    body.dark .header-desktop .logo img:first-child,
+    body.dark #logo-desktop{
+        width:72px;
+        height:54px;
+        max-width:none;
+        margin:-7px 0 0;
+        object-fit:contain;
+    }
+
+    body.dark .header-desktop .logo-text{
+        margin-left:0;
+        padding-top:0;
+    }
+
+    body.dark .header-desktop .logo-text p,
+    body.dark .header-desktop .logo-text strong{
+        font-size:20px;
+        font-weight:700;
+        color:#FDFDFD;
+    }
+
+    body.dark .navegacao a:not(.ativo){
+        color:#88909C;
+    }
+
+    body.dark .navegacao a:not(.ativo):hover{
+        color:#FDFDFD;
+    }
+
+    body.dark .navegacao .ativo{
+        background:var(--primary);
+        color:var(--background-light);
+    }
+}
+/* Rodapé: texto "Readapt" 10px mais para baixo, alinhado com o logo */
+@media (min-width:768px){
+
+    .footer-marca h2{
+        position:relative;
+        top:5px;
+    }
+}
