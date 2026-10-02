@@ -4063,3 +4063,11 @@ body.dark {
         top:5px;
     }
 }
+
+/* Tablet: foto do menino centralizada (igual ao robô) */
+@media (min-width:768px) and (max-width:991.98px){
+
+    .about-2 .robo-2{
+        align-self:center;
+    }
+}
