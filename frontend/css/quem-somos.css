@@ -2163,3 +2163,221 @@ body.dark {
         padding:50px 40px;
     }
 }
+
+
+/* =========================================================
+   AJUSTES FINOS DO FIGMA (medidas da tela de 1440px)
+   tamanhos de cards, imagens, espaçamentos, paddings,
+   border-radius e cores. Não afeta o mobile.
+   ========================================================= */
+
+@media (min-width:768px){
+
+    /* pílulas azuis (tags) — Figma: 40px de altura, raio 50, azul 20% */
+    .instructions-tag,
+    .new-tag,
+    .new-tag-2,
+    .new-tag-3,
+    .new-tag-4,
+    .roadmap-tag,
+    .team-tag,
+    .contact-tag,
+    .references-tag,
+    .play-tag,
+    .story-tag,
+    .levels-tag,
+    .gameplay-tag,
+    .game-tag{
+        box-sizing:border-box;
+        width:fit-content;
+        height:40px;
+        padding:0 18px;
+        align-items:center;
+        justify-content:center;
+        line-height:40px;
+        border-radius:50px;
+        background:var(--primary-20);
+        color:var(--primary);
+        font-family:'Montserrat', sans-serif;
+        font-size:15px;
+        font-weight:600;
+    }
+
+    /* topo das páginas internas — Figma: tag a 143px do header,
+       14px entre tag/título/texto */
+    .instructions-hero{
+        min-height:480px;
+        padding:143px var(--gutter) 60px;
+    }
+
+    .instructions-top{
+        margin-bottom:14px;
+    }
+
+    .instructions-hero h1{
+        margin:0;
+        line-height:60px;
+    }
+
+    .instructions-hero p{
+        margin:14px auto 0;
+        max-width:678px;
+        line-height:24px;
+    }
+}
+
+@media (min-width:768px){
+
+    /* ---- Conheça cada membro ---- */
+    .team-section{
+        padding-top:142px;
+    }
+
+    .team-tag + h2,
+    .team-section h2{
+        margin-top:18px;
+        line-height:60px;
+        color:var(--text);
+    }
+
+    .team-section > p{
+        max-width:525px;
+        margin:15px auto 0;
+        line-height:24px;
+    }
+
+    .team-cards{
+        margin-top:77px;
+        column-gap:30px;
+        row-gap:50px;
+    }
+
+    /* Figma: card 380x330, raio 30, sem borda, sombra azul 15px */
+    .team-card{
+        box-sizing:border-box;
+        min-height:330px;
+        margin-bottom:15px;
+        padding:20px 30px 20px;
+        border-radius:30px;
+        background:var(--background);
+        box-shadow:0 15px 0 var(--primary-shadow);
+    }
+
+    .team-photo{
+        width:90px;
+        height:90px;
+        margin:0;
+        border-radius:30px;
+    }
+
+    .team-card h3{
+        margin-top:8px;
+        line-height:24px;
+        color:var(--text);
+    }
+
+    .team-role{
+        height:25px;
+        margin:13px auto 0;
+        padding:0 19px;
+        display:flex;
+        align-items:center;
+        border-radius:15px;
+        line-height:17px;
+    }
+
+    .team-card span{
+        max-width:319px;
+        margin:21px auto 0;
+        padding-inline:0;
+        line-height:18px;
+    }
+
+    .team-social{
+        margin-top:auto;
+        padding-top:21px;
+        gap:15px;
+    }
+
+    .team-social a{
+        border-radius:10px;
+    }
+
+    /* ---- Entre em Contato ---- */
+    /* padding em vez de margin: a margem da tag "vazava" para fora
+       da seção e criava uma faixa branca depois dos cards */
+    .contact-section{
+        padding-top:97px;
+    }
+
+    .contact-tag{
+        margin:0 auto;
+    }
+
+    .contact-section h2{
+        margin-top:15px;
+        line-height:60px;
+        color:var(--text);
+    }
+
+    .contact-section > p{
+        margin-top:15px;
+        line-height:24px;
+    }
+
+    /* Figma: formulário 800x543, raio 30, sem borda, sombra 17px */
+    .contact-form{
+        min-height:543px;
+        margin-top:60px;
+        padding:68px 100px;
+        border-radius:30px;
+        box-shadow:0 17px 0 var(--primary-shadow);
+    }
+
+    .contact-form label{
+        margin-bottom:30px;
+    }
+
+    .contact-form label:last-of-type{
+        margin-bottom:18px;
+    }
+
+    .contact-label{
+        margin-bottom:12px;
+    }
+
+    .contact-form input{
+        height:40px;
+        padding:0 24px;
+    }
+
+    .contact-form textarea{
+        height:120px;
+        padding:10px 24px;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder{
+        color:#65758B80;
+    }
+
+    .contact-form button{
+        height:45px;
+        border-radius:10px;
+    }
+}
+
+/* tamanho exato do Figma no desktop */
+@media (min-width:1200px){
+
+    .team-cards{
+        max-width:1200px;
+    }
+}
+
+@media (min-width:768px) and (max-width:991.98px){
+
+    .contact-form{
+        padding:50px 40px;
+    }
+}

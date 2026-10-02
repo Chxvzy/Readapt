@@ -2268,3 +2268,238 @@
         margin:0 0 90px;
     }
 }
+
+
+/* =========================================================
+   AJUSTES FINOS DO FIGMA (medidas da tela de 1440px)
+   tamanhos de cards, imagens, espaçamentos, paddings,
+   border-radius e cores. Não afeta o mobile.
+   ========================================================= */
+
+@media (min-width:768px){
+
+    /* pílulas azuis (tags) — Figma: 40px de altura, raio 50, azul 20% */
+    .instructions-tag,
+    .new-tag,
+    .new-tag-2,
+    .new-tag-3,
+    .new-tag-4,
+    .roadmap-tag,
+    .team-tag,
+    .contact-tag,
+    .references-tag,
+    .play-tag,
+    .story-tag,
+    .levels-tag,
+    .gameplay-tag,
+    .game-tag{
+        box-sizing:border-box;
+        width:fit-content;
+        height:40px;
+        padding:0 18px;
+        align-items:center;
+        justify-content:center;
+        line-height:40px;
+        border-radius:50px;
+        background:var(--primary-20);
+        color:var(--primary);
+        font-family:'Montserrat', sans-serif;
+        font-size:15px;
+        font-weight:600;
+    }
+
+    /* topo das páginas internas — Figma: tag a 143px do header,
+       14px entre tag/título/texto */
+    .instructions-hero{
+        min-height:480px;
+        padding:143px var(--gutter) 60px;
+    }
+
+    .instructions-top{
+        margin-bottom:14px;
+    }
+
+    .instructions-hero h1{
+        margin:0;
+        line-height:60px;
+    }
+
+    .instructions-hero p{
+        margin:14px auto 0;
+        max-width:678px;
+        line-height:24px;
+    }
+}
+
+@media (min-width:768px){
+
+    .instructions-hero{
+        min-height:450px;
+    }
+
+    .instructions-hero p{
+        max-width:739px;
+    }
+
+    /* ---- passos ----
+       Figma: card 800x200, raio 30, sem borda, sombra azul 10px;
+       quadrado do número 100x100 raio 20, a 58px do card */
+    .manual-section{
+        padding-top:135px;
+    }
+
+    .manual-step{
+        max-width:958px;
+        margin-bottom:52px;
+        padding-left:158px;
+    }
+
+    .manual-number{
+        width:100px;
+        height:100px;
+        border-radius:20px;
+        font-size:45px;
+        font-weight:600;
+    }
+
+    .manual-card{
+        box-sizing:border-box;
+        min-height:200px;
+        padding:39px 40px 28px;
+        border-radius:30px;
+        background:var(--background);
+        box-shadow:0 10px 0 var(--primary-shadow);
+    }
+
+    .manual-header{
+        padding-left:7px;
+        gap:8px;
+    }
+
+    .manual-card h3{
+        font-size:16px;
+        line-height:24px;
+    }
+
+    .manual-card p{
+        margin:16px 0 13px;
+        padding-left:7px;
+        line-height:20px;
+    }
+
+    .manual-tip{
+        box-sizing:border-box;
+        min-height:39px;
+        padding:0 14px;
+        display:flex;
+        align-items:center;
+        justify-content:flex-start;
+        border-radius:10px;
+        background:var(--primary-10);
+    }
+
+    /* ---- Veja o Readapt em Ação ---- */
+    .demonstration{
+        padding-block:91px 126px;
+        background:var(--primary-20);
+    }
+
+    .demonstration .new-tag{ margin:0; }
+
+    .demonstration h2{
+        margin:15px 0 0;
+        line-height:60px;
+    }
+
+    .demonstration p{
+        margin:15px auto 51px;
+        line-height:24px;
+    }
+
+    .solution-card{
+        min-height:504px;
+        height:auto;
+        border-radius:30px;
+        box-shadow:0 16px 0 var(--primary-shadow);
+    }
+
+    .solution-icon{
+        margin:172px auto 17px;
+        border-radius:15px;
+    }
+
+    /* ---- Dicas / Observações ---- */
+    .tips-section{
+        gap:80px;
+    }
+
+    .tips-card{
+        box-sizing:border-box;
+        min-height:459px;
+        margin:160px 0;
+        padding:50px 40px;
+        border-radius:30px;
+        box-shadow:0 9px 0 var(--primary-shadow);
+    }
+
+    .tips-card h2,
+    .tips-card:last-child h2{
+        margin:0 0 33px 40px;
+        font-size:23px;
+        line-height:35px;
+        color:var(--text);
+    }
+
+    .tips-item,
+    .warning-item{
+        margin:0 0 15px;
+        gap:15px;
+    }
+
+    .tips-number{
+        border-radius:10px;
+    }
+
+    .tips-item p,
+    .warning-item p{
+        line-height:20px;
+    }
+}
+
+@media (min-width:768px) and (max-width:991.98px){
+
+    .manual-step{
+        padding-left:120px;
+    }
+
+    .manual-number{
+        width:84px;
+        height:84px;
+        font-size:38px;
+    }
+
+    .tips-section{
+        gap:40px;
+    }
+
+    .tips-card{
+        margin:90px 0 0;
+    }
+
+    .tips-card:last-child{
+        margin:0 0 90px;
+    }
+}
+
+@media (min-width:768px){
+
+    /* Figma: os dois últimos cards têm 181px de altura */
+    .manual-step:nth-last-child(-n+2) .manual-card{
+        min-height:181px;
+    }
+
+    /* Figma: 160px entre o vídeo e os cards de dicas */
+    .tips-section{
+        margin-top:0;
+    }
+}

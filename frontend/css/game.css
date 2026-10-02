@@ -3118,3 +3118,352 @@ body.dark {
         padding:0 0 18px;
     }
 }
+
+
+/* =========================================================
+   AJUSTES FINOS DO FIGMA (medidas da tela de 1440px)
+   tamanhos de cards, imagens, espaçamentos, paddings,
+   border-radius e cores. Não afeta o mobile.
+   ========================================================= */
+
+@media (min-width:768px){
+
+    /* pílulas azuis (tags) — Figma: 40px de altura, raio 50, azul 20% */
+    .instructions-tag,
+    .new-tag,
+    .new-tag-2,
+    .new-tag-3,
+    .new-tag-4,
+    .roadmap-tag,
+    .team-tag,
+    .contact-tag,
+    .references-tag,
+    .play-tag,
+    .story-tag,
+    .levels-tag,
+    .gameplay-tag,
+    .game-tag{
+        box-sizing:border-box;
+        width:fit-content;
+        height:40px;
+        padding:0 18px;
+        align-items:center;
+        justify-content:center;
+        line-height:40px;
+        border-radius:50px;
+        background:var(--primary-20);
+        color:var(--primary);
+        font-family:'Montserrat', sans-serif;
+        font-size:15px;
+        font-weight:600;
+    }
+
+    /* topo das páginas internas — Figma: tag a 143px do header,
+       14px entre tag/título/texto */
+    .instructions-hero{
+        min-height:480px;
+        padding:143px var(--gutter) 60px;
+    }
+
+    .instructions-top{
+        margin-bottom:14px;
+    }
+
+    .instructions-hero h1{
+        margin:0;
+        line-height:60px;
+    }
+
+    .instructions-hero p{
+        margin:14px auto 0;
+        max-width:678px;
+        line-height:24px;
+    }
+}
+
+@media (min-width:768px){
+
+    /* ---- topo ---- Figma: tag a 135px do header, imagem 564x435 raio 30 */
+    .game-hero{
+        padding-top:135px;
+        padding-bottom:123px;
+    }
+
+    .game-tag{
+        padding:0 27px;
+    }
+
+    .game-hero > h1{
+        margin-top:20px;
+        line-height:75px;
+    }
+
+    .game-hero > p{
+        margin-top:20px;
+        line-height:24px;
+    }
+
+    .game-buttons{
+        margin-top:44px;
+        gap:33px;
+    }
+
+    .btn-play span,
+    .btn-develop span{
+        font-family:'Inter', sans-serif;
+        font-size:15px;
+        font-weight:600;
+    }
+
+    .btn-play span{
+        color:var(--background-light);
+    }
+
+    .btn-develop{
+        border-width:1px;
+    }
+
+    .game-stats{
+        margin-top:46px;
+        gap:42px;
+    }
+
+    .game-stat h2{
+        font-size:25px;
+        line-height:38px;
+    }
+
+    .game-stat span{
+        margin-top:0;
+        font-weight:600;
+        line-height:16px;
+    }
+
+    .game-image{
+        align-self:start;
+        margin-top:40px;
+        aspect-ratio:564 / 435;
+    }
+
+    .game-image img{
+        border-radius:30px;
+    }
+
+    /* ---- Área de jogo ---- Figma: card 864x365 raio 30 sem borda */
+    .play-section{
+        padding:60px 40px 0;
+        min-height:521px;
+    }
+
+    .play-card{
+        box-sizing:border-box;
+        min-height:365px;
+        margin-top:0;
+        padding:59px 15px 40px;
+        border-radius:30px;
+    }
+
+    .play-tag{ margin-top:0; }
+
+    .play-card h2{
+        margin-top:15px;
+        line-height:60px;
+    }
+
+    .play-card p{
+        margin-top:15px;
+        line-height:24px;
+    }
+
+    .play-button{
+        margin-top:48px;
+        font-family:'Inter', sans-serif;
+        font-size:15px;
+        color:var(--background-light);
+    }
+
+    .play-info{
+        margin-top:27px;
+        font-weight:600;
+    }
+
+    /* ---- A Jornada do Robô Boss ---- Figma: imagem 559x358 raio 40 */
+    .story-section{
+        padding-top:161px;
+        padding-bottom:152px;
+    }
+
+    .story-image{
+        aspect-ratio:559 / 358;
+        border-radius:40px;
+    }
+
+    .story-tag{ margin:0; }
+
+    .story-section h2{
+        margin:15px 0 34px;
+        line-height:60px;
+    }
+
+    .story-content p{
+        margin-bottom:20px;
+        line-height:24px;
+    }
+
+    /* ---- 5 Mundos ---- Figma: card 240x230 raio 30 sem borda */
+    .levels-section{
+        padding:70px 40px 98px;
+    }
+
+    .levels-section h2{
+        margin-top:19px;
+        line-height:60px;
+    }
+
+    .levels-section > p{
+        margin-top:18px;
+        line-height:24px;
+    }
+
+    .levels-cards{
+        margin-top:52px;
+        gap:15px;
+    }
+
+    .level-card{
+        box-sizing:border-box;
+        padding:21px 15px 20px;
+        border-radius:30px;
+        box-shadow:0 5px 0 var(--primary-shadow);
+    }
+
+    .level-number{
+        width:44px;
+        height:45px;
+        margin-top:0;
+        border-radius:15px;
+        font-size:25px;
+    }
+
+    .level-card h3{
+        margin-top:20px;
+        line-height:22px;
+    }
+
+    .level-card p{
+        margin-top:6px;
+        font-family:'Poppins', sans-serif;
+        line-height:15px;
+    }
+
+    .level-difficulty{
+        height:19px;
+        margin-top:auto;
+        padding:0 9px;
+        display:inline-flex;
+        align-items:center;
+        font-family:'Inter', sans-serif;
+        color:var(--background-light);
+    }
+
+    /* ---- Mecânicas Educativas ---- Figma: card 331x200 raio 30 sem borda */
+    .gameplay-section{
+        padding-top:180px;
+        padding-bottom:204px;
+    }
+
+    .gameplay-section h2{
+        margin-top:13px;
+        line-height:60px;
+    }
+
+    .gameplay-section > p{
+        max-width:739px;
+        margin-top:13px;
+        line-height:24px;
+    }
+
+    .gameplay-cards{
+        margin:58px auto 0;
+        row-gap:44px;
+    }
+
+    .gameplay-card{
+        box-sizing:border-box;
+        min-height:200px;
+        padding:32px 38px;
+        border-radius:30px;
+        box-shadow:0 10px 0 var(--primary-shadow);
+    }
+
+    .gameplay-icon{
+        margin-left:0;
+        border-radius:15px;
+    }
+
+    .gameplay-card h3{
+        margin-top:17px;
+        line-height:24px;
+    }
+
+    .gameplay-card p,
+    .gameplay-card:last-child p{
+        max-width:245px;
+        margin-top:7px;
+        line-height:20px;
+    }
+
+    /* ---- Assista ao Gameplay ---- Figma: card 907x504 raio 30 */
+    .demonstration{
+        padding-top:74px;
+    }
+
+    .demonstration .new-tag{ margin-top:0; }
+
+    .demonstration h2{
+        margin:15px 0 0;
+        line-height:60px;
+    }
+
+    .demonstration p{
+        margin:15px auto 61px;
+        line-height:24px;
+    }
+
+    .solution-card{
+        max-width:907px;
+        margin-top:0;
+        border-radius:30px;
+        box-shadow:0 16px 0 var(--primary-shadow);
+    }
+
+    .solution-icon{
+        margin:156px auto 28px;
+        border-radius:15px;
+    }
+
+    .solution-card h3{
+        margin-top:0;
+        line-height:30px;
+        color:var(--text);
+    }
+}
+
+/* tamanhos exatos do Figma no desktop */
+@media (min-width:1200px){
+
+    .game-hero{
+        grid-template-columns:minmax(0, 1fr) minmax(0, 564px);
+    }
+
+    .story-section{
+        grid-template-columns:minmax(0, 559px) minmax(0, 632px);
+        column-gap:68px;
+    }
+
+    .gameplay-cards{
+        max-width:1063px;
+        grid-template-columns:repeat(3, minmax(0, 331px));
+        column-gap:35px;
+    }
+}

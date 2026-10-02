@@ -1970,3 +1970,218 @@ body.dark {
         max-width:680px;
     }
 }
+
+
+/* =========================================================
+   AJUSTES FINOS DO FIGMA (medidas da tela de 1440px)
+   tamanhos de cards, imagens, espaçamentos, paddings,
+   border-radius e cores. Não afeta o mobile.
+   ========================================================= */
+
+@media (min-width:768px){
+
+    /* pílulas azuis (tags) — Figma: 40px de altura, raio 50, azul 20% */
+    .instructions-tag,
+    .new-tag,
+    .new-tag-2,
+    .new-tag-3,
+    .new-tag-4,
+    .roadmap-tag,
+    .team-tag,
+    .contact-tag,
+    .references-tag,
+    .play-tag,
+    .story-tag,
+    .levels-tag,
+    .gameplay-tag,
+    .game-tag{
+        box-sizing:border-box;
+        width:fit-content;
+        height:40px;
+        padding:0 18px;
+        align-items:center;
+        justify-content:center;
+        line-height:40px;
+        border-radius:50px;
+        background:var(--primary-20);
+        color:var(--primary);
+        font-family:'Montserrat', sans-serif;
+        font-size:15px;
+        font-weight:600;
+    }
+
+    /* topo das páginas internas — Figma: tag a 143px do header,
+       14px entre tag/título/texto */
+    .instructions-hero{
+        min-height:480px;
+        padding:143px var(--gutter) 60px;
+    }
+
+    .instructions-top{
+        margin-bottom:14px;
+    }
+
+    .instructions-hero h1{
+        margin:0;
+        line-height:60px;
+    }
+
+    .instructions-hero p{
+        margin:14px auto 0;
+        max-width:678px;
+        line-height:24px;
+    }
+}
+
+@media (min-width:768px){
+
+    /* ---- topo ---- Figma: azul até 521px, tag a 143px do header */
+    .references-hero{
+        min-height:521px;
+        padding:143px var(--gutter) 68px;
+    }
+
+    .references-top{
+        margin-bottom:14px;
+    }
+
+    .references-tag{
+        margin-top:0;
+    }
+
+    .references-hero h1{
+        margin:0;
+        line-height:60px;
+    }
+
+    .references-hero p{
+        max-width:678px;
+        margin:14px auto 0;
+        line-height:24px;
+    }
+
+    .references-stats{
+        margin-top:39px;
+        gap:36px;
+    }
+
+    .references-stat h2{
+        line-height:38px;
+    }
+
+    .references-stat span{
+        margin-top:0;
+        line-height:16px;
+    }
+
+    /* ---- filtros ---- Figma: 34px de altura, raio 15, 17px entre eles */
+    .references-filter{
+        padding:61px 24px 60px;
+        gap:17px;
+    }
+
+    .references-filter a,
+    .references-filter a:hover{
+        box-sizing:border-box;
+        height:34px;
+        margin:0;
+        padding:0 12px;
+        display:inline-flex;
+        align-items:center;
+        border-radius:15px;
+        background:var(--primary-20);
+        font-size:12px;
+    }
+
+    .references-filter a{
+        transition:transform .25s;
+    }
+
+    .references-filter a:hover{
+        transform:translateY(-2px);
+    }
+
+    .section-divider{
+        margin:0;
+        border:0;
+        border-top:1px solid #65758B80;
+    }
+
+    /* ---- cards ---- Figma: 800x149, raio 30, 25px entre eles */
+    .references{
+        padding-top:81px;
+    }
+
+    .reference-card{
+        box-sizing:border-box;
+        min-height:149px;
+        margin:25px auto 0;
+        padding:30px 140px 27px 53px;
+        border-radius:30px;
+    }
+
+    .reference-top{
+        gap:19px;
+    }
+
+    .reference-category{
+        height:23px;
+        padding:0 11px;
+        display:inline-flex;
+        align-items:center;
+        border-radius:15px;
+        font-size:10px;
+    }
+
+    .reference-card h3{
+        margin-top:15px;
+        line-height:24px;
+    }
+
+    .reference-card p{
+        margin-top:8px;
+        line-height:20px;
+    }
+
+    .reference-button{
+        top:28px;
+        right:43px;
+        width:77px;
+        height:27px;
+        border-radius:15px;
+    }
+
+    /* ---- Observações ---- Figma: 800x279, raio 30, sombra 5px */
+    .notice-card{
+        box-sizing:border-box;
+        min-height:279px;
+        padding:48px 60px;
+        border-radius:30px;
+        box-shadow:0 5px 0 var(--primary-shadow);
+    }
+
+    .notice-card p{
+        margin-top:15px;
+        line-height:20px;
+    }
+
+    .notice-header h2{
+        font-size:23px;
+        line-height:35px;
+    }
+}
+
+@media (min-width:768px){
+
+    /* Figma: 59px entre o título "Observações" e o 1º item */
+    .notice-card p:first-of-type{
+        margin-top:24px;
+    }
+}
+
+@media (min-width:768px){
+
+    .references-notice{
+        padding-top:75px;
+    }
+}

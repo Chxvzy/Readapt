@@ -2726,3 +2726,12 @@
         --container:1560px;
     }
 }
+
+/* Home: texto do topo mais para cima (centralizado na altura do robô) */
+@media (min-width:768px){
+
+    .hero-content{
+        align-self:center;
+        padding-bottom:0;
+    }
+}
