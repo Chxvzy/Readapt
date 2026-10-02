@@ -4071,3 +4071,29 @@ body.dark {
         align-self:center;
     }
 }
+
+/* Tablet: tag, título e texto dos Óculos centralizados */
+@media (min-width:768px) and (max-width:991.98px){
+
+    .about-2{
+        align-items:center;
+    }
+
+    .about-2 h2,
+    .about-2 > p{
+        text-align:center;
+    }
+}
+
+/* Tablet: tag, título e texto dos Óculos centralizados */
+@media (min-width:768px) and (max-width:991.98px){
+
+    .about{
+        align-items:center;
+    }
+
+    .about h2,
+    .about > p{
+        text-align:center;
+    }
+}
