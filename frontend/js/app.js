@@ -1,7 +1,29 @@
 const API_URL = (window.READAPT_API_URL || 'http://localhost:3000/api').replace(/\/$/, '');
 const GOOGLE_CLIENT_ID = '687552103290-i8c78dbchjrhad8tq32e4i7qhle809v5.apps.googleusercontent.com';
 const BASE_URL = API_URL.replace(/\/api\/?$/, ''); // origem do servidor (para montar o link das fotos)
-const FOTO_PADRAO = 'assets/perfil-img.png';
+const FOTO_PADRAO = 'assets/perfil-img.png';          // foto padrão de menino
+const FOTO_PADRAO_MENINA = 'assets/perfil-img-menina.png'; // foto padrão de menina
+
+// O gênero fica salvo neste aparelho, ligado ao e-mail da conta
+function chaveGenero(email) {
+  return 'readapt-genero:' + String(email || '').trim().toLowerCase();
+}
+
+function salvarGenero(email, genero) {
+  if (email && genero) localStorage.setItem(chaveGenero(email), genero);
+}
+
+function generoDoUsuario(user) {
+  if (!user) return null;
+  return user.gender || localStorage.getItem(chaveGenero(user.email)) || null;
+}
+
+// Foto padrão de acordo com o gênero de quem está logado
+function fotoPadrao() {
+  let user = null;
+  try { user = JSON.parse(localStorage.getItem('user') || 'null'); } catch (e) {}
+  return generoDoUsuario(user) === 'feminino' ? FOTO_PADRAO_MENINA : FOTO_PADRAO;
+}
 
 
 // Link de redefinição de senha (vem do e-mail como #reset=CÓDIGO)
@@ -78,10 +100,10 @@ function atualizarNomePerfil(nomeCompleto) {
   }
 }
 
-// Sem foto salva -> volta para a foto padrão
+// Sem foto salva -> volta para a foto padrão (menino ou menina)
 function atualizarFotoPerfil(photoUrl) {
   const img = document.querySelector('.profile-avatar img');
-  if (img) img.src = photoUrl ? new URL(photoUrl, BASE_URL).href : FOTO_PADRAO;
+  if (img) img.src = photoUrl ? new URL(photoUrl, BASE_URL).href : fotoPadrao();
 }
 
 // Reduz a foto (máx. 512px) e converte para JPEG antes de enviar.
@@ -168,6 +190,7 @@ function resetarPopupExcluir() {
 document.addEventListener('DOMContentLoaded', () => {
 
   lerTokenDeRedefinicao();
+  criarBotoesVerSenha();
 
   // Não mantém login: ao abrir ou recarregar a página, descarta qualquer usuário salvo
   localStorage.removeItem('user');
@@ -388,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (response.ok) {
           userObj.photo_url = null;
           localStorage.setItem('user', JSON.stringify(userObj));
-          atualizarFotoPerfil(null); // volta para assets/perfil-img.png
+          atualizarFotoPerfil(null); // volta para a foto padrão (menino ou menina)
           closePopup('popup-edit-photo');
         } else {
           photoError.textContent = data.error || 'Erro ao remover a foto.';
@@ -447,6 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
 
         if (response.ok) {
+          localStorage.removeItem(chaveGenero(userObj.email));
           localStorage.removeItem('user');
           atualizarFotoPerfil(null);
           closePopup('popup-delete-account');
@@ -583,3 +607,57 @@ document.addEventListener('click', (e) => {
 
 // Recalcula a altura quando entra/sai da tela cheia
 document.addEventListener('fullscreenchange', setRealAppHeight);
+
+// ==========================================
+// 6. MOSTRAR / ESCONDER SENHA (ícone de olho)
+// ==========================================
+const ICONE_OLHO = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+const ICONE_OLHO_RISCADO = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.6-7 10-7c2 0 3.8.7 5.2 1.6M22 12s-3.6 7-10 7c-2 0-3.8-.7-5.2-1.6"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/><path d="M3 3l18 18"/></svg>';
+
+// Coloca um botão de olho em todos os campos de senha (login, cadastro e nova senha).
+// O olho só aparece quando o campo tem algo escrito.
+// A senha começa escondida; só aparece quando a pessoa toca no olho.
+function criarBotoesVerSenha() {
+  document.querySelectorAll('.input-group input[type="password"]').forEach(input => {
+    const grupo = input.closest('.input-group');
+    if (!grupo || grupo.querySelector('.toggle-password')) return;
+
+    grupo.classList.add('has-toggle');
+
+    const botao = document.createElement('button');
+    botao.type = 'button';
+    botao.className = 'toggle-password';
+    botao.tabIndex = 0;
+
+    const atualizar = (mostrando) => {
+      input.type = mostrando ? 'text' : 'password';
+      botao.innerHTML = mostrando ? ICONE_OLHO_RISCADO : ICONE_OLHO;
+      botao.setAttribute('aria-label', mostrando ? 'Esconder senha' : 'Mostrar senha');
+      botao.setAttribute('aria-pressed', mostrando ? 'true' : 'false');
+    };
+
+    botao.addEventListener('click', () => {
+      const pos = input.selectionStart;
+      atualizar(input.type === 'password');
+      input.focus();
+      try { input.setSelectionRange(pos, pos); } catch (e) {}
+    });
+
+    // Mostra o olho só quando tem algo digitado (apagou tudo: some e a senha volta a esconder)
+    const mostrarOuEsconderOlho = () => {
+      const temTexto = input.value.length > 0;
+      botao.hidden = !temTexto;
+      if (!temTexto) atualizar(false);
+    };
+    input.addEventListener('input', mostrarOuEsconderOlho);
+
+    // Quando o formulário é limpo (ex.: depois de entrar), o olho some e a senha volta a esconder
+    if (input.form) {
+      input.form.addEventListener('reset', () => setTimeout(mostrarOuEsconderOlho, 0));
+    }
+
+    atualizar(false);
+    mostrarOuEsconderOlho();
+    input.insertAdjacentElement('afterend', botao);
+  });
+}

@@ -1753,3 +1753,116 @@ margin-left: 3px;
     padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 96px);
   }
 }
+
+/* ==========================================================================
+   CADASTRO: ESCOLHA DE GÊNERO (substitui o "Nome completo")
+   Dois botões lado a lado com o mesmo visual dos campos.
+   ========================================================================== */
+.gender-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.gender-option {
+  position: relative;
+  flex: 1;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F1F4FF;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 12px;
+  font-weight: 600;
+  color: #626262;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* O círculo do rádio fica escondido: o botão inteiro é a opção */
+.gender-option input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.gender-option:hover {
+  border-color: #C8D8FF;
+}
+
+/* Opção escolhida */
+.gender-option:has(input:checked) {
+  background-color: #2463EB;
+  border-color: #2463EB;
+  color: #FDFDFD;
+}
+
+/* Navegação pelo teclado */
+.gender-option:has(input:focus-visible) {
+  outline: 2px solid #2463EB;
+  outline-offset: 2px;
+}
+
+/* Erro: não escolheu nenhuma opção */
+.gender-option:has(input.input-error) {
+  background-color: #FFFFFF;
+  border-color: #F22525;
+  box-shadow: 0 0 0 1px #F22525;
+}
+
+/* ==========================================================================
+   MOSTRAR / ESCONDER SENHA (ícone de olho dentro do campo)
+   ========================================================================== */
+.input-group.has-toggle .app-input {
+  padding-right: 52px; /* espaço para o olho não ficar em cima do texto */
+}
+
+.toggle-password {
+  position: absolute;
+  top: 0;
+  right: 6px;
+  width: 40px;
+  height: 45px; /* mesma altura do campo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 10px;
+  color: #626262;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.toggle-password:hover,
+.toggle-password[aria-pressed="true"] {
+  color: #2463EB;
+}
+
+.toggle-password:focus-visible {
+  outline: 2px solid #2463EB;
+  outline-offset: -4px;
+}
+
+.toggle-password svg {
+  display: block;
+  pointer-events: none;
+}
+
+/* Campo vazio: o olho fica escondido */
+.toggle-password[hidden] {
+  display: none;
+}
+
+/* Esconde o olho nativo do Edge para não aparecerem dois */
+.app-input::-ms-reveal,
+.app-input::-ms-clear {
+  display: none;
+}
