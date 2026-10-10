@@ -6,142 +6,49 @@
 
 ### Veja Além das Letras
 
-Sistema tecnológico educacional que combina robótica, óculos inteligentes, inteligência artificial e gamificação para auxiliar crianças com dislexia durante o processo de aprendizagem da leitura.
+Site e aplicativo do Readapt, um sistema educacional com robô, óculos inteligentes e jogo para ajudar crianças com dislexia na leitura.
 
 </div>
 
 ---
 
-## 📖 Sobre o Projeto
+## 🌐 O Site
 
-O **Readapt** é uma solução educacional desenvolvida para tornar a leitura mais acessível para crianças com dislexia.
+| Página | O que tem |
+|---|---|
+| **Home** | Apresentação do Readapt, tecnologias usadas, solução, benefícios, os 8 passos de uso e atalhos para as outras páginas |
+| **Instruções** | Manual passo a passo de como usar o sistema, vídeo demonstrativo, dicas de uso e observações importantes |
+| **Produtos** | Robô educacional, óculos inteligentes, aplicativo, lista completa de materiais com preços e comparação entre o MVP e o projeto completo |
+| **Quem Somos** | Integrantes da equipe e formulário de contato |
+| **Referências** | Referências científicas com filtro por categoria (Dislexia, OCR, Gamificação, Educação e Tecnologia) |
+| **Game** | Jogo educativo *Boss Against Dyslexia*: história, fases, mecânicas e área para jogar |
 
-O projeto integra hardware e software em um único ecossistema composto por:
-
-- 🤖 Robô Educacional
-- 👓 Óculos Inteligentes
-- 📱 Aplicativo Mobile
-- 🎮 Jogo Educativo
-- 🤖 Inteligência Artificial
-- 📷 Reconhecimento Óptico de Caracteres (OCR)
-
-A proposta é transformar o aprendizado em uma experiência interativa, personalizada e motivadora.
-
----
-
-## ✨ Funcionalidades
-
-- Sistema de leitura assistida
-- OCR para identificação de textos
-- Integração entre robô e óculos inteligentes
-- Aplicativo para gerenciamento dos dispositivos
-- Manual interativo
-- Referências científicas
-- Jogo educativo "Boss Against Dyslexia"
-- Modo Escuro
-- Layout Responsivo
+**Em todas as páginas:**
+- 🌙 Modo claro e modo escuro
+- 📱 Layout responsivo para celular, tablet e computador
+- 🎨 Design feito a partir do protótipo no Figma
 
 ---
 
-## 🛠 Tecnologias
+## 📱 O Aplicativo
 
-### Front-end
-
-- HTML5
-- CSS3
-- JavaScript
-
-### Hardware
-
-- ESP32 WROOM
-- Câmera ESP32-CAM
-- Sensores Inteligentes
-
-### Inteligência Artificial
-
-- OCR
-- Processamento de Texto
-- Assistência em Tempo Real
-
----
-
-## Estrutura do Site
-
-- Home
-- Instruções
-- Produtos
-- Quem Somos
-- Referências
-- Game
-
----
-
-## Estrutura do Projeto
-
-```text
-Readapt/
-├── frontend/
-│   ├── assets/
-│   ├── css/
-│   ├── js/
-│   │   └── config.js
-│   └── *.html
-├── backend/
-│   ├── uploads/
-│   ├── package.json
-│   ├── db.js
-│   └── server.js
-├── .env
-├── .env.example
-├── package.json
-└── package-lock.json
-```
-
----
-
-## 🚀 Como Executar
-
-1. Instale as dependências na raiz do projeto:
-
-```bash
-npm install
-```
-
-2. Configure as variáveis no arquivo `.env` da raiz. Use `.env.example` como referência; não compartilhe nem versione o `.env`.
-
-3. Inicie a API e o frontend:
-
-```bash
-npm start
-```
-
-4. Acesse `http://localhost:3000` no navegador.
-
-## Publicar na Vercel
-
-O frontend e o backend devem ser projetos Vercel separados:
-
-1. Crie o projeto do backend com **Root Directory** `backend/`.
-2. Configure no projeto do backend `DB_HOST`, `DB_PORT`, `DB_USER`, `DB_PASSWORD`, `DB_NAME`, `GOOGLE_CLIENT_ID` e `GOOGLE_CLIENT_SECRET`.
-3. Crie um Blob Store, conecte-o ao projeto do backend e disponibilize `BLOB_READ_WRITE_TOKEN` (ou as credenciais OIDC geradas pela Vercel).
-4. Faça o deploy do backend e copie sua URL pública.
-5. Em `frontend/js/config.js`, substitua a URL local pela URL do backend seguida de `/api`.
-6. Crie o projeto do frontend com **Root Directory** `frontend/` e faça o deploy.
-7. Adicione o domínio do frontend às origens JavaScript autorizadas do cliente OAuth do Google e confirme que o MySQL aceita conexões da Vercel.
-
-As fotos enviadas em produção são armazenadas no Blob com acesso público, como no fluxo atual de `/uploads`. Qualquer pessoa com a URL da foto pode visualizá-la. O token do Blob deve ficar somente nas variáveis de ambiente do backend.
-
----
-
-## 🎯 Objetivo
-
-O objetivo do Readapt é utilizar tecnologia para reduzir as dificuldades enfrentadas por crianças com dislexia, oferecendo uma plataforma que une educação, acessibilidade e inovação.
+- **Boas-vindas** com opção de entrar ou se cadastrar
+- **Cadastro** com e-mail, senha e escolha de gênero (Masculino ou Feminino)
+- **Login** com e-mail e senha ou com a conta do Google
+- **Esqueci a senha:** envio de link por e-mail para criar uma nova senha
+- **Mostrar senha:** botão de olho nos campos de senha, que aparece ao digitar
+- **Perfil:** editar nome, trocar ou remover a foto e excluir a conta
+- **Foto padrão automática** de acordo com o gênero escolhido no cadastro
+- **Progresso geral** em gráfico e card de conquistas
+- **Desempenho** em Leitura, Escrita e Compreensão, com filtro por Dia, Semana e Mês
+- **Histórico** das atividades realizadas
+- **Tela cheia** opcional no celular
 
 ---
 
 ## 👨‍💻 Equipe
 
-WebSite desenvolvido por:
+Site desenvolvido por:
 
 - Felipe Lorenzo
 - Pedro Henrique
@@ -150,7 +57,7 @@ WebSite desenvolvido por:
 
 ## 📄 Licença
 
-Este projeto foi desenvolvido para fins acadêmicos e de pesquisa.
+Projeto desenvolvido para fins acadêmicos.
 
 ---
 
