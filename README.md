@@ -6,7 +6,7 @@
 
 ### Veja Além das Letras
 
-Site e aplicativo do Readapt, um sistema educacional com robô, óculos inteligentes e jogo para ajudar crianças com dislexia na leitura.
+Site e aplicativo do **Readapt**, projeto de TCC do Ensino Médio integrado ao Curso Técnico em Informática do **Colégio UNASP**: um sistema educacional com robô, óculos inteligentes e jogo para ajudar crianças com dislexia na leitura.
 
 </div>
 
@@ -57,7 +57,7 @@ Site desenvolvido por:
 
 ## 📄 Licença
 
-Projeto desenvolvido para fins acadêmicos.
+Projeto desenvolvido como Trabalho de Conclusão de Curso (TCC) do Ensino Médio integrado ao Curso Técnico em Informática do Colégio UNASP, para fins acadêmicos.
 
 ---
 
