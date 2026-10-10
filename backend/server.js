@@ -244,9 +244,14 @@ app.post('/api/remove-photo', async (req, res) => {
 app.post('/api/register', async (req, res) => {
   const { name, password } = req.body;
   const email = normalizarEmail(req.body.email);
+  const gender = req.body.gender;
 
   if (!name || !email || !password) {
     return res.status(400).json({ error: 'Preencha todos os campos!' });
+  }
+
+  if (gender !== 'masculino' && gender !== 'feminino') {
+    return res.status(400).json({ error: 'Escolha o gênero.' });
   }
 
   try {
@@ -259,8 +264,8 @@ app.post('/api/register', async (req, res) => {
     const password_hash = await bcrypt.hash(password, salt);
 
     const [result] = await db.query(
-      'INSERT INTO users (name, email, password_hash) VALUES (?, ?, ?)',
-      [name, email, password_hash]
+      'INSERT INTO users (name, email, password_hash, gender) VALUES (?, ?, ?, ?)',
+      [name, email, password_hash, gender]
     );
 
     res.status(201).json({
@@ -269,6 +274,7 @@ app.post('/api/register', async (req, res) => {
         id: result.insertId,
         name,
         email,
+        gender,
         photo_url: null,
         token: gerarToken(result.insertId)
       }
@@ -317,6 +323,7 @@ app.post('/api/login', async (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
+        gender: user.gender || null,
         photo_url: user.photo_url || null,
         token: gerarToken(user.id)
       }
@@ -402,6 +409,7 @@ app.post('/api/auth/google', async (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
+        gender: user.gender || null,
         photo_url: user.photo_url || null,
         token: gerarToken(user.id) // sempre gera, para conta nova E existente
       }

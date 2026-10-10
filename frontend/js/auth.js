@@ -8,7 +8,7 @@ function mostrarErro(form, mensagem, campos = [], campoMsg = null) {
   limparErro(form);
 
   // Onde a mensagem aparece: campoMsg, ou o 1º campo com erro, ou o último campo do form
-  const todos = form.querySelectorAll('.input-group input');
+  const todos = form.querySelectorAll('.input-group input, .input-group select');
   const alvo = campoMsg || campos[0] || todos[todos.length - 1];
 
   const grupo = alvo && alvo.closest('.input-group');
@@ -74,8 +74,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Some o erro assim que a pessoa volta a digitar
   [formLogin, formRegister, formForgot, formReset].forEach(form => {
-    if (form) form.addEventListener('input', () => limparErro(form));
+    if (form) {
+      form.addEventListener('input', () => limparErro(form));
+      form.addEventListener('change', () => limparErro(form)); // o campo de gênero
+    }
   });
+
+  // Ao logar, junta o gênero salvo neste aparelho ao usuário (para a foto padrão)
+  function prepararUsuario(user) {
+    const genero = generoDoUsuario(user);
+    if (genero) user.gender = genero;
+    return user;
+  }
 
   // ==========================================
   // CADASTRO
@@ -84,25 +94,31 @@ document.addEventListener('DOMContentLoaded', () => {
     formRegister.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const nameInput = document.getElementById('reg-name');
+      const genderInputs = formRegister.querySelectorAll('input[name="reg-gender"]');
+      const genderChecked = formRegister.querySelector('input[name="reg-gender"]:checked');
       const emailInput = document.getElementById('reg-email');
       const passwordInput = document.getElementById('reg-password');
       const confirmInput = document.getElementById('reg-confirm-password');
 
-      const name = nameInput.value.trim();
+      const gender = genderChecked ? genderChecked.value : '';
       const email = emailInput.value.trim();
       const password = passwordInput.value;
       const confirmPassword = confirmInput.value;
 
       // Erros: a pessoa permanece na tela de cadastro
-      if (!name) {
-        return mostrarErro(formRegister, 'Digite seu nome completo.', [nameInput]);
+      if (!gender) {
+        return mostrarErro(formRegister, 'Escolha o gênero.', [...genderInputs]);
       }
 
       const erroEmail = validarEmail(email);
       if (erroEmail) {
         return mostrarErro(formRegister, erroEmail, [emailInput]);
       }
+
+      // O cadastro não pede mais o nome: usa a 1ª parte do e-mail
+      // (ex.: maria.silva@gmail.com -> "Maria"). Dá para trocar depois em "Editar Nome".
+      const parteEmail = email.split('@')[0].split(/[._\-+0-9]/).filter(Boolean)[0] || 'Leitor';
+      const name = parteEmail.charAt(0).toUpperCase() + parteEmail.slice(1).toLowerCase();
 
       if (password.length < 6) {
         return mostrarErro(formRegister, 'A senha deve ter pelo menos 6 caracteres.', [passwordInput]);
@@ -119,11 +135,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch(`${API_URL}/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, password })
+          body: JSON.stringify({ name, email, password, gender })
         });
         const data = await response.json();
 
         if (response.ok && data.user) {
+          salvarGenero(data.user.email || email, gender);
+          data.user.gender = gender;
           localStorage.setItem('user', JSON.stringify(data.user));
           atualizarNomePerfil(data.user.name);
           atualizarFotoPerfil(data.user.photo_url);
@@ -174,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
 
         if (response.ok && data.user) {
-          localStorage.setItem('user', JSON.stringify(data.user));
+          localStorage.setItem('user', JSON.stringify(prepararUsuario(data.user)));
           atualizarNomePerfil(data.user.name);
           atualizarFotoPerfil(data.user.photo_url);
           formLogin.reset();
@@ -237,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
 
             if (response.ok && data.user) {
-              localStorage.setItem('user', JSON.stringify(data.user));
+              localStorage.setItem('user', JSON.stringify(prepararUsuario(data.user)));
               atualizarNomePerfil(data.user.name);
               atualizarFotoPerfil(data.user.photo_url);
               formLogin.reset();

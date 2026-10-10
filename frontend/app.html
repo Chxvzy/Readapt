@@ -140,7 +140,16 @@
 
                 <form id="form-register" class="register-form" novalidate>
                     <div class="input-group">
-                        <input type="text" id="reg-name" placeholder="Nome completo" class="app-input active" required>
+                        <div class="gender-group" role="radiogroup" aria-label="Gênero">
+                            <label class="gender-option">
+                                <input type="radio" name="reg-gender" value="masculino" required>
+                                <span>Masculino</span>
+                            </label>
+                            <label class="gender-option">
+                                <input type="radio" name="reg-gender" value="feminino">
+                                <span>Feminino</span>
+                            </label>
+                        </div>
                         <span class="field-error" role="alert"></span>
                     </div>
 
