@@ -1866,3 +1866,38 @@ margin-left: 3px;
 .app-input::-ms-clear {
   display: none;
 }
+
+/* ==========================================================================
+   CELULAR: RODAPÉ AZUL SEMPRE NO FIM CERTO DA TELA PRINCIPAL
+   No Chrome/Opera do Android, "100vh" é a altura da tela SEM a barra do
+   navegador. Por isso a tela principal ficava maior que a área visível:
+   no Chrome o rodapé ficava escondido atrás da barra, e no Opera, quando a
+   barra sumia, sobrava azul embaixo. Aqui a tela usa só a altura visível.
+   ========================================================================== */
+
+/* Altura real da área visível (muda junto quando a barra do navegador aparece/some) */
+@supports (height: 100dvh) {
+  .app-container {
+    height: 100dvh;
+  }
+}
+
+/* A tela principal ocupa exatamente o container, nem mais nem menos */
+#screen-main.active {
+  height: 100% !important;
+  min-height: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Rodapé encostado no fim do conteúdo, sem o "puxão" de -35px */
+.readapt-footer {
+  margin-bottom: 0;
+  padding-bottom: max(14px, env(safe-area-inset-bottom));
+}
+
+/* iPhone: mantém o espaço extra embaixo por causa da barra flutuante do Safari */
+@supports (-webkit-touch-callout: none) {
+  .readapt-footer {
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 72px);
+  }
+}
