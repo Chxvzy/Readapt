@@ -3555,3 +3555,19 @@ body.dark {
         top:5px;
     }
 }
+/* Desktop: a descrição do topo quebra sozinha em 3 linhas, como no Figma
+   (as quebras manuais <br> ficam só para o celular) */
+@media (min-width:768px){
+    .game-hero > p br{
+        display:none;
+    }
+}
+
+/* Botão "Jogar Agora": ícone de controle no celular
+   (no computador o tamanho 25x22 já vem da regra do desktop) */
+@media (max-width:767.98px){
+    .btn-play img{
+        width:20px;
+        height:auto;
+    }
+}
