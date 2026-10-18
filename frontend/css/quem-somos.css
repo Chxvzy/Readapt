@@ -2469,3 +2469,64 @@ body.dark {
         top:5px;
     }
 }
+
+/* =========================================================
+   CARDS DA EQUIPE IGUAIS AO FIGMA (desktop)
+   card 380x348: foto a 22px do topo, nome, cargo,
+   texto centralizado entre o cargo e as redes,
+   redes sempre na mesma altura (37px do fim do card)
+   ========================================================= */
+
+/* no celular as quebras de linha do desktop não existem */
+@media (max-width:767.98px){
+
+    .quebra-pc{
+        display:none;
+    }
+}
+
+@media (min-width:768px){
+
+    /* Figma: 51px entre a linha de cima e a de baixo */
+    .team-cards{
+        row-gap:49px;
+    }
+
+    .team-card{
+        min-height:348px;
+        margin-bottom:0;
+        padding:22px 20px 37px;
+    }
+
+    .team-photo{
+        margin:0;
+    }
+
+    .team-card h3{
+        margin-top:6px;
+        line-height:24px;
+    }
+
+    .team-role{
+        margin:13px auto 0;
+    }
+
+    .team-card span{
+        max-width:319px;
+        margin:auto;
+        padding:12px 0;
+        line-height:18px;
+    }
+
+    .team-social{
+        margin-top:0;
+        padding-top:0;
+    }
+
+    /* Erika: no Figma o texto dela é mais largo (330px) e tem 4 linhas;
+       as quebras <br class="quebra-pc"> garantem as mesmas linhas */
+    .team-card:nth-child(1) span{
+        max-width:none;
+        width:max-content;
+    }
+}
