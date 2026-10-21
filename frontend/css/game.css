@@ -3595,13 +3595,13 @@ body.dark {
 /* Imagem do topo: print do jogo no tamanho original, sem esticar nem cortar */
 .game-image img{
     height:auto;
-    aspect-ratio:1920 / 1312;
+    aspect-ratio:1536 / 1024;
     object-fit:contain;
 }
 @media (min-width:768px){
     .game-image{
         height:auto;
-        aspect-ratio:1920 / 1312;
+        aspect-ratio:1536 / 1024;
     }
     .game-image img{
         width:100%;
