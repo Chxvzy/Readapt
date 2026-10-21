@@ -3571,3 +3571,23 @@ body.dark {
         height:auto;
     }
 }
+
+
+/* Cards de fases: texto completo no computador, texto curto no celular
+   (no celular o card tem altura fixa) */
+.so-pc{display:none}
+@media (min-width:768px){
+    .so-pc{display:inline}
+    .so-m{display:none}
+}
+
+/* Cards de fases com a mesma altura em telas menores do computador;
+   a etiqueta de dificuldade fica sempre no fim do card */
+@media (min-width:768px){
+    .levels-cards{
+        align-items:stretch;
+    }
+    .level-difficulty{
+        margin-top:auto;
+    }
+}
