@@ -2530,3 +2530,57 @@ body.dark {
         width:max-content;
     }
 }
+
+
+/* =========================================================
+   TOPO COM FOTO DA EQUIPE
+   fundo azul do topo mantido, com a foto do grupo logo abaixo do texto
+   ========================================================= */
+
+
+.group-photo{
+    margin:24px auto 0;
+    width:100%;
+    max-width:331px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 0 var(--primary-shadow);
+    border:2px solid var(--border);
+}
+
+/* a borda fica dentro do tamanho da foto (não aumenta o quadro)
+   e usa a mesma cor dos cards da equipe nos dois modos */
+.group-photo{
+    box-sizing:border-box;
+}
+body.dark .group-photo{
+    border-color:var(--border);
+    background:var(--switch-knob-dark);
+}
+
+.group-photo img{
+    display:block;
+    width:100%;
+    height:auto;
+    aspect-ratio:16 / 9;
+    object-fit:cover;
+}
+
+@media (max-width:767.98px){
+    .instructions-hero{
+        padding-bottom:40px;
+    }
+}
+
+@media (min-width:768px){
+    .instructions-hero{
+        min-height:0;
+        padding-bottom:90px;
+    }
+    .group-photo{
+        margin-top:50px;
+        max-width:1000px;
+        border-radius:30px;
+        box-shadow:0 15px 0 var(--primary-shadow);
+    }
+}
