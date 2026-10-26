@@ -2534,36 +2534,57 @@ body.dark {
 
 /* =========================================================
    TOPO COM FOTO DA EQUIPE
-   fundo azul do topo mantido, com a foto do grupo logo abaixo do texto
+   fundo azul do topo mantido, com a foto do grupo logo abaixo do texto.
+   A foto segue o mesmo estilo dos cards da equipe (borda, raio e
+   sombra azul) e tem a mesma largura da grade de cards no PC.
    ========================================================= */
 
-
 .group-photo{
+    position:relative;
+    box-sizing:border-box;
     margin:24px auto 0;
     width:100%;
     max-width:331px;
     border-radius:20px;
     overflow:hidden;
-    box-shadow:0 8px 0 var(--primary-shadow);
     border:2px solid var(--border);
+    background:var(--background);
+    box-shadow:0 8px 0 var(--primary-shadow);
 }
 
-/* a borda fica dentro do tamanho da foto (não aumenta o quadro)
-   e usa a mesma cor dos cards da equipe nos dois modos */
-.group-photo{
-    box-sizing:border-box;
-}
 body.dark .group-photo{
     border-color:var(--border);
     background:var(--switch-knob-dark);
 }
 
+/* corta um pouco do chão e da parede para o grupo ficar em destaque */
 .group-photo img{
     display:block;
     width:100%;
     height:auto;
     aspect-ratio:16 / 9;
     object-fit:cover;
+    object-position:55% 40%;
+}
+
+/* etiqueta em cima da foto, no mesmo estilo das tags "EQUIPE" e "INTEGRANTES" */
+.group-photo-tag{
+    position:absolute;
+    left:12px;
+    bottom:12px;
+    padding:6px 12px;
+    border-radius:999px;
+    background:var(--background);
+    color:var(--primary);
+    font-family:'Poppins', sans-serif;
+    font-size:10px;
+    font-weight:600;
+    line-height:1;
+    box-shadow:0 3px 0 var(--primary-shadow);
+}
+
+body.dark .group-photo-tag{
+    background:var(--switch-knob-dark);
 }
 
 @media (max-width:767.98px){
@@ -2578,9 +2599,19 @@ body.dark .group-photo{
         padding-bottom:90px;
     }
     .group-photo{
-        margin-top:50px;
-        max-width:1000px;
+        margin-top:45px;
+        max-width:790px;
         border-radius:30px;
         box-shadow:0 15px 0 var(--primary-shadow);
+    }
+    .group-photo img{
+        aspect-ratio:2 / 1;
+    }
+    .group-photo-tag{
+        left:24px;
+        bottom:24px;
+        padding:10px 18px;
+        font-size:14px;
+        box-shadow:0 4px 0 var(--primary-shadow);
     }
 }
